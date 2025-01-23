@@ -5,17 +5,17 @@ import Header from '../components/Header.astro';
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<Header />
-		<slot />
-	</body>
+  <head>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <meta name="description" content="Portfolio profesional de [Tu Nombre] - Desarrollador Web">
+  </head>
+  
+  <body class="antialiased">
+    <Header />
+    <main class="container">
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style>
@@ -28,8 +28,9 @@ import Header from '../components/Header.astro';
 	}
 
 	body {
-		background: #000;
+		background: #050505;
 		display: flex;
 		justify-content: center;
+		min-height: 100hv;
 	}
 </style>
