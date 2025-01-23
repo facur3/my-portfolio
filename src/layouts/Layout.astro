@@ -12,11 +12,23 @@ import '@fontsource-variable/onest'
   </head>
   
   <body class="antialiased">
-    <Header />
-    <main class="container">
-      <slot />
-    </main>
+	
+
+	<div class="relative h-full w-full bg-slate-950">
+		<div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
+			</div>
+			<div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
+			</div>
+		</div>
+
+	<div class="flex flex-col min-h-screen">
+	  <Header />
+	  <main class="flex-grow container mx-auto px-4">
+		<slot />
+	  </main>
+	</div>
   </body>
+
 </html>
 
 <style>
