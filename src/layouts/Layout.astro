@@ -10,8 +10,8 @@ import '@fontsource-variable/onest'
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facu Rossi - Portfolio</title>
 </head>
-<body>
-	<div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+<body class="text-zinc-100">
+	<div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 	<Header />
 	
 	<main class="max-w-6xl mx-auto px-4 py-24">
@@ -27,11 +27,10 @@ import '@fontsource-variable/onest'
 
 	html{
 		font-family: 'Onest Variable' system-ui, sans-serif;
+		height: 100%;
 	}
 
 	body {
-		display: flex;
-		flex-direction: column;
-		min-height: 100hv;
+		min-height: 100vh;
 	}
 </style>
