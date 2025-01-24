@@ -9,28 +9,47 @@ import '@fontsource-variable/onest'
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facu Rossi - Portfolio</title>
+  
+  <!-- Theme initialization -->
+  <script is:inline>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'system'
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      
+      if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
+        document.documentElement.classList.add('dark')
+      }
+    })()
+  </script>
 </head>
-<body class="text-zinc-100">
-	<div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-	<Header />
-	
-	<main class="max-w-6xl mx-auto px-4 py-24">
-	  <slot />
-	</main>
-  </body>
+
+<body class="text-zinc-800 dark:text-zinc-100 bg-white dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+  <!-- Light theme background -->
+  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#93f_100%)] dark:hidden"></div>
+  
+  <!-- Dark theme background -->
+  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] hidden dark:block"></div>
+
+  <Header />
+  
+  <main class="max-w-6xl mx-auto px-4 py-24">
+    <slot />
+  </main>
+</body>
 </html>
 
 <style>
-	:root{
-		color-scheme: light dark;
-	}
+  :root {
+    color-scheme: light dark;
+  }
 
-	html{
-		font-family: 'Onest Variable' system-ui, sans-serif;
-		height: 100%;
-	}
+  html {
+    font-family: 'Onest Variable', system-ui, sans-serif;
+    height: 100%;
+  }
 
-	body {
-		min-height: 100vh;
-	}
+  body {
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
 </style>
