@@ -1,3 +1,68 @@
-<span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-<slot />
-</span>
+<a 
+  href="https://www.linkedin.com/in/facu-rossi-a5839a278/"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900/80 backdrop-blur-lg border border-zinc-800 hover:border-indigo-500/30 transition-all duration-300 overflow-hidden shadow-[0_0_20px_-5px_rgba(99,102,241,0.1)] hover:shadow-indigo-500/20"
+>
+  <!-- Continuous Border Animation -->
+  <div class="absolute inset-0 overflow-hidden rounded-xl">
+    <div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.15)_45%,transparent_70%)] opacity-30 animate-shine bg-[length:200%_100%] group-hover:opacity-50 transition-opacity"></div>
+  </div>
+
+  <!-- Pulsing Border Effect -->
+  <div class="absolute inset-0 border-2 border-zinc-800/50 rounded-xl animate-border-pulse"></div>
+
+  <!-- Glowing Overlay -->
+  <div class="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_120%,rgba(99,102,241,0.1)_0%,transparent_70%)] opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex items-center gap-2">
+    <!-- Status Indicator -->
+    <div class="relative w-2.5 h-2.5">
+      <div class="absolute inset-0 rounded-full bg-indigo-400/80 animate-pulse-slow"></div>
+      <div class="absolute inset-0 rounded-full bg-indigo-400 animate-ping-slow"></div>
+    </div>
+    
+    <!-- Text -->
+    <span class="text-sm font-medium text-zinc-200 transition-all duration-300 group-hover:text-indigo-200"><slot /></span>
+    
+    <!-- Arrow Icon -->
+    <svg class="w-4 h-4 text-zinc-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" class="stroke-current"/>
+    </svg>
+  </div>
+</a>
+
+<style>
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes border-pulse {
+    0%, 100% { opacity: 0.5; border-color: rgba(99, 102, 241, 0.1); }
+    50% { opacity: 1; border-color: rgba(99, 102, 241, 0.3); }
+  }
+
+  @keyframes ping-slow {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  .animate-shine {
+    animation: shine 2s linear infinite;
+  }
+
+  .animate-border-pulse {
+    animation: border-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

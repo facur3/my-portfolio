@@ -1,28 +1,55 @@
 ---
 import Badge from '../components/Badge.astro';
+import Projects from '../components/Projects.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-	<main>
-		<section class="w-full mx-auto lg:w-[740px] py-44">
-			<img class = "rounded-full w-12 h-12 mb-4"
-			src="https://i.pinimg.com/736x/e1/7a/7b/e17a7bf0f6743276d44f411eb6f998cd.jpg"
-			alt="foto facur"
-			/>
-			<div class="flex items-center">
-				<a class="flex justify-center items-center" href="https://www.linkedin.com/in/facu-rossi-a5839a278/" target="_blank" rel="noopener">
-					<Badge>Available for hire</Badge>
-				</a>
+	<section class="space-y-8">
+		<div class="flex items-center gap-6">
+			<!-- Avatar with animated gradient border -->
+			<div class="relative group">
+			  <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+			  <img 
+				class="relative rounded-full w-24 h-24 border-4 border-white/10 hover:border-white/20 transition-all"
+				src="/bana.jpg"
+				alt="Facu Rossi"
+			  />
 			</div>
-		<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
-			Hola, Soy Facu 
-		</h1>
-		
-		<h2 class="text-xl opacity-75">Estudiante de Lic. Analisis De Sistemas en la Universidad de Buenos Aires.
-			De Buenos Aires, Argentina . Especializado en ...
-		</h2>
+			
+			<Badge>Available for hire</Badge>
+		  </div>
+  
+	  <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+		Hola, Soy Facu
+	  </h1>
+  
+	  <p class="text-xl text-zinc-400 leading-relaxed max-w-3xl">
+		Estudiante de Lic. Análisis de Sistemas en la Universidad de Buenos Aires.
+		<span class="text-white font-medium">Especializado en</span> desarrollo de soluciones modernas con:
+	  </p>
+  
+	  <div class="flex flex-wrap gap-3">
+		<span class="px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-lg border border-white/10 text-sm">
+		  🤖 AI Solutions
+		</span>
+		<span class="px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-lg border border-white/10 text-sm">
+		  🌐 Web Development
+		</span>
+		<span class="px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-lg border border-white/10 text-sm">
+		  🚀 Full-stack Systems
+		</span>
+	  </div>
+	</section>
 
-		<ul></ul>
-		</section>
-	</main>
+	<section id="projects" class="py-24">
+		<div class="flex items-center gap-4 mb-12">
+		  <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+			Featured Work
+		  </h2>
+		  <div class="h-px flex-1 bg-gradient-to-r from-zinc-700 to-transparent"></div>
+		</div>
+		
+		<Projects />
+	  </section>
+
 </Layout>
