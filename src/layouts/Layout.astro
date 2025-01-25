@@ -9,7 +9,22 @@ import '@fontsource-variable/onest'
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facu Rossi - Portfolio</title>
+    <!-- Favicon clásico -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
   
+    <!-- Favicon moderno SVG -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- Safari/iOS -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Android/Chrome -->
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Tema de color del navegador -->
+    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+    
   <script is:inline>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'system'
@@ -32,6 +47,15 @@ import '@fontsource-variable/onest'
       <slot />
     </div>
   </main>
+  <script>
+    // Cambiar dinámicamente el tema del favicon
+    const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (favicon) {
+      favicon.href = prefersDark ? '/favicon-dark.svg' : '/favicon-light.svg';
+    }
+    </script>
 </body>
 </html>
 
