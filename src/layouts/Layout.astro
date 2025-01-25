@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import '@fontsource-variable/onest'
+import '@fontsource-variable/onest';
 ---
 
 <!doctype html>
@@ -9,53 +9,53 @@ import '@fontsource-variable/onest'
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facu Rossi - Portfolio</title>
-    <!-- Favicon clásico -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-  
-    <!-- Favicon moderno SVG -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    
-    <!-- Safari/iOS -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <!-- Android/Chrome -->
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Tema de color del navegador -->
-    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
-    
+
+  <!-- Favicon and Web Manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Dark Theme Initialization Script -->
   <script is:inline>
     (function() {
-      const savedTheme = localStorage.getItem('theme') || 'system'
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
       if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
-        document.documentElement.classList.add('dark')
+        document.documentElement.classList.add('dark');
       }
-    })()
+    })();
   </script>
 </head>
-
 <body class="text-zinc-800 dark:text-zinc-100 bg-gradient-to-br from-white via-[#fff8fe] to-[#f0f5ff] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#93f5fc55_100%)] dark:hidden" />
-  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] hidden dark:block" />
-  <Header />
+  <!-- Background Layers -->
+  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#93f5fc55_100%)] dark:hidden"></div>
+  <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] hidden dark:block"></div>
   
+  <!-- Header Component -->
+  <Header />
+
+  <!-- Main Content -->
   <main class="max-w-3xl mx-auto px-4 py-24 w-full">
     <div class="w-full">
       <slot />
     </div>
   </main>
+
+  <!-- Dynamic Favicon Script -->
   <script>
-    // Cambiar dinámicamente el tema del favicon
     const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (favicon) {
-      favicon.href = prefersDark ? '/favicon-dark.svg' : '/favicon-light.svg';
-    }
-    </script>
+    const updateFavicon = () => {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (favicon) {
+        favicon.href = prefersDark ? '/favicon-dark.svg' : '/favicon-light.svg';
+      }
+    };
+
+    updateFavicon();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+  </script>
 </body>
 </html>
 
@@ -73,7 +73,4 @@ import '@fontsource-variable/onest'
     min-height: 100vh;
     transition: background 0.3s ease, color 0.3s ease;
   }
-
-
-  
 </style>
