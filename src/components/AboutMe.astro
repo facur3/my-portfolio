@@ -1,0 +1,108 @@
+---
+const skills = [
+  "Desarrollo Full-Stack", 
+  "Inteligencia Artificial",
+  "React & Next.js",
+  "Python Avanzado",
+  "Bases de Datos SQL/NoSQL",
+  "Arquitectura de Software"
+];
+---
+
+<section id="about-me" class="py-24 w-full">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Sobre Mí
+      </h2>
+      <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
+    </div>
+  
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <!-- Columna izquierda - Texto -->
+      <div class="space-y-6">
+        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
+          Soy un <span class="text-blue-500 dark:text-blue-400 font-medium">Analista de Sistemas</span> apasionado por crear soluciones tecnológicas innovadoras. Actualmente cursando mi licenciatura en la <span class="text-purple-500 dark:text-purple-400">Universidad de Buenos Aires</span>, combino conocimientos académicos con experiencia práctica en desarrollo de software.
+        </p>
+        
+        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
+          Mi enfoque se centra en el desarrollo de sistemas eficientes y escalables, siempre buscando integrar las últimas tecnologías como <span class="text-blue-500 dark:text-blue-400">IA</span> y <span class="text-purple-500 dark:text-purple-400">Machine Learning</span> para resolver problemas complejos.
+        </p>
+  
+        <!-- Estado actual y LinkedIn -->
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl border border-blue-500/30 bg-blue-500/5 backdrop-blur-lg">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span class="text-blue-500 dark:text-blue-400 font-medium">Disponible para proyectos</span>
+            </div>
+          </div>
+  
+          <a 
+            href="https://www.linkedin.com/in/facu-rossi-a5839a278/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3 p-4 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg transition-all hover:border-blue-400 hover:shadow-[0_4px_20px_-6px_rgba(99,102,241,0.15)]"
+          >
+            <svg class="w-6 h-6 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 11-.001-3.096 1.548 1.548 0 01.001 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.278-1.386-2.278-1.39 0-1.601 1.086-1.601 2.206v4.249h-2.667v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711z"/>
+            </svg>
+            
+            <div>
+              <p class="font-medium text-zinc-800 dark:text-zinc-200">Conectemos en LinkedIn</p>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400">Ver perfil profesional</p>
+            </div>
+            
+            <svg class="ml-auto w-4 h-4 text-zinc-400 group-hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+  
+    <!-- Columna derecha - Habilidades y Educación -->
+    <div class="space-y-8">
+        <div class="p-6 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg">
+          <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100 mb-4">Habilidades Técnicas</h3>
+          <div class="flex flex-wrap gap-3">
+            {skills.map(skill => {
+              const colorClass = {
+                'Desarrollo Full-Stack': 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-400/20',
+                'Inteligencia Artificial': 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-400/20',
+                'React & Next.js': 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-400/20',
+                'Python Avanzado': 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-400/20',
+                'Bases de Datos SQL/NoSQL': 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-400/20',
+                'Arquitectura de Software': 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-400/20'
+              }[skill];
+              
+              return (
+                <span class={`px-3 py-2 text-sm rounded-lg border ${colorClass} transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.1)] relative overflow-hidden`}>
+                  <div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(255,255,255,0.1)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
+                  {skill}
+                </span>
+              )
+            })}
+          </div>
+        </div>
+  
+        <div class="p-6 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg">
+          <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100 mb-4">Formación Académica</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+              <div>
+                <h4 class="font-medium text-zinc-800 dark:text-zinc-200">Lic. en Análisis de Sistemas</h4>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400">Universidad de Buenos Aires · 2022-Actualidad</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+              <div>
+                <h4 class="font-medium text-zinc-800 dark:text-zinc-200">Especialización en IA</h4>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400">Cursos certificados · 300+ horas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
