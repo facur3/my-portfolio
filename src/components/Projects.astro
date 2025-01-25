@@ -3,6 +3,7 @@ const projects = [
   {
     title: "Personal Portfolio",
     description: "Modern responsive portfolio showcasing development projects and skills",
+    image: "/portfolio-screenshot.jpg",
     github: "https://github.com/facur3/Portafolio",
     demo: "https://facur3.github.io/Portafolio/",
     tags: ["HTML", "CSS", "JavaScript", "Responsiveness"]
@@ -10,6 +11,7 @@ const projects = [
   {
     title: "Fifteen Puzzle Game",
     description: "Interactive web implementation of classic sliding puzzle game",
+    image: "/puzzle-screenshot.jpg",
     github: "https://github.com/facur3/Fifteen",
     demo: "https://facur3.github.io/Fifteen/",
     tags: ["JavaScript", "HTML", "CSS", "Game Development", "Python"]
@@ -17,12 +19,14 @@ const projects = [
   {
     title: "Plagiarism Detector",
     description: "Text analysis system for detecting content similarity",
+    image: "/plagiarism-detector.jpg",
     github: "https://github.com/facur3/plagios",
     tags: ["Python", "NLP"]
   },
   {
     title: "First Webpage",
     description: "Initial professional platform implementation",
+    image: "/first-website.jpg",
     github: "https://github.com/facur3/PFRossi",
     demo: "https://facur3.github.io/PFRossi/",
     tags: ["HTML", "Sass", "Responsiveness"]
@@ -53,10 +57,17 @@ const tagColors: TagColorMap = {
 };
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+<div class="grid grid-cols-1 gap-8 w-full">
   {projects.map(project => (
-    <article class="group relative overflow-hidden rounded-2xl p-6 border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-lg transition-all duration-300">
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    <article class="group relative overflow-hidden rounded-2xl p-6 border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-lg transition-all duration-300 w-full">
+      <div class="relative mb-6 rounded-xl overflow-hidden aspect-video">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent"></div>
+      </div>
       
       <div class="relative z-10">
         <div class="flex justify-between items-start mb-4">

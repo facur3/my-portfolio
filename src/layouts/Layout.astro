@@ -10,7 +10,6 @@ import '@fontsource-variable/onest'
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facu Rossi - Portfolio</title>
   
-  <!-- Theme initialization -->
   <script is:inline>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'system'
@@ -24,16 +23,15 @@ import '@fontsource-variable/onest'
 </head>
 
 <body class="text-zinc-800 dark:text-zinc-100 bg-white dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-  <!-- Light theme background -->
   <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#93f_100%)] dark:hidden"></div>
-  
-  <!-- Dark theme background -->
   <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] hidden dark:block"></div>
 
   <Header />
   
-  <main class="max-w-6xl mx-auto px-4 py-24">
-    <slot />
+  <main class="max-w-3xl mx-auto px-4 py-24 w-full">
+    <div class="w-full">
+      <slot />
+    </div>
   </main>
 </body>
 </html>
