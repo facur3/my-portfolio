@@ -1,5 +1,6 @@
 ---
 import Badge from '../components/Badge.astro';
+import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -28,21 +29,28 @@ import Layout from '../layouts/Layout.astro';
 			<span class="text-zinc-800 dark:text-white font-medium">Especializado en</span> desarrollo de soluciones modernas con:
 		  </p>
   
-			<div class="flex flex-wrap gap-3">
-			<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm">
-				🤖 AI Solutions
+		  <div class="flex flex-wrap gap-3">
+			<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+			  <div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
+			  🤖 AI Solutions
 			</span>
 			<div class="flex flex-wrap gap-3">
-			<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm">
-				🌐 Web Development
-			</span>
+				<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+					<div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
+					🌐 Web Development
+				  </span>
 			<div class="flex flex-wrap gap-3">
-			<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm">
-				🚀 Full-stack Systems
-			</span>
+				<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+					<div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
+					🚀 Full-stack Systems
+				  </span>
 	  </div>
 	</section>
+	<section id="experience">
 
+		<Experience />
+
+	</section>
 	<section id="projects" class="py-24 w-full">
 		<div class="mb-12">
 		  <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

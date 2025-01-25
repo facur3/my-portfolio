@@ -4,18 +4,18 @@ import ThemeToggle from "./ThemeToggle.astro"
 const navItems = [
   {
     title: "Experience",
-    label: "experiencie",
-    url: "/#experiencia",
+    label: "experience",
+    url: "#experiencia",
   },
   {
     title: "Projects",
     label: "proyectos",
-    url: "/#proyectos",
+    url: "#projects",
   },
   {
     title: "About",
     label: "about-me",
-    url: "/#sobre-mi",
+    url: "#about-me",
   },
   {
     title: "Contact",
@@ -93,10 +93,80 @@ const navItems = [
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
+    position: relative;
+    backdrop-filter: blur(12px);
+    @apply dark:bg-gray-800/90 bg-white/50;
   }
 
-  nav {
-    @apply dark:bg-gray-800/90 bg-white/50;
+  .nav a {
+    position: relative;
+    padding: 0.5rem 1.2rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0.5rem;
+  }
+
+  .nav a:not(.text-blue-500):hover {
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(165, 180, 252, 0.05));
+  }
+
+  .nav a.text-blue-500 {
+    color: #3b82f6;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    box-shadow: 0 2px 8px -2px rgba(59, 130, 246, 0.2);
+  }
+
+  .nav a.text-blue-500:hover {
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    transform: translateY(-1px);
+  }
+
+  .nav a.text-blue-500::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    animation: underline-grow 0.3s ease-out;
+  }
+
+  .nav a.text-blue-500::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    width: 6px;
+    height: 6px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: pulse-dot 1.5s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      transform: translateY(-50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50%) scale(1.4);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes underline-grow {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+    to {
+      width: 60%;
+      opacity: 1;
+    }
   }
 
   @keyframes nav-shadown {
