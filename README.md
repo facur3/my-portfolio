@@ -1,48 +1,30 @@
-# Astro Starter Kit: Basics
+# My Personal Portfolio [![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=FFF)](https://astro.build) [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel)](https://vercel.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-```sh
-npm create astro@latest -- --template basics
-```
+[![Portfolio Preview](./screenshot.png)](https://my-portfolio-seven-gules-67.vercel.app/)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+> Click the image above to visit the live website.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### Features
 
-## 🚀 Project Structure
+- **Responsive Design**: Fully optimized for desktops, tablets, and smartphones.
+- **Dark/Light Theme Toggle**: Easily switch themes based on preference.
+- **Project Showcase**: Filterable portfolio to highlight various projects.
+- **Interactive Contact Form**: Users can send messages directly from the site.
+- **Smooth Animations**: Provides a seamless user experience.
 
-Inside of your Astro project, you'll see the following folders and files:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 🛠 Technologies Used
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **Framework:** [Astro](https://astro.build)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **Icons:** [Heroicons](https://heroicons.com)
+- **Deployment:** [Vercel](https://vercel.com)
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🤝 Contributing
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/facur3/my-portfolio/issues).
