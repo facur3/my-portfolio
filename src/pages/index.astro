@@ -6,67 +6,93 @@ import Layout from '../layouts/Layout.astro';
 import About from '../components/AboutMe.astro';
 ---
 <Layout title="Portfolio de Facu Rossi - Desarrollador Y Programador">
-	<section class="space-y-8">
-		<div class="flex items-center gap-6">
-			<!-- Avatar with animated gradient border -->
-			<div class="relative group">
-			  <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-			  <img 
-				class="relative rounded-full w-24 h-24 border-4 border-white/10 hover:border-white/20 transition-all"
-				src="/bana.jpg"
-				alt="Facu Rossi"
-        decoding="async"
-        loading="lazy"
-			  />
-			</div>
-			
-			<Badge>Disopinble para trabajar</Badge>
-		  </div>
-  
-		  <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent pb-1">
-			Hola, Soy Facu
-		  </h1>
-  
-		  <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
-			Estudiante de <span class="text-yellow-600 dark:text-yellow-200/90">Lic. Análisis de Sistemas</span> en la <span class="text-blue-600 dark:text-blue-200/90">Universidad de Buenos Aires.</span>
-			<span class="text-zinc-800 dark:text-white font-medium">Especializado en</span> desarrollo de soluciones modernas con:
-		  </p>
-  
-		  <div class="flex flex-wrap gap-3">
-			<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-			  <div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
-			  🤖 AI Solutions
-			</span>
-			<div class="flex flex-wrap gap-3">
-				<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-					<div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
-					🌐 Web Development
-				  </span>
-			<div class="flex flex-wrap gap-3">
-				<span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-					<div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
-					🚀 Full-stack Systems
-				  </span>
+  <section class="space-y-8">
+    <div class="flex items-center gap-6">
+      <!-- Avatar with animated gradient border -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+        <img 
+          class="relative rounded-full w-24 h-24 border-4 border-white/10 hover:border-white/20 transition-all"
+          src="/bana.jpg"
+          alt="Facu Rossi"
+          decoding="async"
+          loading="lazy"
+        />
+      </div>
+
+      <Badge>Disopinble para trabajar</Badge>
+    </div>
+
+    <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent pb-1">
+      Hola, Soy Facu
+    </h1>
+
+    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+      Estudiante de <span class="text-yellow-600 dark:text-yellow-200/90">Lic. Análisis de Sistemas</span> en la <span class="text-blue-600 dark:text-blue-200/90">Universidad de Buenos Aires.</span>
+      <span class="text-zinc-800 dark:text-white font-medium">Especializado en</span> desarrollo de soluciones modernas con:
+    </p>
+
+    <div class="flex flex-wrap gap-3">
+      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+        🤖 AI Solutions
+      </span>
+      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+        🌐 Web Development
+      </span>
+      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
+        🚀 Full-stack Systems
+      </span>
+    </div>
+
+    <!-- Resume Download Button -->
+	<div class="mt-6">
+		<a
+		  href="/resume.pdf"
+		  download="FacuRossi-CV"
+		  class="relative inline-flex items-center px-8 py-3 text-sm font-semibold text-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+		>
+		  <!-- Animated Gradient Background with Pulse Animation -->
+		  <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90 animate-pulse-bg"></span>
+		  <span class="relative flex items-center gap-3">
+			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+				d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+			</svg>
+			Descargar CV
+		  </span>
+		</a>
 	  </div>
-	</section>
-	<section id="experience">
+	  
+	  <style>
+		@keyframes pulse-bg {
+		  0%, 100% { filter: brightness(1); }
+		  50% { filter: brightness(1.2); }
+		}
+		.animate-pulse-bg {
+		  animation: pulse-bg 3s ease-in-out infinite;
+		  background-size: 200% 200%;
+		  background-position: 0%;
+		}
+	  </style>
+	  
+  </section>
 
-		<Experience />
+  <section id="experience">
+    <Experience />
+  </section>
 
-	</section>
-	<section id="projects" class="py-24 w-full">
-		<div class="mb-12">
-		  <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-			Featured Work
-		  </h2>
-		  <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
-		</div>
-		
-		<Projects />
-	  </section>
+  <section id="projects" class="py-24 w-full">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Featured Work
+      </h2>
+      <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
+    </div>
+    <Projects />
+  </section>
 
-    <section id="about-me" class="py-24 w-full">
-      <About />
-    </section>
+  <section id="about-me" class="py-24 w-full">
+    <About />
+  </section>
 
 </Layout>
