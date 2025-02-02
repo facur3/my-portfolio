@@ -1,56 +1,71 @@
 ---
 import Header from '../components/Header.astro';
 import '@fontsource-variable/onest';
+const { title } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facu Rossi - Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems." />
+  <meta name="keywords" content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Facu Rossi - Portfolio" />
+  <meta property="og:description" content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack." />
+  <meta property="og:image" content="/social-share.png" />
+  <meta property="og:url" content="https://my-portfolio-seven-gules-67.vercel.app/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Facu Rossi - Portfolio" />
+  <meta name="twitter:description" content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack." />
+  <meta name="twitter:image" content="/social-share.png" />
 
   <!-- Favicon and Web Manifest -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Dark Theme Initialization Script -->
   <script is:inline>
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'system';
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
       if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
-
-<script is:inline type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Facundo Rossi",
-    "jobTitle": "Analista de Sistemas",
-    "url": "https://my-portfolio-seven-gules-67.vercel.app/",
-    "sameAs": [
-      "https://www.linkedin.com/in/facu-rossi-a5839a278/",
-      "https://github.com/facur3"
-    ],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Universidad de Buenos Aires"
-    },
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Software Developer",
-      "skills": ["JavaScript", "Python", "React", "AI", "Astro", "Tailwind CSS"]
+  
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Facundo Rossi",
+      "jobTitle": "Analista de Sistemas",
+      "url": "https://my-portfolio-seven-gules-67.vercel.app/",
+      "sameAs": [
+        "https://www.linkedin.com/in/facu-rossi-a5839a278/",
+        "https://github.com/facur3"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad de Buenos Aires"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Developer",
+        "skills": ["JavaScript", "Python", "React", "AI", "Astro", "Tailwind CSS"]
+      }
     }
-  }
   </script>
-
 </head>
 <body class="text-zinc-800 dark:text-zinc-100 bg-gradient-to-br from-white via-[#fff8fe] to-[#f0f5ff] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
   <!-- Background Layers -->
@@ -76,7 +91,6 @@ import '@fontsource-variable/onest';
         favicon.href = prefersDark ? '/favicon-dark.svg' : '/favicon-light.svg';
       }
     };
-
     updateFavicon();
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
   </script>
@@ -87,12 +101,10 @@ import '@fontsource-variable/onest';
   :root {
     color-scheme: light dark;
   }
-
   html {
     font-family: 'Onest Variable', system-ui, sans-serif;
     height: 100%;
   }
-
   body {
     min-height: 100vh;
     transition: background 0.3s ease, color 0.3s ease;

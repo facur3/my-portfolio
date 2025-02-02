@@ -10,11 +10,47 @@ const { action } = Astro.props;
 >
   <div class="space-y-4">
     <div>
-      <label class="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Name</label>
+      <label for="name" class="block text-sm font-medium ...">Nombre</label>
       <input
         type="text"
+        id="name"
         name="name"
         required
-        class="w-full px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        class="w-full px-4 py-3 ..."
+        aria-required="true"
       />
     </div>
+    
+    <div>
+      <label for="email" class="block text-sm font-medium ...">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 ..."
+        aria-required="true"
+      />
+    </div>
+    
+    <div>
+      <label for="message" class="block text-sm font-medium ...">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        class="w-full px-4 py-3 ..."
+        aria-required="true"
+      ></textarea>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full px-6 py-3 text-lg font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+    aria-label="Enviar mensaje"
+  >
+    Enviar Mensaje
+  </button>
+</form>
