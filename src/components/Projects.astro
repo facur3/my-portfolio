@@ -2,34 +2,38 @@
 const projects = [
   {
     title: "Personal Portfolio",
-    description: "Portafolio moderno y adaptable que muestra proyectos de desarrollo y habilidades técnicas", // ← Traducido
+    description: "Portafolio moderno y adaptable que muestra proyectos de desarrollo y habilidades técnicas",
     image: "/personal-portfolio.png",
     github: "https://github.com/facur3/Portafolio",
     demo: "https://facur3.github.io/Portafolio/",
-    tags: ["HTML", "CSS", "JavaScript", "Responsiveness"]
+    tags: ["HTML", "CSS", "JavaScript", "Responsiveness"],
+    details: "Este proyecto se desarrolló utilizando Astro y Tailwind CSS para crear una experiencia de usuario rápida y escalable. Se implementaron animaciones con AOS y se optimizó el rendimiento mediante lazy loading de imágenes."
   },
   {
     title: "Fifteen Puzzle Game",
-    description: "Implementación web interactiva del clásico juego de rompecabezas deslizante", // ← Traducido
+    description: "Implementación web interactiva del clásico juego de rompecabezas deslizante",
     image: "/fifteen-puzzle.png",
     github: "https://github.com/facur3/Fifteen",
     demo: "https://facur3.github.io/Fifteen/",
-    tags: ["JavaScript", "HTML", "CSS", "Game Development", "Python"]
+    tags: ["JavaScript", "HTML", "CSS", "Game Development", "Python"],
+    details: "El juego utiliza JavaScript, HTML y CSS para ofrecer una experiencia interactiva, y se incorporaron elementos de Python para la lógica del juego. Se hizo hincapié en la interactividad y el diseño responsivo."
   },
   {
     title: "Plagiarism Detector",
-    description: "Sistema de análisis de texto para detección de similitudes en contenido", // ← Traducido
+    description: "Sistema de análisis de texto para detección de similitudes en contenido",
     image: "/plagio.jpg",
     github: "https://github.com/facur3/plagios",
-    tags: ["Python", "NLP"]
+    tags: ["Python", "NLP"],
+    details: "El detector utiliza técnicas de procesamiento de lenguaje natural en Python para comparar textos y encontrar similitudes. Es una herramienta útil para identificar contenido duplicado en documentos."
   },
   {
     title: "First Webpage",
-    description: "Implementación inicial de una plataforma profesional", // ← Traducido
+    description: "Implementación inicial de una plataforma profesional",
     image: "/first-website.png",
     github: "https://github.com/facur3/PFRossi",
     demo: "https://facur3.github.io/PFRossi/",
-    tags: ["HTML", "Sass", "Responsiveness"]
+    tags: ["HTML", "Sass", "Responsiveness"],
+    details: "Esta fue mi primera incursión en el desarrollo web profesional, utilizando HTML y Sass para crear una plataforma profesional y responsiva. Aprendí los fundamentos del diseño web y la importancia de una buena experiencia de usuario."
   }
 ];
 
@@ -46,19 +50,19 @@ type TagColorMap = {
 };
 
 const tagColors: TagColorMap = {
-  'HTML': 'bg-orange-400/10 text-orange-600 dark:text-orange-400',
-  'CSS': 'bg-blue-400/10 text-blue-600 dark:text-blue-400',
-  'JavaScript': 'bg-yellow-400/10 text-yellow-600 dark:text-yellow-400',
-  'Python': 'bg-emerald-400/10 text-emerald-600 dark:text-emerald-400',
-  'Sass': 'bg-pink-400/10 text-pink-600 dark:text-pink-400',
-  'NLP': 'bg-green-400/10 text-green-600 dark:text-green-400',
-  'Responsiveness': 'bg-purple-400/10 text-purple-600 dark:text-purple-400',
+  HTML: 'bg-orange-400/10 text-orange-600 dark:text-orange-400',
+  CSS: 'bg-blue-400/10 text-blue-600 dark:text-blue-400',
+  JavaScript: 'bg-yellow-400/10 text-yellow-600 dark:text-yellow-400',
+  Python: 'bg-emerald-400/10 text-emerald-600 dark:text-emerald-400',
+  Sass: 'bg-pink-400/10 text-pink-600 dark:text-pink-400',
+  NLP: 'bg-green-400/10 text-green-600 dark:text-green-400',
+  Responsiveness: 'bg-purple-400/10 text-purple-600 dark:text-purple-400',
   'Game Development': 'bg-red-400/10 text-red-600 dark:text-red-400'
 };
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-  {projects.map(project => (
+  {projects.map((project, i) => (
     <article class="group relative h-full overflow-hidden rounded-xl p-6 border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-lg transition-all duration-300">
       <div class="relative mb-6 rounded-xl overflow-hidden aspect-video">
         <img 
@@ -82,7 +86,7 @@ const tagColors: TagColorMap = {
               aria-label="GitHub Repository"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
               </svg>
             </a>
             {project.demo && (
@@ -102,20 +106,60 @@ const tagColors: TagColorMap = {
 
         <p class="text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
         
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 mb-4">
           {project.tags.map(tag => {
             const colorClass = tag in tagColors 
               ? tagColors[tag as keyof typeof tagColors]
               : 'bg-zinc-800 text-zinc-300';
             
             return (
-            <span class={`px-2.5 py-1 rounded-full text-sm ${colorClass} transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_8px_-2px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_8px_-2px_rgba(255,255,255,0.1)]`}>
+              <span class={`px-2.5 py-1 rounded-full text-sm ${colorClass} transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_8px_-2px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_8px_-2px_rgba(255,255,255,0.1)]`}>
                 {tag}
-            </span>
-            )
+              </span>
+            );
           })}
         </div>
+
+        {project.details && (
+          <div>
+            <button 
+              onclick={`toggleDetails('details-${i}')`} 
+              class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none"
+            >
+              Leer más
+            </button>
+            <div id={`details-${i}`} class="details mt-2 text-sm text-zinc-700 dark:text-zinc-300 overflow-hidden">
+              {project.details}
+            </div>
+          </div>
+        )}
       </div>
     </article>
   ))}
 </div>
+
+<script is:inline>
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details) {
+      if (details.classList.contains('open')) {
+        details.style.maxHeight = null;
+        details.classList.remove('open');
+      } else {
+        details.style.maxHeight = details.scrollHeight + "px";
+        details.classList.add('open');
+      }
+    }
+  }
+</script>
+
+<style>
+  .details {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+  .details.open {
+    opacity: 1;
+  }
+</style>

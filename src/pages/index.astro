@@ -6,7 +6,8 @@ import Layout from '../layouts/Layout.astro';
 import About from '../components/AboutMe.astro';
 ---
 <Layout title="Portfolio de Facu Rossi - Desarrollador Y Programador">
-  <section class="space-y-8">
+  <!-- Hero Section -->
+  <section class="space-y-8" data-aos="fade-down">
     <div class="flex items-center gap-6">
       <!-- Avatar with animated gradient border -->
       <div class="relative group">
@@ -19,7 +20,6 @@ import About from '../components/AboutMe.astro';
           loading="lazy"
         />
       </div>
-
       <Badge>Disopinble para trabajar</Badge>
     </div>
 
@@ -51,43 +51,44 @@ import About from '../components/AboutMe.astro';
     </div>
 
     <!-- Resume Download Button -->
-	<div class="mt-6">
-		<a
-		  href="/resume.pdf"
-		  download="FacuRossi-CV"
-		  class="relative inline-flex items-center px-8 py-3 text-sm font-semibold text-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-		>
-		  <!-- Animated Gradient Background with Pulse Animation -->
-		  <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90 animate-pulse-bg"></span>
-		  <span class="relative flex items-center gap-3">
-			<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-				d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-			</svg>
-			Descargar CV
-		  </span>
-		</a>
-	  </div>
+    <div class="mt-6">
+      <a
+        href="/resume.pdf"
+        download="FacuRossi-CV"
+        class="relative inline-flex items-center px-8 py-3 text-sm font-semibold text-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+      >
+        <!-- Animated Gradient Background with Pulse Animation -->
+        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90 animate-pulse-bg"></span>
+        <span class="relative flex items-center gap-3">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Descargar CV
+        </span>
+      </a>
+    </div>
 	  
-	  <style>
-		@keyframes pulse-bg {
-		  0%, 100% { filter: brightness(1); }
-		  50% { filter: brightness(1.2); }
-		}
-		.animate-pulse-bg {
-		  animation: pulse-bg 3s ease-in-out infinite;
-		  background-size: 200% 200%;
-		  background-position: 0%;
-		}
-	  </style>
-	  
+    <style>
+      @keyframes pulse-bg {
+        0%, 100% { filter: brightness(1); }
+        50% { filter: brightness(1.2); }
+      }
+      .animate-pulse-bg {
+        animation: pulse-bg 3s ease-in-out infinite;
+        background-size: 200% 200%;
+        background-position: 0%;
+      }
+    </style>
   </section>
 
-  <section id="experience">
+  <!-- Experience Section -->
+  <section id="experience" data-aos="fade-up">
     <Experience />
   </section>
 
-  <section id="projects" class="py-24 w-full">
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 w-full" data-aos="fade-up">
     <div class="mb-12">
       <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
         Featured Work
@@ -97,8 +98,33 @@ import About from '../components/AboutMe.astro';
     <Projects />
   </section>
 
-  <section id="about-me" class="py-24 w-full">
+  <!-- About Me Section -->
+  <section id="about-me" class="py-24 w-full" data-aos="fade-up">
     <About />
+  </section>
+
+  <!-- Updated Contact Section with Modern Glassmorphism Style -->
+  <section id="contact" class="py-24 w-full" data-aos="fade-up">
+    <div class="max-w-lg mx-auto bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md p-8 rounded-lg shadow-xl border border-white/20">
+      <h2 class="text-3xl font-bold text-center mb-6">Contáctame</h2>
+      <form action="https://formspree.io/f/mqaeldol" method="POST" class="space-y-6">
+        <div>
+          <label for="name" class="block text-lg font-medium mb-2">Nombre</label>
+          <input id="name" name="name" type="text" required class="w-full p-3 bg-transparent border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+        <div>
+          <label for="email" class="block text-lg font-medium mb-2">Correo Electrónico</label>
+          <input id="email" name="_replyto" type="email" required class="w-full p-3 bg-transparent border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:border-blue-500 transition-colors" />
+        </div>
+        <div>
+          <label for="message" class="block text-lg font-medium mb-2">Mensaje</label>
+          <textarea id="message" name="message" rows="4" required class="w-full p-3 bg-transparent border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600 transition">
+          Enviar
+        </button>
+      </form>
+    </div>
   </section>
 
 </Layout>
