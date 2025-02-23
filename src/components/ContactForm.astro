@@ -1,0 +1,167 @@
+---
+// filepath: /home/facu/Desktop/my-portfolio/src/components/ContactForm.astro
+const { action } = Astro.props;
+---
+<!-- Load the reCAPTCHA Enterprise API -->
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfHzd8qAAAAAKscY9q60Lvw0aKMNrbgSbOE7RMA" async defer></script>
+
+<form 
+  id="contact-form"
+  class="space-y-6"
+  action={action}
+  method="POST"
+  role="form"
+  aria-labelledby="contact-form-title"
+>
+  <h2 id="contact-form-title" class="sr-only">Formulario de Contacto</h2>
+  
+  <fieldset class="space-y-4">
+    <legend class="sr-only">Información Personal</legend>
+    <!-- Name Field -->
+    <div>
+      <label for="name" class="block text-sm font-medium">Nombre</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        aria-required="true"
+        aria-describedby="name-error"
+        class="w-full px-4 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <span id="name-error" class="mt-1 block text-sm text-red-500" role="alert"></span>
+    </div>
+    
+    <!-- Email Field -->
+    <div>
+      <label for="email" class="block text-sm font-medium">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        aria-required="true"
+        aria-describedby="email-error"
+        class="w-full px-4 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+      <span id="email-error" class="mt-1 block text-sm text-red-500" role="alert"></span>
+    </div>
+  </fieldset>
+  
+  <!-- Message Field with Counter -->
+  <div>
+    <label for="message" class="block text-sm font-medium">Mensaje</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      maxlength="300"
+      required
+      aria-required="true"
+      aria-describedby="message-error char-counter"
+      oninput="updateCounter()"
+      class="w-full px-4 py-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+    ></textarea>
+    <div class="flex justify-between">
+      <span id="message-error" class="mt-1 block text-sm text-red-500" role="alert"></span>
+      <span id="char-counter" class="mt-1 block text-sm text-gray-500">0/300</span>
+    </div>
+  </div>
+
+  <!-- Container for recaptcha (invisible) -->
+  <div id="recaptcha-container"></div>
+
+  <button
+    id="submit-button"
+    type="button"
+    aria-label="Enviar mensaje"
+    class="w-full px-6 py-3 text-lg font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+    onclick="onSubmitClick(event)"
+  >
+    Enviar Mensaje
+  </button>
+</form>
+
+<script is:inline>
+  // Update the character counter for the message field
+  function updateCounter() {
+    const messageField = document.getElementById('message');
+    const counterSpan = document.getElementById('char-counter');
+    counterSpan.textContent = `${messageField.value.length}/300`;
+  }
+  
+  // Clear error messages
+  function clearErrors() {
+    document.getElementById('name-error').textContent = "";
+    document.getElementById('email-error').textContent = "";
+    document.getElementById('message-error').textContent = "";
+  }
+  
+  // Validate inputs and display error messages next to fields
+  function validateFields() {
+    let valid = true;
+    clearErrors();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name) {
+      document.getElementById('name-error').textContent = "El nombre es requerido.";
+      valid = false;
+    }
+    
+    if (!email) {
+      document.getElementById('email-error').textContent = "El email es requerido.";
+      valid = false;
+    } else if (!email.includes('@')) {
+      document.getElementById('email-error').textContent = "Ingrese un email válido.";
+      valid = false;
+    }
+    
+    if (!message) {
+      document.getElementById('message-error').textContent = "El mensaje es requerido.";
+      valid = false;
+    } else if (message.length > 300) {
+      document.getElementById('message-error').textContent = "El mensaje no puede exceder 300 caracteres.";
+      valid = false;
+    }
+    
+    return valid;
+  }
+  
+  // Function to handle the submit button click
+  function onSubmitClick(e) {
+    e.preventDefault();
+    
+    // Validate fields before triggering reCAPTCHA
+    if (!validateFields()) {
+      return;
+    }
+    
+    // Execute invisible reCAPTCHA Enterprise challenge
+    if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
+      grecaptcha.enterprise.ready(function() {
+        grecaptcha.enterprise.execute('6LfHzd8qAAAAAKscY9q60Lvw0aKMNrbgSbOE7RMA', {action: 'submit'}).then(function(token) {
+          onRecaptchaEnterpriseSuccess(token);
+        });
+      });
+    } else {
+      alert("reCAPTCHA no se ha cargado correctamente. Intenta de nuevo.");
+    }
+  }
+
+  // Callback after successful reCAPTCHA challenge
+  function onRecaptchaEnterpriseSuccess(token) {
+    const form = document.getElementById('contact-form');
+    // Insert the token as a hidden input before submitting
+    let tokenInput = document.createElement('input');
+    tokenInput.type = 'hidden';
+    tokenInput.name = 'g-recaptcha-response';
+    tokenInput.value = token;
+    form.appendChild(tokenInput);
+    
+    // Submit the form (data will be sent to Formspree)
+    form.submit();
+  }
+</script>

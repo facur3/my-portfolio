@@ -5,11 +5,11 @@ const navItems = [
   {
     title: "Experience",
     label: "experience",
-    url: "#experiencia",
+    url: "#experience",
   },
   {
     title: "Projects",
-    label: "proyectos",
+    label: "projects",
     url: "#projects",
   },
   {
@@ -20,68 +20,70 @@ const navItems = [
   {
     title: "Contact",
     label: "contact",
-    url: "mailto:facurossi33@gmail.com",
+    url: "#contact",
   },
 ]
 ---
-
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
-  <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
-  >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
+  <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center">
+    {navItems.map(link => (
+      <a
+        class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+        aria-label={link.label}
+        href={link.url}
+      >
+        {link.title}
+      </a>
+    ))}
     <ThemeToggle />
   </nav>
 </header>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
-
-    const callback = (entries: IntersectionObserverEntry[]) => {
-  entries.forEach(entry => {
-    navItems.forEach(item => {
-      if (item.getAttribute("aria-label") === entry.target.id) {
-        item.classList.toggle("nav-highlight", entry.isIntersecting)
-      }
-    })
-  })
-}
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section)
-        })
-      }
+    // Function that initializes and returns a new IntersectionObserver
+    function initIntersectionObserver() {
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("header nav a");
+  
+      const callback = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach(entry => {
+          navLinks.forEach(link => {
+            if (link.getAttribute("aria-label") === entry.target.id) {
+              link.classList.toggle("nav-highlight", entry.isIntersecting);
+            }
+          });
+        });
+      };
+  
+      const observer = new IntersectionObserver(callback, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      });
+  
+      sections.forEach(section => observer.observe(section));
+  
+      return observer;
     }
-  })
+  
+    // Initialize observer on page load
+    let observer = initIntersectionObserver();
+    
+    // Disconnect the observer when document becomes hidden and reinitialize when visible
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        observer = initIntersectionObserver();
+      }
+    });
+  
+    // Disconnect observer on page unload
+    window.addEventListener("beforeunload", () => {
+      observer.disconnect();
+    });
+  });
 </script>
 
 <style>
@@ -144,9 +146,9 @@ const navItems = [
   }
 
   .nav-highlight {
-  color: #3b82f6;
-  font-weight: 600;
-}
+    color: #3b82f6;
+    font-weight: 600;
+  }
 
   @keyframes pulse-dot {
     0%, 100% {

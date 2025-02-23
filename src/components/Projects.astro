@@ -1,5 +1,16 @@
 ---
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  github: string;
+  demo?: string;
+  tags: string[];
+  details?: string;
+}
+
+// The projects typed array
+const projects: Project[] = [
   {
     title: "Personal Portfolio",
     description: "Portafolio moderno y adaptable que muestra proyectos de desarrollo y habilidades técnicas",
@@ -37,16 +48,9 @@ const projects = [
   }
 ];
 
+// Define a type for the TagColorMap
 type TagColorMap = {
-  [key: string]: string;
-  HTML: string;
-  CSS: string;
-  JavaScript: string;
-  Python: string;
-  Sass: string;
-  NLP: string;
-  Responsiveness: string;
-  'Game Development': string;
+  [key in 'HTML' | 'CSS' | 'JavaScript' | 'Python' | 'Sass' | 'NLP' | 'Responsiveness' | 'Game Development']?: string;
 };
 
 const tagColors: TagColorMap = {
@@ -60,10 +64,10 @@ const tagColors: TagColorMap = {
   'Game Development': 'bg-red-400/10 text-red-600 dark:text-red-400'
 };
 ---
-
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
   {projects.map((project, i) => (
     <article class="group relative h-full overflow-hidden rounded-xl p-6 border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-lg transition-all duration-300">
+      
       <div class="relative mb-6 rounded-xl overflow-hidden aspect-video">
         <img 
           src={project.image} 
@@ -108,9 +112,8 @@ const tagColors: TagColorMap = {
         
         <div class="flex flex-wrap gap-2 mb-4">
           {project.tags.map(tag => {
-            const colorClass = tag in tagColors 
-              ? tagColors[tag as keyof typeof tagColors]
-              : 'bg-zinc-800 text-zinc-300';
+            const colorClass =
+              tag in tagColors ? tagColors[tag as keyof typeof tagColors] : 'bg-zinc-800 text-zinc-300';
             
             return (
               <span class={`px-2.5 py-1 rounded-full text-sm ${colorClass} transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_8px_-2px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_8px_-2px_rgba(255,255,255,0.1)]`}>
@@ -120,35 +123,36 @@ const tagColors: TagColorMap = {
           })}
         </div>
 
-        {project.details && (
-          <div>
-            <button 
-              onclick={`toggleDetails('details-${i}')`} 
-              class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none"
-            >
-              Leer más
-            </button>
-            <div id={`details-${i}`} class="details mt-2 text-sm text-zinc-700 dark:text-zinc-300 overflow-hidden">
-              {project.details}
-            </div>
+      {project.details && (
+        <div>
+          <button 
+            onclick="toggleDetails(this)"
+            class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none"
+          >
+            Leer más
+          </button>
+          <div class="details mt-2 text-sm text-zinc-700 dark:text-zinc-300 overflow-hidden">
+            {project.details}
           </div>
-        )}
+        </div>
+      )}
       </div>
     </article>
   ))}
 </div>
 
 <script is:inline>
-  function toggleDetails(id) {
-    const details = document.getElementById(id);
-    if (details) {
-      if (details.classList.contains('open')) {
-        details.style.maxHeight = null;
-        details.classList.remove('open');
-      } else {
-        details.style.maxHeight = details.scrollHeight + "px";
-        details.classList.add('open');
-      }
+  function toggleDetails(button) {
+    const container = button.parentElement;
+    const details = container.querySelector('.details');
+    if (!details) return;
+    
+    if (details.classList.contains('open')) {
+      details.style.maxHeight = "";
+      details.classList.remove('open');
+    } else {
+      details.style.maxHeight = details.scrollHeight + "px";
+      details.classList.add('open');
     }
   }
 </script>
