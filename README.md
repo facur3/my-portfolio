@@ -1,6 +1,6 @@
 # My Personal Portfolio [![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=FFF)](https://astro.build) [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel)](https://vercel.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-[![Portfolio Preview](./screenshot.png)](https://my-portfolio-seven-gules-67.vercel.app/)
+[![Portfolio Preview](./screenshot.png)](https://facurossi.vercel.app/)
 
 > Click the image above to visit the live website.
 
