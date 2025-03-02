@@ -1,6 +1,6 @@
 ---
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 import Header from '../components/Header.astro';
-import AOSInit from '../components/AOSInit.astro';
 import '@fontsource-variable/onest';
 const { title } = Astro.props;
 ---
@@ -14,6 +14,9 @@ const { title } = Astro.props;
     <!-- SEO Meta Tags -->
     <meta name="description" content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems." />
     <meta name="keywords" content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack" />
+
+    <!-- Speed Insights -->
+    <SpeedInsights/>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Facu Rossi - Portfolio" />
@@ -75,9 +78,6 @@ const { title } = Astro.props;
     <!-- Background Layers -->
     <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#93f5fc55_100%)] dark:hidden"></div>
     <div class="fixed inset-0 -z-50 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] hidden dark:block"></div>
-    
-    <!-- AOS Initialization Component -->
-    <AOSInit />
 
     <!-- Header Component -->
     <Header />
