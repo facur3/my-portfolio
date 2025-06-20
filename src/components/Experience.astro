@@ -24,44 +24,28 @@ const experiences = [
 ];
 ---
 
-<section id="experiencia" class="py-24 w-full">
-  <div class="mb-12">
-    <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-      Experiencia Profesional
-    </h2>
-    <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
-  </div>
+<div class="relative">
+  <div class="absolute left-0 top-0 w-0.5 h-full bg-zinc-300/50 dark:bg-zinc-600 z-0"></div>
 
-
-  <div class="relative">
-
-    <div class="absolute left-0 top-0 w-0.5 h-full bg-zinc-300/50 dark:bg-zinc-600 z-0"></div>
-
-
-    <div class="space-y-12 pl-4 sm:pl-8 md:pl-12 mt-8">
-      {experiences.map((exp) => (
-        <div class="relative">
-
-          <div class="absolute left-[-5px] sm:left-[-3px] md:left-[-2px] top-2 w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-500/20 animate-pulse-slow z-10"></div>
+  <div class="space-y-12 pl-4 sm:pl-8 md:pl-12 mt-8">
+    {experiences.map((exp) => (
+      <div class="relative">
+        <div class="absolute left-[-5px] sm:left-[-3px] md:left-[-2px] top-2 w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-500/20 z-10"></div>
+        
+        <div class="ml-6 sm:ml-8 md:ml-10">
+          <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">{exp.title}</h3>
+          <p class="text-zinc-600 dark:text-zinc-400 mt-1">{exp.company} · {exp.period}</p>
+          <p class="text-zinc-600 dark:text-zinc-400 mt-4 leading-relaxed">{exp.description}</p>
           
-
-          <div class="ml-6 sm:ml-8 md:ml-10">
-            <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">{exp.title}</h3>
-            <p class="text-zinc-600 dark:text-zinc-400 mt-1">{exp.company} · {exp.period}</p>
-            <p class="text-zinc-600 dark:text-zinc-400 mt-4 leading-relaxed">{exp.description}</p>
-            
-
-            <div class="flex flex-wrap gap-2 mt-4">
-              {exp.tags.map(tag => (
-                <span class="px-2.5 py-1 text-sm rounded-full bg-zinc-800/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 border border-zinc-300/50 dark:border-zinc-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.1)] hover:-translate-y-0.5 relative overflow-hidden">
-                  <div class="absolute inset-0 bg-[linear-gradient(110deg,transparent_25%,rgba(99,102,241,0.05)_45%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shine"></div>
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            {exp.tags.map(tag => (
+              <span class="px-2.5 py-1 text-sm rounded-full bg-zinc-800/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 border border-zinc-300/50 dark:border-zinc-700 transition-colors duration-300 hover:bg-zinc-800/10 dark:hover:bg-white/10">
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
-</section>
+</div>

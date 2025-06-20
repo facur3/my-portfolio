@@ -41,59 +41,63 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    // Function that initializes and returns a new IntersectionObserver
-    function initIntersectionObserver() {
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll("header nav a");
-  
-      const callback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach(entry => {
-          navLinks.forEach(link => {
-            if (link.getAttribute("aria-label") === entry.target.id) {
-              link.classList.toggle("nav-highlight", entry.isIntersecting);
-            }
-          });
-        });
-      };
-  
-      const observer = new IntersectionObserver(callback, {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.3,
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("header nav a");
+
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        const link = document.querySelector(`header nav a[aria-label="${entry.target.id}"]`);
+        if (link) {
+          link.classList.toggle("text-blue-500", entry.isIntersecting);
+        }
       });
-  
-      sections.forEach(section => observer.observe(section));
-  
-      return observer;
-    }
-  
-    // Initialize observer on page load
-    let observer = initIntersectionObserver();
-    
-    // Disconnect the observer when document becomes hidden and reinitialize when visible
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        observer = initIntersectionObserver();
-      }
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
     });
-  
-    // Disconnect observer on page unload
-    window.addEventListener("beforeunload", () => {
+
+    sections.forEach(section => observer.observe(section));
+
+    // --- Hide header on scroll ---
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        // scrolling down
+        header.classList.add('header-hidden');
+      } else {
+        // scrolling up
+        header.classList.remove('header-hidden');
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    document.addEventListener("astro:before-swap", () => {
       observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     });
   });
 </script>
 
 <style>
+  header {
+    transition: transform 0.3s ease-out;
+  }
+  header.header-hidden {
+    transform: translateY(-110%);
+  }
   nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
     position: relative;
     backdrop-filter: blur(12px);
-    @apply dark:bg-gray-800/90 bg-white/50;
+    @apply dark:bg-gray-800/90 bg-white/50 shadow-lg ring-1 ring-white/10;
   }
 
   .nav a {
@@ -142,23 +146,6 @@ const navItems = [
     background: #3b82f6;
     border-radius: 50%;
     transform: translateY(-50%);
-    animation: pulse-dot 1.5s infinite;
-  }
-
-  .nav-highlight {
-    color: #3b82f6;
-    font-weight: 600;
-  }
-
-  @keyframes pulse-dot {
-    0%, 100% {
-      transform: translateY(-50%) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-50%) scale(1.4);
-      opacity: 0.5;
-    }
   }
 
   @keyframes underline-grow {
@@ -174,10 +161,10 @@ const navItems = [
 
   @keyframes nav-shadown {
     0% {
-      @apply dark:bg-slate-900/0 bg-slate-100/0;
+      transform: translateY(0) scale(1);
     }
-    to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+    100% {
+      transform: translateY(2px) scale(1.02);
     }
   }
 </style>

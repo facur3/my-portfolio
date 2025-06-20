@@ -2,8 +2,7 @@
 // filepath: /home/facu/Desktop/my-portfolio/src/components/ContactForm.astro
 const { action } = Astro.props;
 ---
-<!-- Load the reCAPTCHA Enterprise API -->
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfHzd8qAAAAAKscY9q60Lvw0aKMNrbgSbOE7RMA" async defer></script>
+
 
 <form 
   id="contact-form"
@@ -68,15 +67,11 @@ const { action } = Astro.props;
     </div>
   </div>
 
-  <!-- Container for recaptcha (invisible) -->
-  <div id="recaptcha-container"></div>
-
   <button
     id="submit-button"
-    type="button"
+    type="submit"
     aria-label="Enviar mensaje"
     class="w-full px-6 py-3 text-lg font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-    onclick="onSubmitClick(event)"
   >
     Enviar Mensaje
   </button>
@@ -130,38 +125,17 @@ const { action } = Astro.props;
     return valid;
   }
   
-  // Function to handle the submit button click
-  function onSubmitClick(e) {
-    e.preventDefault();
-    
-    // Validate fields before triggering reCAPTCHA
-    if (!validateFields()) {
-      return;
-    }
-    
-    // Execute invisible reCAPTCHA Enterprise challenge
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.enterprise) {
-      grecaptcha.enterprise.ready(function() {
-        grecaptcha.enterprise.execute('6LfHzd8qAAAAAKscY9q60Lvw0aKMNrbgSbOE7RMA', {action: 'submit'}).then(function(token) {
-          onRecaptchaEnterpriseSuccess(token);
-        });
-      });
-    } else {
-      alert("reCAPTCHA no se ha cargado correctamente. Intenta de nuevo.");
-    }
-  }
+  const form = document.getElementById('contact-form');
+  const submitButton = document.getElementById('submit-button');
 
-  // Callback after successful reCAPTCHA challenge
-  function onRecaptchaEnterpriseSuccess(token) {
-    const form = document.getElementById('contact-form');
-    // Insert the token as a hidden input before submitting
-    let tokenInput = document.createElement('input');
-    tokenInput.type = 'hidden';
-    tokenInput.name = 'g-recaptcha-response';
-    tokenInput.value = token;
-    form.appendChild(tokenInput);
-    
-    // Submit the form (data will be sent to Formspree)
-    form.submit();
+  if (form && submitButton) {
+    form.addEventListener('submit', function(e) {
+      if (!validateFields()) {
+        e.preventDefault();
+      } else {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+      }
+    });
   }
 </script>

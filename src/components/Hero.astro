@@ -1,5 +1,6 @@
-  ---
+---
   import Badge from './Badge.astro'
+  import SkillBadge from './SkillBadge.astro';
   ---
   
   <!-- Hero Section -->
@@ -12,11 +13,9 @@
           class="relative rounded-full w-24 h-24 border-4 border-white/10 hover:border-white/20 transition-all"
           src="/bana.jpg"
           alt="Facu Rossi"
-          decoding="async"
-          loading="lazy"
         />
       </div>
-      <Badge>Disopinble para trabajar</Badge>
+      <Badge>Disponible para trabajar</Badge>
     </div>
 
     <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent pb-1">
@@ -29,21 +28,12 @@
     </p>
 
     <div class="flex flex-wrap gap-3">
-      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-        🤖 AI Solutions
-      </span>
-      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-        🌐 Web Development
-      </span>
-      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-        🐍 Python Development
-      </span>
-      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-        🖥️ Backend Engineering
-      </span>
-      <span class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-lg border border-zinc-300 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_-2px_rgba(99,102,241,0.15)] hover:border-indigo-500/30 hover:-translate-y-0.5 group relative overflow-hidden">
-        🦾 Go Programming
-      </span>
+      <SkillBadge>🤖 AI Solutions</SkillBadge>
+      <SkillBadge>🌐 Web Development</SkillBadge>
+      <SkillBadge>🐍 Python Development</SkillBadge>
+      <SkillBadge>🦾 Java Programming</SkillBadge>
+      <SkillBadge>⚙️ C Programming</SkillBadge>
+      <SkillBadge>🖥️ Backend Engineering</SkillBadge>
     </div>
 
     <!-- Resume Download Button -->
@@ -54,7 +44,7 @@
         class="relative inline-flex items-center px-8 py-3 text-sm font-semibold text-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
       >
         <!-- Animated Gradient Background with Pulse Animation -->
-        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90 animate-pulse-bg"></span>
+        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></span>
         <span class="relative flex items-center gap-3">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -66,14 +56,5 @@
     </div>
 	  
     <style>
-      @keyframes pulse-bg {
-        0%, 100% { filter: brightness(1); }
-        50% { filter: brightness(1.2); }
-      }
-      .animate-pulse-bg {
-        animation: pulse-bg 3s ease-in-out infinite;
-        background-size: 200% 200%;
-        background-position: 0%;
-      }
     </style>
   </section>

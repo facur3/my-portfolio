@@ -1,169 +1,126 @@
 ---
-interface Project {
-  title: string;
-  description: string;
-  image: string;
-  github: string;
-  demo?: string;
-  tags: string[];
-  details?: string;
-}
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import LinkButton from './LinkButton.astro';
+import GitHub from './icons/GitHub.astro';
+import Link from './icons/Link.astro';
+import HTML from './icons/HTML.astro';
+import CSS from './icons/CSS.astro';
+import JavaScript from './icons/JavaScript.astro';
+import Python from './icons/Python.astro';
 
-// The projects typed array
-const projects: Project[] = [
+import personalPortfolioImg from '../assets/images/personal-portfolio.png';
+import fifteenPuzzleImg from '../assets/images/fifteen-puzzle.png';
+import plagioImg from '../assets/images/plagio.jpg';
+import firstWebsiteImg from '../assets/images/first-website.png';
+
+const TAGS = {
+  HTML: {
+    name: "HTML",
+    class: "bg-[#E34F26] text-white",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#1572B6] text-white",
+    icon: CSS,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#F7DF1E] text-black",
+    icon: JavaScript,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#3776AB] text-white",
+    icon: Python,
+  },
+  SASS: { name: "Sass", class: "bg-[#CC6699] text-white", icon: null },
+  NLP: { name: "NLP", class: "bg-[#34D399] text-black", icon: null },
+  RESPONSIVENESS: { name: "Responsiveness", class: "bg-[#8B5CF6] text-white", icon: null },
+  GAMEDEVELOPMENT: { name: "Game Development", class: "bg-[#EF4444] text-white", icon: null },
+};
+
+const PROJECTS = [
   {
     title: "Personal Portfolio",
     description: "Portafolio moderno y adaptable que muestra proyectos de desarrollo y habilidades técnicas",
-    image: "/personal-portfolio.png",
+    image: personalPortfolioImg,
     github: "https://github.com/facur3/Portafolio",
     demo: "https://facur3.github.io/Portafolio/",
-    tags: ["HTML", "CSS", "JavaScript", "Responsiveness"],
-    details: "Este proyecto se desarrolló utilizando Astro y Tailwind CSS para crear una experiencia de usuario rápida y escalable. Se implementaron animaciones con AOS y se optimizó el rendimiento mediante lazy loading de imágenes."
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.RESPONSIVENESS],
   },
   {
     title: "Fifteen Puzzle Game",
     description: "Implementación web interactiva del clásico juego de rompecabezas deslizante",
-    image: "/fifteen-puzzle.png",
+    image: fifteenPuzzleImg,
     github: "https://github.com/facur3/Fifteen",
     demo: "https://facur3.github.io/Fifteen/",
-    tags: ["JavaScript", "HTML", "CSS", "Game Development", "Python"],
-    details: "El juego utiliza JavaScript, HTML y CSS para ofrecer una experiencia interactiva, y se incorporaron elementos de Python para la lógica del juego. Se hizo hincapié en la interactividad y el diseño responsivo."
+    tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS, TAGS.GAMEDEVELOPMENT, TAGS.PYTHON],
   },
   {
     title: "Plagiarism Detector",
     description: "Sistema de análisis de texto para detección de similitudes en contenido",
-    image: "/plagio.jpg",
+    image: plagioImg,
     github: "https://github.com/facur3/plagios",
-    tags: ["Python", "NLP"],
-    details: "El detector utiliza técnicas de procesamiento de lenguaje natural en Python para comparar textos y encontrar similitudes. Es una herramienta útil para identificar contenido duplicado en documentos."
+    tags: [TAGS.PYTHON, TAGS.NLP],
   },
   {
     title: "First Webpage",
     description: "Implementación inicial de una plataforma profesional",
-    image: "/first-website.png",
+    image: firstWebsiteImg,
     github: "https://github.com/facur3/PFRossi",
     demo: "https://facur3.github.io/PFRossi/",
-    tags: ["HTML", "Sass", "Responsiveness"],
-    details: "Esta fue mi primera incursión en el desarrollo web profesional, utilizando HTML y Sass para crear una plataforma profesional y responsiva. Aprendí los fundamentos del diseño web y la importancia de una buena experiencia de usuario."
+    tags: [TAGS.HTML, TAGS.SASS, TAGS.RESPONSIVENESS],
   }
 ];
-
-// Define a type for the TagColorMap
-type TagColorMap = {
-  [key in 'HTML' | 'CSS' | 'JavaScript' | 'Python' | 'Sass' | 'NLP' | 'Responsiveness' | 'Game Development']?: string;
-};
-
-const tagColors: TagColorMap = {
-  HTML: 'bg-orange-400/10 text-orange-600 dark:text-orange-400',
-  CSS: 'bg-blue-400/10 text-blue-600 dark:text-blue-400',
-  JavaScript: 'bg-yellow-400/10 text-yellow-600 dark:text-yellow-400',
-  Python: 'bg-emerald-400/10 text-emerald-600 dark:text-emerald-400',
-  Sass: 'bg-pink-400/10 text-pink-600 dark:text-pink-400',
-  NLP: 'bg-green-400/10 text-green-600 dark:text-green-400',
-  Responsiveness: 'bg-purple-400/10 text-purple-600 dark:text-purple-400',
-  'Game Development': 'bg-red-400/10 text-red-600 dark:text-red-400'
-};
 ---
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-  {projects.map((project, i) => (
-    <article class="group relative h-full overflow-hidden rounded-xl p-6 border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-lg transition-all duration-300">
-      
-      <div class="relative mb-6 rounded-xl overflow-hidden aspect-video">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 to-transparent"></div>
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, demo, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2">
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <Image alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full" loading="lazy" src={image} />
+        </div>
       </div>
-      
-      <div class="relative z-10">
-        <div class="flex justify-between items-start mb-4">
-          <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">{project.title}</h3>
-          <div class="flex gap-2">
-            <a 
-              href={project.github} 
-              target="_blank"
-              class="p-1.5 hover:bg-white/5 rounded-full transition-colors"
-              aria-label="GitHub Repository"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
-              </svg>
-            </a>
-            {project.demo && (
-              <a 
-                href={project.demo} 
-                target="_blank"
-                class="p-1.5 hover:bg-white/5 rounded-full transition-colors"
-                aria-label="Live Demo"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-              </a>
-            )}
-          </div>
-        </div>
 
-        <p class="text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
-        
-        <div class="flex flex-wrap gap-2 mb-4">
-          {project.tags.map(tag => {
-            const colorClass =
-              tag in tagColors ? tagColors[tag as keyof typeof tagColors] : 'bg-zinc-800 text-zinc-300';
-            
-            return (
-              <span class={`px-2.5 py-1 rounded-full text-sm ${colorClass} transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_8px_-2px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_8px_-2px_rgba(255,255,255,0.1)]`}>
-                {tag}
-              </span>
-            );
-          })}
-        </div>
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row flex-wrap mb-2 gap-x-2 gap-y-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    {tag.icon && <tag.icon class="size-4" />}
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-      {project.details && (
-        <div>
-          <button 
-            onclick="toggleDetails(this)"
-            class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none"
-          >
-            Leer más
-          </button>
-          <div class="details mt-2 text-sm text-zinc-700 dark:text-zinc-300 overflow-hidden">
-            {project.details}
-          </div>
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {demo && (
+                <LinkButton href={demo}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
         </div>
-      )}
       </div>
     </article>
-  ))}
+    ))
+  }
 </div>
-
-<script is:inline>
-  function toggleDetails(button) {
-    const container = button.parentElement;
-    const details = container.querySelector('.details');
-    if (!details) return;
-    
-    if (details.classList.contains('open')) {
-      details.style.maxHeight = "";
-      details.classList.remove('open');
-    } else {
-      details.style.maxHeight = details.scrollHeight + "px";
-      details.classList.add('open');
-    }
-  }
-</script>
-
-<style>
-  .details {
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-  }
-  .details.open {
-    opacity: 1;
-  }
-</style>

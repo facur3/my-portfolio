@@ -12,12 +12,18 @@ import ContactForm from '../components/ContactForm.astro';
   <Hero />
 
   <!-- Experience Section -->
-  <section id="experience" data-aos="fade-up">
+  <section id="experience" class="py-24 w-full">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Experiencia Profesional
+      </h2>
+      <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
+    </div>
     <Experience />
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-24 w-full" data-aos="fade-up">
+  <section id="projects" class="py-24 w-full">
     <div class="mb-12">
       <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
         Featured Work
@@ -28,12 +34,12 @@ import ContactForm from '../components/ContactForm.astro';
   </section>
 
   <!-- About Me Section -->
-  <section id="about-me" class="py-24 w-full" data-aos="fade-up">
+  <section id="about-me" class="py-24 w-full">
     <About />
   </section>
 
   <!-- Contact Section-->
-  <section id="contact" class="py-24 w-full" data-aos="fade-up">
+  <section id="contact" class="py-24 w-full">
     <div class="max-w-lg mx-auto bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md p-8 rounded-lg shadow-xl border border-white/20">
       <h2 class="text-3xl font-bold text-center mb-6">Contáctame</h2>
       <ContactForm action="https://formspree.io/f/mqaeldol" />
