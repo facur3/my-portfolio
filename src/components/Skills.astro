@@ -1,0 +1,184 @@
+---
+import JavaScript from './icons/JavaScript.astro';
+import Python from './icons/Python.astro';
+import HTML from './icons/HTML.astro';
+import CSS from './icons/CSS.astro';
+---
+
+<section id="skills" class="py-24 w-full">
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      Habilidades Técnicas
+    </h2>
+    <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4"></div>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Frontend Development -->
+    <div class="p-6 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg hover:border-blue-500/30 transition-all duration-300">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">Frontend</h3>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <HTML class="w-5 h-5 text-[#E34F26]" />
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">HTML5</span>
+          </div>
+          <span class="text-xs text-zinc-500">Avanzado</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 90%"></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <CSS class="w-5 h-5 text-[#1572B6]" />
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">CSS3/SASS</span>
+          </div>
+          <span class="text-xs text-zinc-500">Avanzado</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <JavaScript class="w-5 h-5 text-[#F7DF1E]" />
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">JavaScript</span>
+          </div>
+          <span class="text-xs text-zinc-500">Intermedio</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 75%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backend Development -->
+    <div class="p-6 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg hover:border-purple-500/30 transition-all duration-300">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">Backend</h3>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <Python class="w-5 h-5 text-[#3776AB]" />
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Python</span>
+          </div>
+          <span class="text-xs text-zinc-500">Avanzado</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded bg-[#ED8B00] flex items-center justify-center">
+              <span class="text-white text-xs font-bold">J</span>
+            </div>
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Java</span>
+          </div>
+          <span class="text-xs text-zinc-500">Intermedio</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 70%"></div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-5 h-5 rounded bg-[#6E4C13] flex items-center justify-center">
+              <span class="text-white text-xs font-bold">ASM</span>
+            </div>
+            <span class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Assembler</span>
+          </div>
+          <span class="text-xs text-zinc-500">Básico</span>
+        </div>
+        <div class="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 45%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools & Technologies -->
+    <div class="p-6 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-lg hover:border-green-500/30 transition-all duration-300">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">Herramientas</h3>
+      </div>
+      
+      <div class="space-y-3">
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-zinc-800/10 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 text-sm rounded-full border border-zinc-300/50 dark:border-zinc-700">Git</span>
+          <span class="px-3 py-1 bg-zinc-800/10 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 text-sm rounded-full border border-zinc-300/50 dark:border-zinc-700">GitHub</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-zinc-800/10 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 text-sm rounded-full border border-zinc-300/50 dark:border-zinc-700">Microsoft Office</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-zinc-800/10 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 text-sm rounded-full border border-zinc-300/50 dark:border-zinc-700">Google Workspace</span>
+          <span class="px-3 py-1 bg-zinc-800/10 dark:bg-white/10 text-zinc-700 dark:text-zinc-300 text-sm rounded-full border border-zinc-300/50 dark:border-zinc-700">Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Skills Section -->
+  <div class="mt-12 p-8 rounded-xl border border-zinc-300/50 dark:border-zinc-700 bg-gradient-to-r from-blue-500/5 to-purple-500/5 backdrop-blur-lg">
+    <h3 class="text-2xl font-semibold text-zinc-800 dark:text-zinc-100 mb-6 text-center">Habilidades Profesionales</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 border border-zinc-300/30 dark:border-zinc-700/30">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Cooperación y Trabajo en Equipo</p>
+      </div>
+      
+      <div class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 border border-zinc-300/30 dark:border-zinc-700/30">
+        <div class="w-12 h-12 mx-auto mb-3 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Adaptabilidad</p>
+      </div>
+      
+      <div class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 border border-zinc-300/30 dark:border-zinc-700/30">
+        <div class="w-12 h-12 mx-auto mb-3 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Aprendizaje Continuo</p>
+      </div>
+
+      <div class="text-center p-4 rounded-lg bg-white/50 dark:bg-zinc-900/50 border border-zinc-300/30 dark:border-zinc-700/30">
+        <div class="w-12 h-12 mx-auto mb-3 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
+          <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Trabajo bajo Presión</p>
+      </div>
+    </div>
+  </div>
+</section>

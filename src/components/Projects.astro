@@ -44,83 +44,109 @@ const TAGS = {
 const PROJECTS = [
   {
     title: "Personal Portfolio",
-    description: "Portafolio moderno y adaptable que muestra proyectos de desarrollo y habilidades técnicas",
+    description: "Portfolio profesional con diseño moderno y responsivo, optimizado para todas las plataformas. Incluye animaciones fluidas, tema claro/oscuro automático y arquitectura escalable.",
     image: personalPortfolioImg,
     github: "https://github.com/facur3/Portafolio",
     demo: "https://facur3.github.io/Portafolio/",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.RESPONSIVENESS],
+    featured: true,
   },
   {
     title: "Fifteen Puzzle Game",
-    description: "Implementación web interactiva del clásico juego de rompecabezas deslizante",
+    description: "Juego interactivo del clásico rompecabezas 15-puzzle con mecánicas intuitivas, algoritmos de resolución automática y sistema de puntuación. Implementado con lógica avanzada en Python y JavaScript.",
     image: fifteenPuzzleImg,
     github: "https://github.com/facur3/Fifteen",
     demo: "https://facur3.github.io/Fifteen/",
     tags: [TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS, TAGS.GAMEDEVELOPMENT, TAGS.PYTHON],
+    featured: true,
   },
   {
     title: "Plagiarism Detector",
-    description: "Sistema de análisis de texto para detección de similitudes en contenido",
+    description: "Sistema avanzado de detección de plagio utilizando procesamiento de lenguaje natural (NLP) y algoritmos de similitud semántica. Analiza documentos y detecta coincidencias con alta precisión.",
     image: plagioImg,
     github: "https://github.com/facur3/plagios",
     tags: [TAGS.PYTHON, TAGS.NLP],
+    featured: false,
   },
   {
-    title: "First Webpage",
-    description: "Implementación inicial de una plataforma profesional",
+    title: "First Professional Website",
+    description: "Sitio web corporativo completamente responsivo desarrollado con metodologías BEM y arquitectura CSS modular. Optimizado para SEO y accesibilidad web.",
     image: firstWebsiteImg,
     github: "https://github.com/facur3/PFRossi",
     demo: "https://facur3.github.io/PFRossi/",
     tags: [TAGS.HTML, TAGS.SASS, TAGS.RESPONSIVENESS],
+    featured: false,
   }
 ];
 ---
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, demo, github }) => (
+    PROJECTS.map(({ image, title, description, tags, demo, github, featured }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
       <div class="w-full md:w-1/2">
         <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-          <Image alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full" loading="lazy" src={image} />
+          <Image alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:group-hover:scale-105" loading="lazy" src={image} />
+          {featured && (
+            <div class="absolute top-4 left-4 px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">
+              Destacado
+            </div>
+          )}
         </div>
       </div>
 
       <div class="w-full md:w-1/2 md:max-w-lg">
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
           {title}
         </h3>
-        <div class="flex flex-wrap mt-2">
-          <ul class="flex flex-row flex-wrap mb-2 gap-x-2 gap-y-2">
-              {tags.map((tag) => (
-                <li>
-                  <span
-                    class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                  >
-                    {tag.icon && <tag.icon class="size-4" />}
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-          <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
-                </LinkButton>
-              )}
-              {demo && (
-                <LinkButton href={demo}>
-                  <Link class="size-4" />
-                  Preview
-                </LinkButton>
-              )}
-            </footer>
+        
+        <div class="flex flex-wrap mb-4">
+          <ul class="flex flex-row flex-wrap gap-x-2 gap-y-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 font-medium transition-transform hover:scale-105`}
+                >
+                  {tag.icon && <tag.icon class="size-4" />}
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <p class="text-gray-700 dark:text-gray-400 leading-relaxed mb-6">{description}</p>
+        
+        <footer class="flex items-center justify-start gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-5" />
+              Código
+            </LinkButton>
+          )}
+          {demo && (
+            <LinkButton href={demo}>
+              <Link class="size-4" />
+              Demo
+            </LinkButton>
+          )}
+        </footer>
       </div>
     </article>
     ))
   }
+  
+  <!-- View All Projects Link -->
+  <div class="flex justify-center mt-12">
+    <a 
+      href="https://github.com/facur3?tab=repositories" 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 hover:from-blue-500/20 hover:to-purple-500/20 border border-blue-500/20 hover:border-blue-500/40 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
+    >
+      <span class="text-blue-600 dark:text-blue-400 font-medium">Ver todos mis proyectos en GitHub</span>
+      <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+      </svg>
+    </a>
+  </div>
 </div>
