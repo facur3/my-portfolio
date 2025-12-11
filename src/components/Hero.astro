@@ -6,11 +6,11 @@
   <!-- Hero Section -->
   <section class="space-y-8" data-aos="fade-down">
     <div class="flex items-center gap-6">
-      <!-- Avatar with animated gradient border -->
+      <!-- Avatar with premium animated glow -->
       <div class="relative group">
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 rounded-full blur opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
         <img 
-          class="relative rounded-full w-32 h-32 md:w-40 md:h-40 border-4 border-white/10 hover:border-white/20 transition-all object-cover"
+          class="relative rounded-full w-32 h-32 md:w-40 md:h-40 border-4 border-white/10 group-hover:border-white/20 transition-all duration-300 object-cover shadow-2xl"
           src="/yo.jpeg"
           alt="Facu Rossi"
         />
@@ -18,43 +18,61 @@
       <Badge>Disponible para trabajar</Badge>
     </div>
 
-    <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-zinc-800 to-zinc-600 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent pb-1">
+    <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-zinc-800 to-zinc-500 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent pb-1 tracking-tight">
       Hola, Soy Facu
     </h1>
 
-    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
-      Estudiante de <span class="text-yellow-600 dark:text-yellow-200/90">Lic. Análisis de Sistemas</span> en la <span class="text-blue-600 dark:text-blue-200/90">Universidad de Buenos Aires.</span>
-      <span class="text-zinc-800 dark:text-white font-medium">Especializado en</span> desarrollo de soluciones modernas con:
+    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl text-lg">
+      Estudiante de <span class="text-yellow-600 dark:text-yellow-200/90 font-medium">Lic. Análisis de Sistemas</span> en la <span class="text-blue-600 dark:text-blue-200/90 font-medium">Universidad de Buenos Aires</span>.
+      <span class="text-zinc-800 dark:text-gray-100 font-medium">Especializado en</span> soluciones de infraestructura, backend y automatización.
     </p>
 
+    <!-- Tech Badges -->
     <div class="flex flex-wrap gap-3">
-      <SkillBadge>🤖 AI Solutions</SkillBadge>
-      <SkillBadge>🌐 Web Development</SkillBadge>
-      <SkillBadge>🐍 Python Development</SkillBadge>
-      <SkillBadge>🦾 Java Programming</SkillBadge>
-      <SkillBadge>⚙️ C Programming</SkillBadge>
-      <SkillBadge>🖥️ Backend Engineering</SkillBadge>
+      <SkillBadge>🏗️ Infraestructura IT</SkillBadge>
+      <SkillBadge>🔃 Automatización</SkillBadge>
+      <SkillBadge>🐍 Backend C/Python</SkillBadge>
+      <SkillBadge>🐧 Linux & Bash</SkillBadge>
+      <SkillBadge>🧠 Soluciones IA</SkillBadge>
     </div>
 
-    <!-- Resume Download Button -->
-    <div class="mt-6">
+    <!-- Resume Download Button - Premium Glassmorphism -->
+    <div class="mt-8">
       <a
         href="/resume.pdf"
         download="FacuRossi-CV"
-        class="relative inline-flex items-center px-8 py-3 text-sm font-semibold text-white rounded-full overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        class="relative inline-flex group items-center px-8 py-3.5 text-base font-semibold text-white rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/25 ring-1 ring-white/10"
       >
-        <!-- Animated Gradient Background with Pulse Animation -->
-        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></span>
+        <!-- Background Gradients -->
+        <div class="absolute inset-0 bg-zinc-900 group-hover:bg-zinc-800 transition-colors duration-300"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-purple-600/80 opacity-100 group-hover:opacity-90 transition-opacity"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+        
+        <!-- Content -->
         <span class="relative flex items-center gap-3">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
               d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
-          Descargar CV
+          Descargar CV / Resumé
         </span>
       </a>
     </div>
 	  
     <style>
+      .animate-tilt {
+        animation: tilt 10s infinite linear;
+      }
+      @keyframes tilt {
+        0%, 50%, 100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(0.5deg);
+        }
+        75% {
+          transform: rotate(-0.5deg);
+        }
+      }
     </style>
   </section>

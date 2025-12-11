@@ -4,28 +4,41 @@ const experiences = [
     title: "Asistente de Ventas - Ferretería",
     company: "Ferretería 'Los Hermanos'",
     period: "2023-Presente",
-    description: "Control y contabilización de stock, organización de almacén y depósito. Actualización de precios y carga de productos en el sistema. Automatización de servicios para optimizar tiempos de atención y gestión. Recepción y verificación de pedidos de proveedores. Manejo de caja, cobro en efectivo, tarjeta y medios electrónicos.",
-    tags: ["Atención al Cliente", "Gestión de Inventario", "Sistemas de Gestión", "Automatización", "Manejo de Caja", "Control de Stock"]
+    description: "Iniciativa de digitalización: Implementación de mejoras en la gestión de stock y automatización de tareas manuales, reduciendo tiempos de atención. Control de inventario y manejo de caja.",
+    tags: ["Gestión de Inventario", "Mejora de Procesos", "Automatización", "Atención al Cliente"]
   }
 ];
 ---
 
-<div class="relative">
-  <div class="absolute left-0 top-0 w-0.5 h-full bg-zinc-300/50 dark:bg-zinc-600 z-0"></div>
+<div class="relative pl-6">
+  <!-- Modern Timeline Line with Gradient -->
+  <div class="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-transparent z-0 opacity-50"></div>
 
-  <div class="space-y-12 pl-4 sm:pl-8 md:pl-12 mt-8">
+  <div class="space-y-12">
     {experiences.map((exp) => (
-      <div class="relative">
-        <div class="absolute left-[-5px] sm:left-[-3px] md:left-[-2px] top-2 w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-500/20 z-10"></div>
+        <!-- Timeline Dot with Pulse Effect -->
+        <div class="absolute left-[-31px] top-2 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-500 z-10 border-4 border-white dark:border-zinc-900 group-hover:scale-125 transition-transform duration-300">
+           <div class="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-75"></div>
+        </div>
         
-        <div class="ml-6 sm:ml-8 md:ml-10">
-          <h3 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">{exp.title}</h3>
-          <p class="text-zinc-600 dark:text-zinc-400 mt-1">{exp.company} · {exp.period}</p>
-          <p class="text-zinc-600 dark:text-zinc-400 mt-4 leading-relaxed">{exp.description}</p>
+        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl hover:border-blue-500/30 dark:hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {exp.title}
+            </h3>
+            <span class="text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full border border-blue-100 dark:border-blue-800">
+              {exp.period}
+            </span>
+          </div>
           
-          <div class="flex flex-wrap gap-2 mt-4">
+          <p class="text-zinc-600 dark:text-zinc-400 mb-2 font-medium">{exp.company}</p>
+          <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base break-words whitespace-normal">
+            {exp.description}
+          </p>
+          
+          <div class="flex flex-wrap gap-2 mt-6">
             {exp.tags.map(tag => (
-              <span class="px-2.5 py-1 text-sm rounded-full bg-zinc-800/5 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 border border-zinc-300/50 dark:border-zinc-700 transition-colors duration-300 hover:bg-zinc-800/10 dark:hover:bg-white/10">
+              <span class="px-3 py-1 text-xs font-medium rounded-full bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300 group-hover:border-blue-500/30 group-hover:bg-blue-50/50 dark:group-hover:bg-blue-900/10">
                 {tag}
               </span>
             ))}
