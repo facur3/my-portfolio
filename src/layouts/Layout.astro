@@ -1,10 +1,10 @@
 ---
-import  SpeedInsights  from "@vercel/speed-insights/astro"
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '@fontsource-variable/onest';
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -13,23 +13,46 @@ const { title } = Astro.props;
     <title>{title}</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems." />
-    <meta name="keywords" content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack" />
+    <meta
+      name="description"
+      content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems."
+    />
+    <meta
+      name="keywords"
+      content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack"
+    />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Speed Insights -->
-    <SpeedInsights/>
+    <SpeedInsights />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Facu Rossi - Portfolio" />
-    <meta property="og:description" content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack." />
+    <meta
+      property="og:description"
+      content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+    />
     <meta property="og:image" content="/social-share.png" />
-    <meta property="og:url" content="https://my-portfolio-seven-gules-67.vercel.app/" />
+    <meta
+      property="og:url"
+      content="https://my-portfolio-seven-gules-67.vercel.app/"
+    />
     <meta property="og:type" content="website" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Facu Rossi - Portfolio" />
-    <meta name="twitter:description" content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack." />
+    <meta
+      name="twitter:description"
+      content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+    />
     <meta name="twitter:image" content="/social-share.png" />
 
     <!-- Favicon and Web Manifest -->
@@ -40,15 +63,17 @@ const { title } = Astro.props;
 
     <!-- Dark Theme Initialization Script -->
     <script is:inline>
-      (function() {
-        const savedTheme = localStorage.getItem('theme') || 'system';
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'dark' || (savedTheme === 'system' && systemDark)) {
-          document.documentElement.classList.add('dark');
+      (function () {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (savedTheme === "dark" || (savedTheme === "system" && systemDark)) {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
-    
+
     <script is:inline type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -67,7 +92,14 @@ const { title } = Astro.props;
         "hasOccupation": {
           "@type": "Occupation",
           "name": "Software Developer",
-          "skills": ["JavaScript", "Python", "React", "AI", "Astro", "Tailwind CSS"]
+          "skills": [
+            "JavaScript",
+            "Python",
+            "React",
+            "AI",
+            "Astro",
+            "Tailwind CSS"
+          ]
         }
       }
     </script>
@@ -77,15 +109,21 @@ const { title } = Astro.props;
     <div class="fixed inset-0 -z-50 bg-zinc-50 dark:hidden"></div>
     <div class="fixed inset-0 -z-50 bg-[#111] hidden dark:block">
       <!-- Premium dark gradient -->
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-      <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+      >
+      </div>
     </div>
 
     <!-- Header Component -->
     <Header />
 
     <!-- Main Content -->
-    <main class="max-w-3xl mx-auto px-4 py-24 w-full">
+    <main class="max-w-6xl mx-auto px-4 py-24 w-full">
       <div class="w-full">
         <slot />
       </div>
@@ -97,9 +135,9 @@ const { title } = Astro.props;
     <script is:inline>
       const favicon = document.querySelector('link[rel="icon"]');
       const updateFavicon = () => {
-        const isDark = document.documentElement.classList.contains('dark');
+        const isDark = document.documentElement.classList.contains("dark");
         if (favicon) {
-          favicon.href = isDark ? '/favicon-dark.svg' : '/favicon-light.svg';
+          favicon.href = isDark ? "/favicon-dark.svg" : "/favicon-light.svg";
         }
       };
 
@@ -109,7 +147,7 @@ const { title } = Astro.props;
       // Create an observer to watch for class changes on the html element
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.attributeName === 'class') {
+          if (mutation.attributeName === "class") {
             updateFavicon();
           }
         });
@@ -126,12 +164,14 @@ const { title } = Astro.props;
     color-scheme: light dark;
   }
   html {
-    font-family: 'Onest Variable', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     height: 100%;
     scroll-behavior: smooth;
   }
   body {
     min-height: 100vh;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease;
   }
 </style>
