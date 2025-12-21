@@ -2,176 +2,160 @@
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems."
-    />
-    <meta
-      name="keywords"
-      content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack"
-    />
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems."
+        />
+        <meta
+            name="keywords"
+            content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack"
+        />
 
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
+        <!-- Google Fonts: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- Speed Insights -->
-    <SpeedInsights />
+        <!-- Speed Insights -->
+        <SpeedInsights />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Facu Rossi - Portfolio" />
-    <meta
-      property="og:description"
-      content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
-    />
-    <meta property="og:image" content="/social-share.png" />
-    <meta
-      property="og:url"
-      content="https://my-portfolio-seven-gules-67.vercel.app/"
-    />
-    <meta property="og:type" content="website" />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content="Facu Rossi - Portfolio" />
+        <meta
+            property="og:description"
+            content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+        />
+        <meta property="og:image" content="/social-share.png" />
+        <meta
+            property="og:url"
+            content="https://my-portfolio-seven-gules-67.vercel.app/"
+        />
+        <meta property="og:type" content="website" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Facu Rossi - Portfolio" />
-    <meta
-      name="twitter:description"
-      content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
-    />
-    <meta name="twitter:image" content="/social-share.png" />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Facu Rossi - Portfolio" />
+        <meta
+            name="twitter:description"
+            content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+        />
+        <meta name="twitter:image" content="/social-share.png" />
 
-    <!-- Favicon and Web Manifest -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+        <!-- Favicon and Web Manifest -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Dark Theme Initialization Script -->
-    <script is:inline>
-      (function () {
-        const savedTheme = localStorage.getItem("theme") || "system";
-        const systemDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        if (savedTheme === "dark" || (savedTheme === "system" && systemDark)) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-    </script>
+        <!-- Dark Theme Initialization Script -->
+        <script is:inline>
+            (function () {
+                const savedTheme = localStorage.getItem("theme") || "system";
+                const systemDark = window.matchMedia(
+                    "(prefers-color-scheme: dark)",
+                ).matches;
+                if (
+                    savedTheme === "dark" ||
+                    (savedTheme === "system" && systemDark)
+                ) {
+                    document.documentElement.classList.add("dark");
+                }
+            })();
+        </script>
 
-    <script is:inline type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Facundo Rossi",
-        "jobTitle": "Analista de Sistemas",
-        "url": "https://my-portfolio-seven-gules-67.vercel.app/",
-        "sameAs": [
-          "https://www.linkedin.com/in/facu-rossi-a5839a278/",
-          "https://github.com/facur3"
-        ],
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Universidad de Buenos Aires"
-        },
-        "hasOccupation": {
-          "@type": "Occupation",
-          "name": "Software Developer",
-          "skills": [
-            "JavaScript",
-            "Python",
-            "React",
-            "AI",
-            "Astro",
-            "Tailwind CSS"
-          ]
-        }
-      }
-    </script>
-  </head>
-  <body class="text-zinc-800 dark:text-zinc-100 bg-zinc-50 dark:bg-[#111]">
-    <!-- Background Layers -->
-    <div class="fixed inset-0 -z-50 bg-zinc-50 dark:hidden"></div>
-    <div class="fixed inset-0 -z-50 bg-[#111] hidden dark:block">
-      <!-- Premium dark gradient -->
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-      >
-      </div>
-      <div
-        class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-      >
-      </div>
-    </div>
+        <script is:inline type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Facundo Rossi",
+                "jobTitle": "Analista de Sistemas",
+                "url": "https://my-portfolio-seven-gules-67.vercel.app/",
+                "sameAs": [
+                    "https://www.linkedin.com/in/facu-rossi-a5839a278/",
+                    "https://github.com/facur3"
+                ],
+                "alumniOf": {
+                    "@type": "EducationalOrganization",
+                    "name": "Universidad de Buenos Aires"
+                },
+                "hasOccupation": {
+                    "@type": "Occupation",
+                    "name": "Software Developer",
+                    "skills": [
+                        "JavaScript",
+                        "Python",
+                        "React",
+                        "AI",
+                        "Astro",
+                        "Tailwind CSS"
+                    ]
+                }
+            }
+        </script>
+    </head>
+    <body
+        id="top"
+        class="bg-[#050505] text-white antialiased selection:bg-white/20"
+    >
+        <!-- Clean Minimalist Background -->
+        <div
+            class="fixed inset-0 -z-50 bg-[#050505] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))]"
+        >
+        </div>
 
-    <!-- Header Component -->
-    <Header />
+        <Navbar />
 
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 py-24 w-full">
-      <div class="w-full">
-        <slot />
-      </div>
-    </main>
+        <main class="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
+            <slot />
+        </main>
 
-    <Footer />
-
-    <!-- Dynamic Favicon Script -->
-    <script is:inline>
-      const favicon = document.querySelector('link[rel="icon"]');
-      const updateFavicon = () => {
-        const isDark = document.documentElement.classList.contains("dark");
-        if (favicon) {
-          favicon.href = isDark ? "/favicon-dark.svg" : "/favicon-light.svg";
-        }
-      };
-
-      // Run on initial load
-      updateFavicon();
-
-      // Create an observer to watch for class changes on the html element
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.attributeName === "class") {
-            updateFavicon();
-          }
-        });
-      });
-
-      // Start observing
-      observer.observe(document.documentElement, { attributes: true });
-    </script>
-  </body>
+        <Footer />
+    </body>
 </html>
 
 <style>
-  :root {
-    color-scheme: light dark;
-  }
-  html {
-    font-family: "Inter", system-ui, sans-serif;
-    height: 100%;
-    scroll-behavior: smooth;
-  }
-  body {
-    min-height: 100vh;
-    transition:
-      background 0.3s ease,
-      color 0.3s ease;
-  }
+    html {
+        font-family: "Inter", system-ui, sans-serif;
+        color-scheme: dark;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
 </style>

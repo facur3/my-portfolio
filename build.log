@@ -1,0 +1,22 @@
+
+> my-portfolio@0.0.1 build
+> astro build
+
+18:43:12 [content] Syncing content
+18:43:12 [content] Synced content
+18:43:12 [types] Generated 877ms
+18:43:12 [build] output: "static"
+18:43:12 [build] mode: "static"
+18:43:12 [build] directory: /home/facur3/Codigo/my-portfolio/dist/
+18:43:12 [build] Collecting build info...
+18:43:12 [build] ✓ Completed in 1.04s.
+18:43:12 [build] Building static entrypoints...
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+18:43:15 [ERROR] [vite] ✗ Build failed in 2.76s
+Could not resolve "../assets/images/yo.jpeg" from "src/components/Hero.astro"
+file: /home/facur3/Codigo/my-portfolio/src/components/Hero.astro
+  Stack trace:
+    at getRollupError (file:///home/facur3/Codigo/my-portfolio/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at ModuleLoader.handleInvalidResolvedId (file:///home/facur3/Codigo/my-portfolio/node_modules/rollup/dist/es/shared/node-entry.js:21590:24)

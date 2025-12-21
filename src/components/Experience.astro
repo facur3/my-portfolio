@@ -10,35 +10,42 @@ const experiences = [
 ];
 ---
 
-<div class="relative pl-6">
-  <!-- Modern Timeline Line with Gradient -->
-  <div class="absolute left-0 top-0 w-0.5 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-transparent z-0 opacity-50"></div>
-
-  <div class="space-y-12">
+<section id="experience" class="w-full">
+  <div class="space-y-6">
     {experiences.map((exp) => (
-        <!-- Timeline Dot with Pulse Effect -->
-        <div class="absolute left-[-31px] top-2 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-500 z-10 border-4 border-white dark:border-zinc-900 group-hover:scale-125 transition-transform duration-300">
-           <div class="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-75"></div>
-        </div>
-        
-        <div class="p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl hover:border-blue-500/30 dark:hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-            <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              {exp.title}
-            </h3>
-            <span class="text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full border border-blue-100 dark:border-blue-800">
-              {exp.period}
-            </span>
+      <div class="relative group">
+         <!-- Card -->
+        <div class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300">
+          
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+              
+             <div class="flex items-start gap-4">
+                 <div class="mt-1 p-2 rounded-lg bg-zinc-800 text-white">
+                      <!-- Briefcase Icon -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
+                 </div>
+                 <div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-zinc-200 transition-colors">
+                      {exp.title}
+                    </h3>
+                    <p class="text-zinc-400 font-medium">{exp.company}</p>
+                 </div>
+             </div>
+
+             <div class="flex items-center gap-2 text-zinc-500 text-sm font-medium bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
+                 {exp.period}
+                 {exp.company === "Tech Solutions Inc." && <span class="ml-2 text-zinc-600">| Remote</span>} 
+             </div>
           </div>
           
-          <p class="text-zinc-600 dark:text-zinc-400 mb-2 font-medium">{exp.company}</p>
-          <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base break-words whitespace-normal">
+          <p class="text-zinc-400 leading-relaxed text-base mb-6">
             {exp.description}
           </p>
           
-          <div class="flex flex-wrap gap-2 mt-6">
+          <div class="flex flex-wrap gap-2">
             {exp.tags.map(tag => (
-              <span class="px-3 py-1 text-xs font-medium rounded-full bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300 group-hover:border-blue-500/30 group-hover:bg-blue-50/50 dark:group-hover:bg-blue-900/10">
+              <span class="px-3 py-1 text-xs font-medium rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800">
                 {tag}
               </span>
             ))}

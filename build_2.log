@@ -1,0 +1,22 @@
+
+> my-portfolio@0.0.1 build
+> astro build
+
+18:45:46 [content] Syncing content
+18:45:46 [content] Synced content
+18:45:46 [types] Generated 1.11s
+18:45:46 [build] output: "static"
+18:45:46 [build] mode: "static"
+18:45:46 [build] directory: /home/facur3/Codigo/my-portfolio/dist/
+18:45:46 [build] Collecting build info...
+18:45:46 [build] ✓ Completed in 1.28s.
+18:45:46 [build] Building static entrypoints...
+Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+18:45:50 [ERROR] [vite] ✗ Build failed in 3.47s
+Could not resolve "./icons/LinkedIn.astro" from "src/components/Hero.astro"
+file: /home/facur3/Codigo/my-portfolio/src/components/Hero.astro
+  Stack trace:
+    at getRollupError (file:///home/facur3/Codigo/my-portfolio/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at ModuleLoader.handleInvalidResolvedId (file:///home/facur3/Codigo/my-portfolio/node_modules/rollup/dist/es/shared/node-entry.js:21590:24)

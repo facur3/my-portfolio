@@ -1,5 +1,5 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro"
+import ThemeToggle from "./ThemeToggle.astro";
 
 const navItems = [
   {
@@ -14,7 +14,7 @@ const navItems = [
   },
   {
     title: "Skills",
-    label: "skills", 
+    label: "skills",
     url: "#skills",
   },
   {
@@ -27,19 +27,26 @@ const navItems = [
     label: "contact",
     url: "#contact",
   },
-]
+];
 ---
-<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
-  <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center">
-    {navItems.map(link => (
-      <a
-        class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-        aria-label={link.label}
-        href={link.url}
-      >
-        {link.title}
-      </a>
-    ))}
+
+<header
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+>
+  <nav
+    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
     <ThemeToggle />
   </nav>
 </header>
@@ -50,8 +57,10 @@ const navItems = [
     const navLinks = document.querySelectorAll("header nav a");
 
     const callback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        const link = document.querySelector(`header nav a[aria-label="${entry.target.id}"]`);
+      entries.forEach((entry) => {
+        const link = document.querySelector(
+          `header nav a[aria-label="${entry.target.id}"]`,
+        );
         if (link) {
           link.classList.toggle("text-blue-500", entry.isIntersecting);
         }
@@ -64,7 +73,7 @@ const navItems = [
       threshold: 0.3,
     });
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
 
     // --- Hide header on scroll ---
     const header = document.querySelector("header");
@@ -75,19 +84,19 @@ const navItems = [
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 100) {
         // scrolling down
-        header.classList.add('header-hidden');
+        header.classList.add("header-hidden");
       } else {
         // scrolling up
-        header.classList.remove('header-hidden');
+        header.classList.remove("header-hidden");
       }
       lastScrollY = window.scrollY;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     document.addEventListener("astro:before-swap", () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     });
   });
 </script>
@@ -114,22 +123,34 @@ const navItems = [
   }
 
   .nav a:not(.text-blue-500):hover {
-    background: linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(165, 180, 252, 0.05));
+    background: linear-gradient(
+      45deg,
+      rgba(99, 102, 241, 0.05),
+      rgba(165, 180, 252, 0.05)
+    );
   }
 
   .nav a.text-blue-500 {
     color: #3b82f6;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.1),
+      rgba(139, 92, 246, 0.1)
+    );
     box-shadow: 0 2px 8px -2px rgba(59, 130, 246, 0.2);
   }
 
   .nav a.text-blue-500:hover {
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    background: linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.15),
+      rgba(139, 92, 246, 0.15)
+    );
     transform: translateY(-1px);
   }
 
   .nav a.text-blue-500::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -142,7 +163,7 @@ const navItems = [
   }
 
   .nav a.text-blue-500::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     right: -8px;

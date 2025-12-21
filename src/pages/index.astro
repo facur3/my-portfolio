@@ -1,53 +1,94 @@
 ---
-import Hero from '../components/Hero.astro';
-import Experience from '../components/Experience.astro';
-import Projects from '../components/Projects.astro';
-import Skills from '../components/Skills.astro';
-import Layout from '../layouts/Layout.astro';
-import About from '../components/AboutMe.astro';
-import ContactForm from '../components/ContactForm.astro';
+import Hero from "../components/Hero.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Layout from "../layouts/Layout.astro";
+import About from "../components/AboutMe.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
-<Layout title="Portfolio de Facu Rossi - Desarrollador Y Programador">
-  
+
+<Layout title="Facu Rossi | System Analyst">
   <!-- Hero Section -->
-  <Hero />
+  <section
+    id="top"
+    class="h-screen w-full snap-start snap-always shrink-0 flex items-center justify-center"
+  >
+    <Hero />
+  </section>
+
+  <!-- Skills Section -->
+  <section
+    id="skills"
+    class="min-h-screen w-full snap-start snap-always shrink-0 flex flex-col justify-center py-20"
+  >
+    <div class="mb-12 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        Arsenál Tecnológico
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+        Dominio de herramientas modernas para construir soluciones escalables y
+        robustas.
+      </p>
+    </div>
+    <Skills />
+  </section>
 
   <!-- Experience Section -->
-  <section id="experience" class="py-24 w-full">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+  <section
+    id="experience"
+    class="min-h-screen w-full snap-start snap-always shrink-0 flex flex-col justify-center py-20"
+  >
+    <div class="mb-12 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
         Experiencia Profesional
       </h2>
-      <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4 opacity-50"></div>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+        Trayectoria demostrada en entornos ágiles y proyectos de alto impacto.
+      </p>
     </div>
     <Experience />
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-24 w-full">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+  <section
+    id="projects"
+    class="min-h-screen w-full snap-start snap-always shrink-0 flex flex-col justify-center py-20"
+  >
+    <div class="mb-12 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
         Proyectos Destacados
       </h2>
-      <div class="h-px w-32 bg-gradient-to-r from-zinc-700 to-transparent mt-4 opacity-50"></div>
+      <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+        Una selección de soluciones técnicas que resuelven problemas reales.
+      </p>
     </div>
     <Projects />
   </section>
 
-  <!-- Skills Section -->
-  <Skills />
-
   <!-- About Me Section -->
-  <section id="about-me" class="py-24 w-full">
-    <About />
-  </section>
-
-  <!-- Contact Section-->
-  <section id="contact" class="py-24 w-full">
-    <div class="max-w-lg mx-auto bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md p-8 rounded-lg shadow-xl border border-white/20">
-      <h2 class="text-3xl font-bold text-center mb-6">Contáctame</h2>
-      <ContactForm action="https://formspree.io/f/mqaeldol" />
+  <section
+    id="about-me"
+    class="min-h-screen w-full snap-start snap-always shrink-0 flex items-center justify-center py-20"
+  >
+    <div class="w-full">
+      <About />
     </div>
   </section>
 
+  <!-- Contact Section-->
+  <section
+    id="contact"
+    class="h-screen w-full snap-start snap-always shrink-0 flex items-center justify-center"
+  >
+    <div
+      class="w-full max-w-lg mx-auto bg-zinc-900/50 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-zinc-800 shadow-2xl"
+    >
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold text-white mb-4">Contáctame</h2>
+        <p class="text-zinc-400">¿Tienes un proyecto en mente? Hablemos.</p>
+      </div>
+      <ContactForm action="https://formspree.io/f/mqaeldol" />
+    </div>
+  </section>
 </Layout>
