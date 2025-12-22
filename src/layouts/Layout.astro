@@ -10,7 +10,10 @@ const { title } = Astro.props;
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
         <title>{title}</title>
 
         <!-- SEO Meta Tags -->
@@ -124,7 +127,7 @@ const { title } = Astro.props;
     </head>
     <body
         id="top"
-        class="bg-[#050505] text-white antialiased selection:bg-white/20"
+        class="bg-[#050505] text-white antialiased selection:bg-white/20 w-full overflow-x-hidden pt-[env(safe-area-inset-top)]"
     >
         <!-- Clean Minimalist Background -->
         <div
@@ -139,6 +142,29 @@ const { title } = Astro.props;
         </main>
 
         <Footer />
+
+        <!-- Scroll to Top Button (Mobile Only) -->
+        <button
+            id="scroll-to-top"
+            aria-label="Volver arriba"
+            class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-zinc-900/90 text-white shadow-lg backdrop-blur-sm border border-zinc-700/50 opacity-0 translate-y-10 pointer-events-none transition-all duration-300 md:hidden"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-6"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 5l0 14"></path>
+                <path d="M18 11l-6 -6"></path>
+                <path d="M6 11l6 -6"></path>
+            </svg>
+        </button>
     </body>
 </html>
 
@@ -147,6 +173,7 @@ const { title } = Astro.props;
         font-family: "Inter", system-ui, sans-serif;
         color-scheme: dark;
         scroll-behavior: smooth;
+        scroll-padding-top: 100px;
     }
 
     @keyframes fade-in-up {
@@ -163,4 +190,83 @@ const { title } = Astro.props;
     .animate-fade-in-up {
         animation: fade-in-up 0.8s ease-out forwards;
     }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hide Scroll to Top when Mobile Menu is Open */
+    body.menu-open #scroll-to-top {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(
+            10px
+        ); /* Optional: move it down slightly for effect */
+    }
 </style>
+
+<script>
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    document.addEventListener("astro:page-load", () => {
+        document
+            .querySelectorAll(".reveal")
+            .forEach((el) => observer.observe(el));
+    });
+
+    // Fallback for initial load if not using ViewTransitions or similar
+    document.addEventListener("DOMContentLoaded", () => {
+        document
+            .querySelectorAll(".reveal")
+            .forEach((el) => observer.observe(el));
+    });
+
+    // Scroll to Top Logic
+    const scrollBtn = document.getElementById("scroll-to-top");
+
+    if (scrollBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 1300) {
+                scrollBtn.classList.remove(
+                    "opacity-0",
+                    "translate-y-10",
+                    "pointer-events-none",
+                );
+            } else {
+                scrollBtn.classList.add(
+                    "opacity-0",
+                    "translate-y-10",
+                    "pointer-events-none",
+                );
+            }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+    }
+</script>

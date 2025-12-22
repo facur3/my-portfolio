@@ -10,29 +10,37 @@ const experiences = [
 ];
 ---
 
-<section id="experience" class="w-full">
-  <div class="space-y-6">
+<section id="experience" class="w-full relative">
+  <!-- Vertical Timeline Line -->
+  <div class="absolute left-0 md:left-[19px] top-4 bottom-0 w-[2px] bg-zinc-800 hidden md:block"></div>
+
+  <div class="space-y-12">
     {experiences.map((exp) => (
-      <div class="relative group">
+      <div class="relative group pl-0 md:pl-12 reveal">
+         <!-- Timeline Dot -->
+         <div class="absolute left-0 top-8 w-[40px] h-[40px] bg-[#050505] border border-zinc-800 rounded-full items-center justify-center hidden md:flex z-10 group-hover:border-white/50 transition-colors">
+            <div class="w-2.5 h-2.5 bg-zinc-600 rounded-full group-hover:bg-white transition-colors"></div>
+         </div>
+
          <!-- Card -->
-        <div class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300">
+        <div class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           
           <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               
              <div class="flex items-start gap-4">
-                 <div class="mt-1 p-2 rounded-lg bg-zinc-800 text-white">
-                      <!-- Briefcase Icon -->
+                 <div class="mt-1 p-2 rounded-lg bg-zinc-800 text-white md:hidden">
+                      <!-- Mobile Icon (Only visible when timeline dot is hidden) -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>
                  </div>
                  <div>
-                    <h3 class="text-xl font-bold text-white group-hover:text-zinc-200 transition-colors">
+                    <h3 class="text-xl font-bold text-white transition-colors">
                       {exp.title}
                     </h3>
                     <p class="text-zinc-400 font-medium">{exp.company}</p>
                  </div>
              </div>
 
-             <div class="flex items-center gap-2 text-zinc-500 text-sm font-medium bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-lg">
+             <div class="flex items-center gap-2 text-zinc-500 text-sm font-medium bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-lg self-start">
                   <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
                  {exp.period}
                  {exp.company === "Tech Solutions Inc." && <span class="ml-2 text-zinc-600">| Remote</span>} 
@@ -45,7 +53,7 @@ const experiences = [
           
           <div class="flex flex-wrap gap-2">
             {exp.tags.map(tag => (
-              <span class="px-3 py-1 text-xs font-medium rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800">
+              <span class="px-3 py-1 text-xs font-medium rounded-lg bg-zinc-900 text-zinc-400 border border-zinc-800 group-hover:border-zinc-700 group-hover:text-zinc-300 transition-colors">
                 {tag}
               </span>
             ))}
@@ -54,4 +62,4 @@ const experiences = [
       </div>
     ))}
   </div>
-</div>
+</section>

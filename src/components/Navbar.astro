@@ -5,7 +5,7 @@ const navItems = [
   {
     title: "Home",
     label: "home",
-    url: "#top",
+    url: "/#top",
   },
   {
     title: "Skills",
@@ -39,12 +39,12 @@ const navItems = [
   class="fixed top-0 left-0 w-full z-50 bg-[#050505]/50 backdrop-blur-xl border-b border-white/5 transition-all duration-300"
 >
   <div
-    class="max-w-7xl mx-auto px-3 md:px-12 py-2 md:py-0 h-auto md:h-20 flex items-center justify-between"
+    class="max-w-7xl mx-auto px-4 md:px-12 py-2 md:py-0 h-auto md:h-20 flex items-center justify-between"
   >
     <!-- Logo Text -->
     <a
-      href="#top"
-      class="text-xl font-medium tracking-tight text-white hover:opacity-80 transition-opacity"
+      href="/#top"
+      class="text-xs md:text-xl font-medium tracking-tight text-white hover:opacity-80 transition-opacity"
     >
       Facu Rossi
     </a>
@@ -67,24 +67,122 @@ const navItems = [
       </div>
     </nav>
 
-    <!-- Mobile Menu Button (Simple) -->
-    <button class="md:hidden text-white" aria-label="Menu">
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-btn"
+      class="md:hidden text-white z-50 relative p-2"
+      aria-label="Menu"
+    >
+      <!-- Hamburger Icon -->
       <svg
+        id="icon-menu"
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        class="size-6 transition-transform duration-300"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        ><line x1="3" y1="12" x2="21" y2="12"></line><line
-          x1="3"
-          y1="6"
-          x2="21"
-          y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg
       >
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+
+      <!-- Close Icon -->
+      <svg
+        id="icon-close"
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-6 absolute top-2 left-2 opacity-0 -rotate-90 scale-50 transition-all duration-300"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6l-12 12"></path>
+        <path d="M6 6l12 12"></path>
+      </svg>
     </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 w-full h-[100dvh] z-40 bg-[#050505]/95 backdrop-blur-3xl opacity-0 pointer-events-none transition-all duration-500 flex flex-col items-center justify-center md:hidden"
+    >
+      <nav class="flex flex-col items-center gap-8">
+        {
+          navItems.map((item, index) => (
+            <a
+              href={item.url}
+              class="mobile-link text-2xl font-light text-zinc-400 hover:text-white transition-colors translate-y-8 opacity-0"
+              style={`transition-delay: ${index * 50}ms`}
+            >
+              {item.title}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
   </div>
 </header>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    // Toggle Menu Visibility
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "hidden"; // Lock Scroll
+      document.body.classList.add("menu-open"); // Signal for other components
+
+      // Animate Links In
+      mobileLinks.forEach((link) => {
+        link.classList.remove("translate-y-8", "opacity-0");
+      });
+
+      // Toggle Icons
+      iconMenu?.classList.add("opacity-0", "rotate-90", "scale-50");
+      iconClose?.classList.remove("opacity-0", "-rotate-90", "scale-50");
+    } else {
+      mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = ""; // Unlock Scroll
+      document.body.classList.remove("menu-open");
+
+      // Animate Links Out
+      mobileLinks.forEach((link) => {
+        link.classList.add("translate-y-8", "opacity-0");
+      });
+
+      // Toggle Icons
+      iconMenu?.classList.remove("opacity-0", "rotate-90", "scale-50");
+      iconClose?.classList.add("opacity-0", "-rotate-90", "scale-50");
+    }
+  }
+
+  menuBtn?.addEventListener("click", toggleMenu);
+
+  // Close menu when clicking on the overlay (outside nav)
+  mobileMenu?.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      toggleMenu();
+    }
+  });
+
+  // Close menu when clicking a link
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+</script>

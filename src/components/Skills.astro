@@ -64,10 +64,10 @@ const SKILLS: Record<string, SkillCategory> = {
 };
 ---
 
-<section id="skills" class="w-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<section id="skills" class="w-full h-auto min-h-0 flex flex-col gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {Object.values(SKILLS).map((category) => (
-            <div class="group p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300">
+            <div class="group p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300 reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <!-- Icon Placeholder -->
                     <div class={`p-2 rounded-lg bg-zinc-800/50 text-white ${category.icon === 'code' ? 'text-blue-400' : category.icon === 'server' ? 'text-purple-400' : category.icon === 'globe' ? 'text-green-400' : 'text-orange-400'}`}>

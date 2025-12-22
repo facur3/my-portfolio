@@ -7,17 +7,19 @@ import GitHub from "./icons/GitHub.astro";
 ---
 
 <section
-  class="w-full min-h-[90vh] flex items-center pt-10 md:pt-20 pb-12 md:pb-20 animate-fade-in-up"
+  class="w-full min-h-[100dvh] flex flex-col md:flex-row items-center justify-start md:justify-center pt-36 pb-12 md:py-0 animate-fade-in-up"
   data-aos="fade-up"
 >
-  <div class="flex flex-col md:flex-row gap-12 lg:gap-20 items-center w-full">
+  <div
+    class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full"
+  >
     <!-- Left Column: Content -->
     <div
       class="flex flex-col space-y-8 order-2 md:order-1 flex-1 text-center md:text-left items-center md:items-start"
     >
       <div class="space-y-6">
         <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+          class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
         >
           Hello, I'm <br />
           <span class="text-zinc-400">Facundo Rossi</span>
@@ -111,7 +113,7 @@ import GitHub from "./icons/GitHub.astro";
 
       <div class="relative flex flex-col items-center gap-6">
         <div
-          class="relative w-48 h-48 md:w-80 md:h-80 rounded-full overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl"
+          class="relative flex-shrink-0 w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 rounded-full overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl"
         >
           <Image
             src={profileImg}

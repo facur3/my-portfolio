@@ -1,10 +1,18 @@
 ---
-import SocialIcon from './SocialIcon.astro';
+import SocialIcon from "./SocialIcon.astro";
 ---
-<footer class="mt-24 w-full max-w-3xl mx-auto px-4 py-8 border-t border-zinc-300/50 dark:border-zinc-700/50 text-center text-zinc-600 dark:text-zinc-400 text-sm">
+
+<footer
+  class="mt-24 w-full max-w-3xl mx-auto px-4 py-8 border-t border-zinc-300/50 dark:border-zinc-700/50 text-center text-zinc-600 dark:text-zinc-400 text-sm"
+>
   <div class="flex justify-center gap-6 mb-4">
     <SocialIcon platform="github" href="https://github.com/facur3" />
-    <SocialIcon platform="linkedin" href="https://www.linkedin.com/in/facu-rossi-a5839a278/" />
+    <SocialIcon
+      platform="linkedin"
+      href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
+    />
   </div>
-  <p>&copy; {new Date().getFullYear()} Facu Rossi. Todos los derechos reservados.</p>
+  <p>
+    &copy; {new Date().getFullYear()} Facu Rossi. Todos los derechos reservados.
+  </p>
 </footer>
