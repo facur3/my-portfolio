@@ -134,7 +134,7 @@ const { title } = Astro.props;
 
         <Navbar />
 
-        <main class="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
+        <main class="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <slot />
         </main>
 
@@ -146,16 +146,6 @@ const { title } = Astro.props;
     html {
         font-family: "Inter", system-ui, sans-serif;
         color-scheme: dark;
-        height: 100vh;
-        width: 100vw;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-    }
-
-    body {
-        height: 100vh;
-        width: 100vw;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
     }
 </style>
