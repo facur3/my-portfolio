@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Code } from "astro:components";
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
 import HTML from "./icons/HTML.astro";
@@ -8,13 +8,6 @@ import JavaScript from "./icons/JavaScript.astro";
 import Python from "./icons/Python.astro";
 import Java from "./icons/Java.astro";
 import Terminal from "./icons/Terminal.astro";
-
-import personalPortfolioImg from "../assets/images/personal-portfolio.png";
-import javaAstarImg from "../assets/images/java-astar.png";
-import prospectingImg from "../assets/images/prospecting-calculator.png";
-import fifteenPuzzleImg from "../assets/images/fifteen-puzzle.png";
-import plagioImg from "../assets/images/plagio.jpg";
-import firstWebsiteImg from "../assets/images/first-website.png";
 
 const TAGS = {
     HTML: {
@@ -69,7 +62,33 @@ const PROJECTS = [
         title: "Sistema de Navegación Autónoma (Java A*)",
         description:
             "Simulador de tráfico urbano (inspirado en GTA) desarrollado en Java. Implementa el algoritmo de búsqueda A* (A-Star) con heurística Manhattan sobre grafos ponderados para el cálculo óptimo de rutas en tiempo real. Arquitectura robusta con patrones de diseño, persistencia de datos y testing unitario con JUnit 5.",
-        image: javaAstarImg,
+        code: `public class NavigationSystem {
+    public List<Node> findPath(Node start, Node goal) {
+        PriorityQueue<Node> openSet = new PriorityQueue<>();
+        start.setG(0); 
+        start.setH(calculateManhattan(start, goal));
+        openSet.add(start);
+
+        while (!openSet.isEmpty()) {
+            Node current = openSet.poll();
+            if (current.equals(goal)) return reconstructPath(current);
+
+            for (Edge edge : current.getEdges()) {
+                Node neighbor = edge.getTarget();
+                double tentativeG = current.getG() + edge.getWeight();
+                
+                if (tentativeG < neighbor.getG()) {
+                    neighbor.setParent(current);
+                    neighbor.setG(tentativeG);
+                    neighbor.setH(calculateManhattan(neighbor, goal));
+                    if (!openSet.contains(neighbor)) openSet.add(neighbor);
+                }
+            }
+        }
+        return Collections.emptyList(); // No path found
+    }
+}`,
+        lang: "java",
         github: "https://github.com/facur3/tpg-2c2025-recursivos",
         tags: [
             {
@@ -94,7 +113,30 @@ const PROJECTS = [
         title: "Data Scraper & Probabilistic Calculator",
         description:
             "Herramienta de ingeniería de datos y automatización para análisis económico. Backend en Python que utiliza BeautifulSoup y expresiones regulares (Regex) avanzadas para extraer, limpiar y normalizar miles de registros de datos web en tiempo real. Frontend reactivo para el cálculo estadístico de probabilidades.",
-        image: prospectingImg,
+        code: `class DataScraper:
+    def __init__(self, base_url):
+        self.session =  requests.Session()
+        self.headers = {'User-Agent': 'Mozilla/5.0...'}
+
+    def fetch_data(self, endpoint):
+        response = self.session.get(endpoint, headers=self.headers)
+        if response.status_code == 200:
+            return self.parse_html(response.text)
+        raise ConnectionError(f"Failed to fetch {endpoint}")
+
+    def parse_html(self, html):
+        soup = BeautifulSoup(html, 'lxml')
+        items = []
+        # Advanced Regex for cleaning messy data
+        price_pattern = re.compile(r'[\d\.,]+')
+        
+        for row in soup.select('.data-table tr'):
+            raw_price = row.select_one('.price').text
+            clean_price = float(price_pattern.search(raw_price).group().replace(',', ''))
+            items.append({'price': clean_price, 'timestamp': datetime.now()})
+            
+        return pd.DataFrame(items)`,
+        lang: "python",
         demo: "https://prospecting-calculator.vercel.app/",
         github: "https://github.com/facur3/prospecting-calculator",
         tags: [
@@ -120,7 +162,32 @@ const PROJECTS = [
         title: "Portfolio Personal",
         description:
             "Portfolio profesional con diseño moderno y responsivo, optimizado para todas las plataformas. Incluye animaciones fluidas, tema claro/oscuro automático y arquitectura escalable.",
-        image: personalPortfolioImg,
+        code: `---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<Layout title="Facu Rossi | Portfolio">
+  <main class="snap-y snap-mandatory h-screen overflow-y-scroll w-full">
+    
+    <section class="snap-start h-screen flex items-center justify-center">
+      <Hero />
+    </section>
+
+    <section class="snap-start min-h-screen py-24 flex flex-col items-center">
+      <Projects />
+      <!-- Lazy loaded with IntersectionObserver -->
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  html { scroll-behavior: smooth; }
+  /* Custom scrollbar logic */
+</style>`,
+        lang: "astro",
         github: "https://github.com/facur3/Portafolio",
         demo: "https://facur3.github.io/Portafolio/",
         tags: [TAGS.HTML, TAGS.RESPONSIVENESS],
@@ -130,7 +197,35 @@ const PROJECTS = [
         title: "Juego Fifteen Puzzle",
         description:
             "Implementación del clásico rompecabezas con mecánicas de juego optimizadas. Lógica compleja en Vanilla JS.",
-        image: fifteenPuzzleImg,
+        code: `class FifteenPuzzle {
+  constructor(size = 4) {
+    this.size = size;
+    this.grid = this.initGrid();
+    this.emptyPos = { r: size-1, c: size-1 };
+  }
+
+  moveTile(r, c) {
+    if (!this.isValidMove(r, c)) return false;
+    
+    // Swap tile with empty space
+    this.grid[this.emptyPos.r][this.emptyPos.c] = this.grid[r][c];
+    this.grid[r][c] = 0;
+    this.emptyPos = { r, c };
+    
+    this.checkWinCondition();
+    return true;
+  }
+
+  shuffle() {
+    // Fisher-Yates shuffle optimized for 2D grid
+    // Ensures solvability invariant is maintained
+    for (let i = this.grid.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        // Swap logic...
+    }
+  }
+}`,
+        lang: "js",
         github: "https://github.com/facur3/Fifteen",
         demo: "https://facur3.github.io/Fifteen/",
         tags: [TAGS.JAVASCRIPT, TAGS.GAMEDEVELOPMENT],
@@ -140,7 +235,26 @@ const PROJECTS = [
         title: "Detector de Plagio",
         description:
             "Sistema avanzado de detección de plagio utilizando procesamiento de lenguaje natural (NLP) para comparar documentos y calcular similitud semántica con alta precisión.",
-        image: plagioImg,
+        code: `import spacy
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+nlp = spacy.load("es_core_news_sm")
+
+def check_plagiarism(doc1, doc2):
+    # Preprocessing: Tokenization & Lemmatization
+    tokens1 = " ".join([token.lemma_ for token in nlp(doc1) if not token.is_stop])
+    tokens2 = " ".join([token.lemma_ for token in nlp(doc2) if not token.is_stop])
+    
+    # Vectorization (TF-IDF)
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform([tokens1, tokens2])
+    
+    # Cosine Similarity Calculation
+    similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
+    
+    return similarity[0][0] # Returns score between 0 and 1`,
+        lang: "python",
         github: "https://github.com/facur3/plagios",
         tags: [TAGS.PYTHON, TAGS.NLP],
         featured: false,
@@ -149,7 +263,39 @@ const PROJECTS = [
         title: "Landing Page Corporativa",
         description:
             "Sitio web comercial desarrollado con arquitectura CSS modular y metodologías BEM. Enfoque en SEO, rendimiento y experiencia de usuario fluida.",
-        image: firstWebsiteImg,
+        code: `// SCSS Modular Architecture
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.hero-section {
+    @include flex-center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($primary-color, 0.8),
+        rgba($secondary-color, 0.8)
+    ), url('../images/hero-bg.jpg');
+    
+    &__title {
+        font-size: 4rem;
+        letter-spacing: 2px;
+        animation: moveInLeft 1s ease-out;
+        
+        @include respond(phone) {
+            font-size: 3rem;
+        }
+    }
+
+    &__cta-button {
+        @include btn-primary;
+        box-shadow: $shadow-light;
+        
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: $shadow-dark;
+        }
+    }
+}`,
+        lang: "scss",
         github: "https://github.com/facur3/PFRossi",
         demo: "https://facur3.github.io/PFRossi/",
         tags: [TAGS.HTML, TAGS.SASS],
@@ -158,100 +304,95 @@ const PROJECTS = [
 ];
 ---
 
-<section id="projects" class="w-full flex flex-col justify-center h-full">
-    <div class="w-full max-w-7xl mx-auto px-4">
-        <!-- Compact Grid: 6 items fit in 2 rows -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {
-                PROJECTS.map(
-                    ({ image, title, description, tags, demo, github }) => (
-                        <article class="group relative flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 shadow-sm p-4">
-                            {/* Compact Image Section */}
-                            <div class="relative w-full h-32 overflow-hidden bg-zinc-100 dark:bg-zinc-800 rounded-lg mb-4">
-                                <Image
-                                    src={image}
-                                    alt={title}
-                                    class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
-                                    loading="lazy"
-                                />
+<section class="w-full max-w-6xl mx-auto px-4 py-12 flex flex-col gap-24">
+    {
+        PROJECTS.map((project) => (
+            <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                {/* 2. FIX: Consistent Background Color & No Scrollbars */}
+                <div class="relative w-full h-[400px] rounded-xl shadow-2xl border border-white/10 bg-[#0f1117] overflow-hidden group">
+                    <div class="h-8 bg-[#1f2937]/50 flex items-center px-4 gap-2 border-b border-white/5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80" />
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80" />
+                        <div class="w-3 h-3 rounded-full bg-green-500/80" />
+                    </div>
 
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div class="p-6 overflow-hidden h-full">
+                        <Code
+                            code={project.code}
+                            lang={project.lang}
+                            theme="github-dark"
+                            class="!bg-transparent text-xs md:text-sm leading-relaxed overflow-hidden"
+                        />
+                    </div>
 
-                                <div class="absolute top-2 right-2 flex gap-2 translate-y-[-10px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    {github && (
-                                        <a
-                                            href={github}
-                                            target="_blank"
-                                            class="p-1.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border border-zinc-200 dark:border-zinc-700 rounded-full text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-all"
-                                            aria-label="View Source"
-                                        >
-                                            <GitHub class="size-3" />
-                                        </a>
-                                    )}
-                                    {demo && (
-                                        <a
-                                            href={demo}
-                                            target="_blank"
-                                            class="p-1.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border border-zinc-200 dark:border-zinc-700 rounded-full text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-all"
-                                            aria-label="View Demo"
-                                        >
-                                            <Link class="size-3" />
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
+                    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#0f1117] to-transparent pointer-events-none" />
+                </div>
 
-                            {/* Dense Content Section */}
-                            <div class="flex flex-col flex-grow">
-                                <div class="mb-2">
-                                    <h3 class="text-sm font-bold text-zinc-900 dark:text-white mb-1 truncate">
-                                        {title}
-                                    </h3>
-                                    <p class="text-xs text-zinc-700 dark:text-zinc-400 leading-snug line-clamp-2">
-                                        {description}
-                                    </p>
-                                </div>
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold text-zinc-900 dark:text-white">
+                        {project.title}
+                    </h3>
+                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
+                        {project.description}
+                    </p>
 
-                                <div class="mt-auto flex flex-wrap gap-1.5">
-                                    {tags.slice(0, 3).map((tag) => (
-                                        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-                                            {tag.icon && (
-                                                <tag.icon class="size-2.5 mr-1" />
-                                            )}
-                                            {tag.name}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </article>
-                    ),
-                )
-            }
-        </div>
+                    <div class="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                                {tag.icon && <tag.icon class="size-3" />}
+                                {tag.name}
+                            </span>
+                        ))}
+                    </div>
 
-        <!-- Small View All Button -->
-        <div class="flex justify-center mt-6">
-            <a
-                href="https://github.com/facur3?tab=repositories"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-zinc-900 hover:bg-zinc-800 rounded-full transition-all duration-300 shadow hover:shadow-md"
+                    <div class="flex gap-4 pt-2">
+                        {project.github && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold hover:opacity-90 transition-opacity text-sm"
+                            >
+                                <GitHub class="size-4" />
+                                Ver Código
+                            </a>
+                        )}
+                        {project.demo && (
+                            <a
+                                href={project.demo}
+                                target="_blank"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-sm"
+                            >
+                                <Link class="size-4" />
+                                Live Demo
+                            </a>
+                        )}
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+
+    {/* View All Button */}
+    <div class="flex justify-center mt-12">
+        <a
+            href="https://github.com/facur3?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
+        >
+            Ver más proyectos en GitHub
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M17 7l-10 10"></path><path d="M8 7l9 0l0 9"></path></svg
             >
-                Ver más en GitHub
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-3 h-3"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><path stroke="none" d="M0 0h24v24H0z" fill="none"
-                    ></path><path d="M17 7l-10 10"></path><path d="M8 7l9 0l0 9"
-                    ></path></svg
-                >
-            </a>
-        </div>
+        </a>
     </div>
 </section>
