@@ -127,11 +127,11 @@ const { title } = Astro.props;
     </head>
     <body
         id="top"
-        class="bg-[#050505] text-white antialiased selection:bg-white/20 w-full overflow-x-hidden pt-[env(safe-area-inset-top)]"
+        class="bg-zinc-100 dark:bg-[#050505] text-zinc-900 dark:text-white antialiased selection:bg-zinc-300 dark:selection:bg-white/20 w-full overflow-x-hidden pt-[env(safe-area-inset-top)] transition-colors duration-300"
     >
         <!-- Clean Minimalist Background -->
         <div
-            class="fixed inset-0 -z-50 bg-[#050505] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))]"
+            class="fixed inset-0 -z-50 bg-gradient-to-br from-zinc-50 to-zinc-200 dark:bg-[#050505] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] transition-colors duration-300"
         >
         </div>
 
@@ -147,7 +147,7 @@ const { title } = Astro.props;
         <button
             id="scroll-to-top"
             aria-label="Volver arriba"
-            class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-zinc-900/90 text-white shadow-lg backdrop-blur-sm border border-zinc-700/50 opacity-0 translate-y-10 pointer-events-none transition-all duration-300 md:hidden"
+            class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-zinc-900/90 text-zinc-900 dark:text-white shadow-lg backdrop-blur-sm border border-zinc-300 dark:border-zinc-700/50 opacity-0 translate-y-10 pointer-events-none transition-all duration-300 md:hidden"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,9 +171,12 @@ const { title } = Astro.props;
 <style is:global>
     html {
         font-family: "Inter", system-ui, sans-serif;
-        color-scheme: dark;
         scroll-behavior: smooth;
         scroll-padding-top: 100px;
+    }
+
+    html.dark {
+        color-scheme: dark;
     }
 
     @keyframes fade-in-up {

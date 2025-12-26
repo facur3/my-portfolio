@@ -1,9 +1,4 @@
 ---
-import JavaScript from "./icons/JavaScript.astro";
-import Python from "./icons/Python.astro";
-import HTML from "./icons/HTML.astro";
-import CSS from "./icons/CSS.astro";
-
 interface Skill {
   name: string;
   icon?: string;
@@ -67,10 +62,10 @@ const SKILLS: Record<string, SkillCategory> = {
 <section id="skills" class="w-full h-auto min-h-0 flex flex-col gap-10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
         {Object.values(SKILLS).map((category) => (
-            <div class="group p-8 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700 transition-all duration-300 reveal">
+            <div class="group p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/20 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <!-- Icon Placeholder -->
-                    <div class={`p-2 rounded-lg bg-zinc-800/50 text-white ${category.icon === 'code' ? 'text-blue-400' : category.icon === 'server' ? 'text-purple-400' : category.icon === 'globe' ? 'text-green-400' : 'text-orange-400'}`}>
+                    <div class={`p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/50 ${category.icon === 'code' ? 'text-blue-500 dark:text-blue-400' : category.icon === 'server' ? 'text-purple-500 dark:text-purple-400' : category.icon === 'globe' ? 'text-green-500 dark:text-green-400' : 'text-orange-500 dark:text-orange-400'}`}>
                          {category.icon === "code" && (
                             <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
                         )}
@@ -84,14 +79,14 @@ const SKILLS: Record<string, SkillCategory> = {
                              <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
                          )}
                     </div>
-                    <h3 class="text-xl font-semibold text-white group-hover:text-zinc-200 transition-colors">
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-white group-hover:text-zinc-700 dark:group-hover:text-zinc-200 transition-colors">
                         {category.title}
                     </h3>
                 </div>
                 
                 <div class="flex flex-wrap gap-3">
                     {category.skills.map((skill) => (
-                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors cursor-default">
+                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors cursor-default">
                             {skill.component && <skill.component class="size-4" />}
                             <span class="text-sm font-medium">{skill.name}</span>
                         </div>

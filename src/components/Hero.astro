@@ -19,29 +19,32 @@ import GitHub from "./icons/GitHub.astro";
     >
       <div class="space-y-6">
         <h1
-          class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+          class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]"
         >
           Hello, I'm <br />
-          <span class="text-zinc-400">Facundo Rossi</span>
+          <span class="text-zinc-500 dark:text-zinc-400">Facundo Rossi</span>
         </h1>
 
         <p
-          class="text-zinc-400 leading-relaxed text-lg max-w-lg mx-auto md:mx-0"
+          class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg max-w-lg mx-auto md:mx-0"
         >
           Advanced Systems Analysis student at <span
-            class="text-white font-medium">UBA (FIUBA)</span
-          >. Passionate about building <span class="text-white font-medium"
+            class="text-zinc-900 dark:text-white font-medium">UBA (FIUBA)</span
+          >. Passionate about building <span
+            class="text-zinc-900 dark:text-white font-medium"
             >efficient, scalable software</span
           > and solving complex problems through <span
-            class="text-white font-medium">Backend</span
-          > and <span class="text-white font-medium">Infrastructure</span> solutions.
+            class="text-zinc-900 dark:text-white font-medium">Backend</span
+          > and <span class="text-zinc-900 dark:text-white font-medium"
+            >Infrastructure</span
+          > solutions.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
           <a
             href="/resume.pdf"
             download
-            class="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-zinc-900 bg-white rounded-lg hover:bg-zinc-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
+            class="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white dark:text-zinc-900 bg-zinc-900 dark:bg-white rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
           >
             Descargar CV / Resumé
           </a>
@@ -51,20 +54,25 @@ import GitHub from "./icons/GitHub.astro";
           <a
             href="https://github.com/facur3"
             target="_blank"
-            class="p-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
           >
             <GitHub class="size-5" />
           </a>
           <a
             href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
             target="_blank"
-            class="p-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
           >
             <LinkedInIcon class="size-5" />
           </a>
           <a
-            href="mailto:facundocrossi@gmail.com"
-            class="p-3 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
+            href="mailto:facurossi33@gmail.com"
+            aria-label="Email"
+            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
           >
             <MailIcon class="size-5" />
           </a>
@@ -76,7 +84,8 @@ import GitHub from "./icons/GitHub.astro";
         class="flex items-center gap-8 md:gap-12 pt-4 justify-center md:justify-start"
       >
         <div>
-          <span class="block text-2xl md:text-3xl font-bold text-white"
+          <span
+            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
             >10+</span
           >
           <span class="text-xs text-zinc-500 uppercase tracking-wider"
@@ -84,14 +93,17 @@ import GitHub from "./icons/GitHub.astro";
           >
         </div>
         <div>
-          <span class="block text-2xl md:text-3xl font-bold text-white">3+</span
+          <span
+            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
+            >3+</span
           >
           <span class="text-xs text-zinc-500 uppercase tracking-wider"
             >Years Coding</span
           >
         </div>
         <div>
-          <span class="block text-2xl md:text-3xl font-bold text-white"
+          <span
+            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
             >100%</span
           >
           <span class="text-xs text-zinc-500 uppercase tracking-wider"
@@ -107,13 +119,13 @@ import GitHub from "./icons/GitHub.astro";
     >
       <!-- Circle Backdrop -->
       <div
-        class="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-zinc-800/20 rounded-full blur-3xl -z-10"
+        class="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-zinc-300/30 dark:bg-zinc-800/20 rounded-full blur-3xl -z-10"
       >
       </div>
 
       <div class="relative flex flex-col items-center gap-6">
         <div
-          class="relative flex-shrink-0 w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 rounded-full overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl"
+          class="relative flex-shrink-0 w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl"
         >
           <Image
             src={profileImg}
@@ -126,7 +138,7 @@ import GitHub from "./icons/GitHub.astro";
         <!-- Available for Hire Badge - Flex Item Below Image -->
         <div class="z-20 w-max">
           <div
-            class="flex items-center gap-3 px-5 py-2 bg-zinc-900/90 backdrop-blur-md border border-zinc-800 rounded-full shadow-2xl"
+            class="flex items-center gap-3 px-5 py-2 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-2xl"
           >
             <span class="relative flex h-3 w-3">
               <span
@@ -136,7 +148,8 @@ import GitHub from "./icons/GitHub.astro";
                 class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
               ></span>
             </span>
-            <span class="text-sm font-semibold text-white tracking-wide"
+            <span
+              class="text-sm font-semibold text-zinc-900 dark:text-white tracking-wide"
               >Disponible para trabajar</span
             >
           </div>
