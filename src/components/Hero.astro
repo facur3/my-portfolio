@@ -7,7 +7,7 @@ import GitHub from "./icons/GitHub.astro";
 ---
 
 <section
-  class="w-full min-h-[100dvh] flex flex-col md:flex-row items-center justify-start md:justify-center pt-36 pb-12 md:py-0 animate-fade-in-up"
+  class="w-full min-h-[100dvh] flex flex-col md:flex-row items-center justify-start md:justify-center pt-36 pb-12 md:py-0"
   data-aos="fade-up"
 >
   <div
@@ -18,15 +18,37 @@ import GitHub from "./icons/GitHub.astro";
       class="flex flex-col space-y-8 order-2 md:order-1 flex-1 text-center md:text-left items-center md:items-start"
     >
       <div class="space-y-6">
-        <h1
-          class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]"
+        <!-- Main Heading -->
+        <div>
+          <p
+            class="text-sm md:text-base font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest mb-2"
+          >
+            Hello, I'm
+          </p>
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]"
+          >
+            Facundo Rossi
+          </h1>
+        </div>
+
+        <!-- Typewriter Effect -->
+        <div
+          class="min-h-[2.5rem] md:min-h-[3rem] flex items-center justify-center md:justify-start"
         >
-          Hello, I'm <br />
-          <span class="text-zinc-500 dark:text-zinc-400">Facundo Rossi</span>
-        </h1>
+          <span
+            id="typewriter"
+            class="text-xl md:text-2xl lg:text-3xl font-semibold text-zinc-800 dark:text-zinc-100"
+          ></span>
+          <span
+            id="cursor"
+            class="text-xl md:text-2xl lg:text-3xl font-light text-zinc-400 dark:text-zinc-500 ml-0.5"
+            >|</span
+          >
+        </div>
 
         <p
-          class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg max-w-lg mx-auto md:mx-0"
+          class="text-zinc-500 dark:text-zinc-400 leading-relaxed text-base md:text-lg max-w-lg mx-auto md:mx-0"
         >
           Advanced Systems Analysis student at <span
             class="text-zinc-900 dark:text-white font-medium">UBA (FIUBA)</span
@@ -158,3 +180,60 @@ import GitHub from "./icons/GitHub.astro";
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+  #cursor {
+    animation: blink 1s step-end infinite;
+  }
+  #cursor.fade-out {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+</style>
+
+<script>
+  const text = "System Analyst";
+  let charIndex = 0;
+  let blinkCount = 0;
+
+  const typewriterEl = document.getElementById("typewriter");
+  const cursorEl = document.getElementById("cursor");
+
+  function type() {
+    if (!typewriterEl) return;
+
+    if (charIndex < text.length) {
+      typewriterEl.textContent = text.substring(0, charIndex + 1);
+      charIndex++;
+      setTimeout(type, 100);
+    } else {
+      // Typing complete - blink 3 times then fade
+      setTimeout(fadeOutCursor, 1500);
+    }
+  }
+
+  function fadeOutCursor() {
+    if (cursorEl) {
+      cursorEl.classList.add("fade-out");
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+  document.addEventListener("astro:page-load", () => {
+    charIndex = 0;
+    if (typewriterEl) typewriterEl.textContent = "";
+    if (cursorEl) cursorEl.classList.remove("fade-out");
+    type();
+  });
+</script>

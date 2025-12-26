@@ -2,9 +2,6 @@
 interface Skill {
   name: string;
   icon?: string;
-  component?: any;
-  color?: string;
-  bg?: string;
 }
 
 interface SkillCategory {
@@ -18,42 +15,42 @@ const SKILLS: Record<string, SkillCategory> = {
     title: "Programming Languages",
     icon: "code",
     skills: [
-      { name: "Java", icon: "java" },
-      { name: "JavaScript", icon: "js" },
-      { name: "C/C++", icon: "C" },
-      { name: "Python", icon: "python" },
-      { name: "SQL", icon: "sql" },
+      { name: "Java" },
+      { name: "JavaScript" },
+      { name: "C/C++" },
+      { name: "Python" },
+      { name: "SQL" },
     ],
   },
   INFRASTRUCTURE: {
     title: "DevOps & Tools",
     icon: "server",
     skills: [
-      { name: "Docker", icon: "docker" },
-      { name: "Git", icon: "git" },
-      { name: "Linux", icon: "linux" },
-      { name: "Bash", icon: "terminal" },
+      { name: "Docker" },
+      { name: "Git" },
+      { name: "Linux" },
+      { name: "Bash" },
     ],
   },
   WEB: {
     title: "Web Frameworks & Libs",
     icon: "globe",
     skills: [
-      { name: "React", icon: "react" },
-      { name: "Astro", icon: "astro" },
-      { name: "Node.js", icon: "node" },
-      { name: "Tailwind", icon: "tailwind" },
+      { name: "React" },
+      { name: "Astro" },
+      { name: "Node.js" },
+      { name: "Tailwind" },
     ],
   },
   SOFT: {
     title: "Soft Skills",
     icon: "user",
     skills: [
-      { name: "Problem Solving", icon: "puzzle" },
-      { name: "Teamwork", icon: "users" },
-      { name: "Communication", icon: "chat" },
-      { name: "Time Management", icon: "clock" },
-      { name: "Adaptability", icon: "adaptive" },
+      { name: "Problem Solving" },
+      { name: "Teamwork" },
+      { name: "Communication" },
+      { name: "Time Management" },
+      { name: "Adaptability" },
     ],
   },
 };
@@ -87,7 +84,6 @@ const SKILLS: Record<string, SkillCategory> = {
                 <div class="flex flex-wrap gap-3">
                     {category.skills.map((skill) => (
                         <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors cursor-default">
-                            {skill.component && <skill.component class="size-4" />}
                             <span class="text-sm font-medium">{skill.name}</span>
                         </div>
                     ))}
@@ -96,4 +92,3 @@ const SKILLS: Record<string, SkillCategory> = {
         ))}
     </div>
 </section>
-

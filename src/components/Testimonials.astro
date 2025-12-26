@@ -1,0 +1,114 @@
+---
+const TESTIMONIALS = [
+    {
+        quote: "Su capacidad para resolver problemas complejos con soluciones elegantes y escalables es verdaderamente impresionante.",
+        name: "Carlos Rodríguez",
+        role: "Senior Backend Dev",
+        image: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+    {
+        quote: "Facundo tiene un talento natural para entender los requerimientos de negocio y traducirlos en código robusto.",
+        name: "Ana García",
+        role: "Product Designer",
+        image: "https://randomuser.me/api/portraits/women/44.jpg",
+    },
+    {
+        quote: "La optimización que logró en nuestros algoritmos de búsqueda mejoró el rendimiento general en un 40%.",
+        name: "Marcos Pérez",
+        role: "Tech Lead",
+        image: "https://randomuser.me/api/portraits/men/86.jpg",
+    },
+    {
+        quote: "Un desarrollador proactivo, comunicativo y con una atención al detalle en el código que es difícil de encontrar.",
+        name: "Sofia López",
+        role: "Project Manager",
+        image: "https://randomuser.me/api/portraits/women/68.jpg",
+    },
+];
+---
+
+<section
+    id="testimonials"
+    class="relative w-screen left-[calc(-50vw+50%)] py-32 overflow-hidden"
+>
+    <div class="max-w-7xl mx-auto px-4 mb-16 text-center">
+        <h2
+            class="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest"
+        >
+            Recomendaciones
+        </h2>
+    </div>
+
+    <div class="flex overflow-hidden select-none mask-gradient group">
+        <div
+            class="flex shrink-0 gap-20 md:gap-32 animate-marquee py-4 items-start"
+        >
+            {
+                [...TESTIMONIALS, ...TESTIMONIALS].map((t) => (
+                    <div class="w-[300px] md:w-[500px] flex flex-col items-center text-center gap-6 shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-zinc-200 dark:border-white/10 shadow-lg">
+                            <img
+                                src={t.image}
+                                alt={t.name}
+                                class="object-cover w-full h-full"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        <div class="space-y-1">
+                            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">
+                                {t.name}
+                            </h3>
+                            <p class="text-sm font-medium text-blue-600 dark:text-blue-400">
+                                {t.role}
+                            </p>
+                        </div>
+
+                        <blockquote class="text-xl md:text-2xl font-light leading-relaxed text-zinc-600 dark:text-zinc-300 italic">
+                            "{t.quote}"
+                        </blockquote>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 60s linear infinite;
+    }
+
+    /* ESTA ES LA CLAVE: 
+       Cuando haces hover sobre el grupo padre (.group), 
+       pausa la animación del hijo (.animate-marquee) */
+    .group:hover .animate-marquee {
+        animation-play-state: paused;
+    }
+
+    .mask-gradient {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+    }
+</style>

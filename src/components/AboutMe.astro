@@ -3,168 +3,209 @@
 ---
 
 <section id="about-me" class="py-8 w-full">
-  <div class="mb-8 p-8 md:p-10">
-    <h2
-      class="text-3xl font-bold text-zinc-900 dark:text-white mb-4 tracking-tight"
-    >
-      Sobre Mí
-    </h2>
-    <div class="h-px w-full bg-zinc-800"></div>
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-8 items-start px-8 md:px-10">
-    <!-- Left Column: Bio & Status -->
-    <div class="space-y-6">
-      <div
-        class="space-y-6 text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed"
-      >
-        <p>
-          Soy <span class="text-zinc-900 dark:text-white font-medium"
-            >estudiante de Licenciatura en Análisis de Sistemas</span
-          > en la <span class="text-zinc-900 dark:text-white font-medium"
-            >Universidad de Buenos Aires (FIUBA)</span
-          >. Mi enfoque combina una base sólida en ingeniería de software con la
-          pasión por resolver problemas reales.
-        </p>
-
-        <p>
-          Tengo experiencia en <span
-            class="text-zinc-900 dark:text-white font-medium"
-            >desarrollo Full-Stack</span
-          > y <span class="text-zinc-900 dark:text-white font-medium"
-            >automatización</span
-          >. Me motiva construir sistemas eficientes, escalables y con una
-          arquitectura limpia.
-        </p>
-
-        <p>
-          Actualmente busco integrarme a equipos dinámicos donde pueda aportar
-          valor técnico mientras sigo perfeccionándome en <span
-            class="text-zinc-900 dark:text-white font-medium">Backend</span
-          > e <span class="text-zinc-900 dark:text-white font-medium"
-            >Infraestructura</span
-          >.
-        </p>
-      </div>
-
-      <!-- Status Card -->
-      <div
-        class="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center gap-4"
-      >
-        <span class="relative flex h-3 w-3">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
-          ></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-          ></span>
-        </span>
-        <span class="text-zinc-200 font-medium tracking-wide"
-          >Disponible para nuevos proyectos</span
+    <div class="mb-8 p-8 md:p-10">
+        <h2
+            class="text-3xl font-bold text-zinc-900 dark:text-white mb-4 tracking-tight"
         >
-      </div>
-
-      <!-- Contact Info -->
-      <div class="flex flex-col gap-4 text-zinc-700 dark:text-zinc-300">
-        <div class="flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5 text-zinc-900 dark:text-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-              d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-          >
-          <span>facurossi33@gmail.com</span>
-        </div>
-        <div class="flex items-center gap-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5 text-zinc-900 dark:text-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-            ></path><circle cx="12" cy="10" r="3"></circle></svg
-          >
-          <span>Buenos Aires, Argentina</span>
-        </div>
-      </div>
+            Sobre Mí
+        </h2>
+        <div class="h-px w-full bg-zinc-200 dark:bg-zinc-800"></div>
     </div>
 
-    <!-- Right Column: Skills & Education -->
-    <div class="space-y-6">
-      <!-- Skills -->
-      <div class="p-6 rounded-[24px] bg-zinc-900 border border-zinc-800">
-        <h3 class="text-xl font-bold text-white mb-4">Stack Tecnológico</h3>
-        <div class="flex flex-wrap gap-2">
-          {
-            [
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Astro",
-              "Node.js",
-              "Python",
-              "Java",
-              "SQL",
-              "Git",
-              "Docker",
-            ].map((skill) => (
-              <span class="px-3 py-1.5 text-xs font-medium text-zinc-300 bg-zinc-800/50 border border-zinc-700 rounded-lg">
-                {skill}
-              </span>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="p-6 rounded-[24px] bg-zinc-900 border border-zinc-800">
-        <h3 class="text-xl font-bold text-white mb-4">Educación</h3>
+    <div class="grid md:grid-cols-2 gap-8 items-start px-8 md:px-10">
+        <!-- Left Column: Bio & Status -->
         <div class="space-y-6">
-          <div>
-            <div class="flex justify-between items-start mb-1">
-              <h4 class="text-white font-medium">
-                Lic. en Análisis de Sistemas
-              </h4>
-              <span class="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded"
-                >2023 - Presente</span
-              >
-            </div>
-            <p class="text-sm text-zinc-400">
-              Universidad de Buenos Aires (FIUBA)
-            </p>
-          </div>
+            <div
+                class="space-y-6 text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed"
+            >
+                <p>
+                    Soy <span class="text-zinc-900 dark:text-white font-medium"
+                        >estudiante de Licenciatura en Análisis de Sistemas</span
+                    >
+                    en la <span
+                        class="text-zinc-900 dark:text-white font-medium"
+                        >Universidad de Buenos Aires (FIUBA)</span
+                    >. Mi enfoque combina una base sólida en ingeniería de
+                    software con la pasión por resolver problemas reales.
+                </p>
 
-          <div>
-            <div class="flex justify-between items-start mb-1">
-              <h4 class="text-white font-medium">Desarrollo Web Full Stack</h4>
-              <span class="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded"
-                >2022 - 2023</span
-              >
-            </div>
-            <p class="text-sm text-zinc-400">CoderHouse</p>
-          </div>
-        </div>
-      </div>
+                <p>
+                    Tengo experiencia en <span
+                        class="text-zinc-900 dark:text-white font-medium"
+                        >desarrollo Full-Stack</span
+                    >
+                    y <span class="text-zinc-900 dark:text-white font-medium"
+                        >automatización</span
+                    >. Me motiva construir sistemas eficientes, escalables y con
+                    una arquitectura limpia.
+                </p>
 
-      <!-- Languages -->
-      <div class="p-6 rounded-[24px] bg-zinc-900 border border-zinc-800">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="text-base font-bold text-white">Inglés (C1 Advanced)</h3>
-            <p class="text-sm text-zinc-500">Certificación Cambridge</p>
-          </div>
-          <span class="text-2xl">🇬🇧</span>
+                <p>
+                    Actualmente busco integrarme a equipos dinámicos donde pueda
+                    aportar valor técnico mientras sigo perfeccionándome en <span
+                        class="text-zinc-900 dark:text-white font-medium"
+                        >Backend</span
+                    > e
+                    <span class="text-zinc-900 dark:text-white font-medium"
+                        >Infraestructura</span
+                    >.
+                </p>
+            </div>
+
+            <!-- Status Card -->
+            <div
+                class="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center gap-4"
+            >
+                <span class="relative flex h-3 w-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+                    ></span>
+                    <span
+                        class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+                    ></span>
+                </span>
+                <span
+                    class="text-zinc-700 dark:text-zinc-200 font-medium tracking-wide"
+                    >Disponible para nuevos proyectos</span
+                >
+            </div>
+
+            <!-- Contact Info -->
+            <div class="flex flex-col gap-4 text-zinc-600 dark:text-zinc-300">
+                <div class="flex items-center gap-3">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5 text-zinc-700 dark:text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                        ></path>
+                    </svg>
+                    <span>facurossi33@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5 text-zinc-700 dark:text-white"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                        ></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Buenos Aires, Argentina</span>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- Right Column: Skills & Education -->
+        <div class="space-y-6">
+            <!-- Skills -->
+            <div
+                class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+            >
+                <h3
+                    class="text-xl font-bold text-zinc-900 dark:text-white mb-4"
+                >
+                    Stack Tecnológico
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    {
+                        [
+                            "JavaScript",
+                            "TypeScript",
+                            "React",
+                            "Astro",
+                            "Node.js",
+                            "Python",
+                            "Java",
+                            "SQL",
+                            "Git",
+                            "Docker",
+                        ].map((skill) => (
+                            <span class="px-3 py-1.5 text-xs font-medium text-zinc-600 dark:text-zinc-300 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg">
+                                {skill}
+                            </span>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div
+                class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+            >
+                <h3
+                    class="text-xl font-bold text-zinc-900 dark:text-white mb-4"
+                >
+                    Educación
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h4
+                                class="text-zinc-900 dark:text-white font-medium"
+                            >
+                                Lic. en Análisis de Sistemas
+                            </h4>
+                            <span
+                                class="text-xs text-zinc-500 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-2 py-1 rounded"
+                                >2023 - Presente</span
+                            >
+                        </div>
+                        <p class="text-sm text-zinc-500 dark:text-zinc-400">
+                            Universidad de Buenos Aires (FIUBA)
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-start mb-1">
+                            <h4
+                                class="text-zinc-900 dark:text-white font-medium"
+                            >
+                                Desarrollo Web Full Stack
+                            </h4>
+                            <span
+                                class="text-xs text-zinc-500 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-2 py-1 rounded"
+                                >2022 - 2023</span
+                            >
+                        </div>
+                        <p class="text-sm text-zinc-500 dark:text-zinc-400">
+                            CoderHouse
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div
+                class="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
+            >
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3
+                            class="text-base font-bold text-zinc-900 dark:text-white"
+                        >
+                            Inglés (C1 Advanced)
+                        </h3>
+                        <p class="text-sm text-zinc-500">
+                            Certificación Cambridge
+                        </p>
+                    </div>
+                    <span class="text-2xl">🇬🇧</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>

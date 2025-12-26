@@ -1,292 +1,204 @@
 ---
-import { Code } from "astro:components";
 import GitHub from "./icons/GitHub.astro";
 import Link from "./icons/Link.astro";
-import HTML from "./icons/HTML.astro";
-import CSS from "./icons/CSS.astro";
 import JavaScript from "./icons/JavaScript.astro";
 import Python from "./icons/Python.astro";
 import Java from "./icons/Java.astro";
 import Terminal from "./icons/Terminal.astro";
 
 const TAGS = {
-    HTML: {
-        name: "HTML",
-        class: "bg-[#E34F26]/10 text-[#E34F26] border border-[#E34F26]/20",
-        icon: HTML,
-    },
-    CSS: {
-        name: "CSS",
-        class: "bg-[#1572B6]/10 text-[#1572B6] border border-[#1572B6]/20",
-        icon: CSS,
-    },
     JAVASCRIPT: {
         name: "JavaScript",
-        class: "bg-[#F7DF1E]/10 text-[#F7DF1E] border border-[#F7DF1E]/20",
+        class: "text-zinc-600 dark:text-zinc-400 border-zinc-200/50 dark:border-zinc-800",
         icon: JavaScript,
     },
     PYTHON: {
         name: "Python",
-        class: "bg-[#3776AB]/10 text-[#3776AB] border border-[#3776AB]/20",
+        class: "text-zinc-600 dark:text-zinc-400 border-zinc-200/50 dark:border-zinc-800",
         icon: Python,
-    },
-    SASS: {
-        name: "Sass",
-        class: "bg-[#CC6699]/10 text-[#CC6699] border border-[#CC6699]/20",
-        icon: null,
     },
     NLP: {
         name: "NLP / AI",
-        class: "bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/20 font-bold",
-        icon: null,
-    },
-    ALGORITHMS: {
-        name: "Algoritmos",
-        class: "bg-red-500/10 text-red-500 border border-red-500/20",
-        icon: null,
-    },
-    RESPONSIVENESS: {
-        name: "Responsive Design",
-        class: "bg-[#8B5CF6]/10 text-[#8B5CF6] border border-[#8B5CF6]/20",
+        class: "text-zinc-600 dark:text-zinc-400 border-zinc-200/50 dark:border-zinc-800",
         icon: null,
     },
     GAMEDEVELOPMENT: {
         name: "Game Dev",
-        class: "bg-[#EF4444]/10 text-[#EF4444] border border-[#EF4444]/20",
+        class: "text-zinc-600 dark:text-zinc-400 border-zinc-200/50 dark:border-zinc-800",
         icon: null,
     },
 };
 
 const PROJECTS = [
     {
-        title: "Sistema de Navegación Autónoma (Java A*)",
+        title: "Sistema de Navegación Autónoma",
+        subtitle: "Algoritmo A* & JavaFX",
         description:
-            "Simulador de tráfico urbano (inspirado en GTA) desarrollado en Java. Implementa el algoritmo de búsqueda A* (A-Star) con heurística Manhattan sobre grafos ponderados para el cálculo óptimo de rutas en tiempo real. Arquitectura robusta con patrones de diseño, persistencia de datos y testing unitario con JUnit 5.",
-        code: `public class NavigationSystem {
-    public List<Node> findPath(Node start, Node goal) {
-        PriorityQueue<Node> openSet = new PriorityQueue<>();
-        start.setG(0); 
-        start.setH(calculateManhattan(start, goal));
-        openSet.add(start);
-
-        while (!openSet.isEmpty()) {
-            Node current = openSet.poll();
-            if (current.equals(goal)) return reconstructPath(current);
-
-            for (Edge edge : current.getEdges()) {
-                Node neighbor = edge.getTarget();
-                double tentativeG = current.getG() + edge.getWeight();
-                
-                if (tentativeG < neighbor.getG()) {
-                    neighbor.setParent(current);
-                    neighbor.setG(tentativeG);
-                    neighbor.setH(calculateManhattan(neighbor, goal));
-                    if (!openSet.contains(neighbor)) openSet.add(neighbor);
-                }
-            }
-        }
-        return Collections.emptyList(); // No path found
-    }
-}`,
-        lang: "java",
+            "Simulador de tráfico urbano de alta precisión. Implementa el algoritmo A* con heurística Manhattan sobre grafos ponderados dinámica para el cálculo óptimo de rutas en tiempo real.",
+        icon: Java,
+        color: "text-orange-500",
+        glowColor: "rgba(249, 115, 22, 0.4)",
         github: "https://github.com/facur3/tpg-2c2025-recursivos",
         tags: [
             {
-                name: "Java / JavaFX",
-                class: "bg-orange-900/30 text-orange-200 border-orange-800",
+                name: "Java",
+                class: TAGS.JAVASCRIPT.class,
                 icon: Java,
             },
             {
-                name: "Algoritmos & Grafos",
-                class: "bg-zinc-800 text-zinc-300 border-zinc-700",
+                name: "Algorithms",
+                class: TAGS.JAVASCRIPT.class,
                 icon: Terminal,
             },
-            {
-                name: "Maven & JUnit",
-                class: "bg-blue-900/30 text-blue-200 border-blue-800",
-                icon: null,
-            },
         ],
-        featured: true,
     },
     {
-        title: "Data Scraper & Probabilistic Calculator",
+        title: "Data Scraper & Calculator",
+        subtitle: "Probabilistic Engineering",
         description:
-            "Herramienta de ingeniería de datos y automatización para análisis económico. Backend en Python que utiliza BeautifulSoup y expresiones regulares (Regex) avanzadas para extraer, limpiar y normalizar miles de registros de datos web en tiempo real. Frontend reactivo para el cálculo estadístico de probabilidades.",
-        code: `class DataScraper:
-    def __init__(self, base_url):
-        self.session =  requests.Session()
-        self.headers = {'User-Agent': 'Mozilla/5.0...'}
-
-    def fetch_data(self, endpoint):
-        response = self.session.get(endpoint, headers=self.headers)
-        if response.status_code == 200:
-            return self.parse_html(response.text)
-        raise ConnectionError(f"Failed to fetch {endpoint}")
-
-    def parse_html(self, html):
-        soup = BeautifulSoup(html, 'lxml')
-        items = []
-        # Advanced Regex for cleaning messy data
-        price_pattern = re.compile(r'[\d\.,]+')
-        
-        for row in soup.select('.data-table tr'):
-            raw_price = row.select_one('.price').text
-            clean_price = float(price_pattern.search(raw_price).group().replace(',', ''))
-            items.append({'price': clean_price, 'timestamp': datetime.now()})
-            
-        return pd.DataFrame(items)`,
-        lang: "python",
+            "Pipeline de datos integral. Backend en Python con BeautifulSoup y Regex avanzadas para la extracción, normalización y procesamiento estadístico de miles de registros.",
+        icon: Python,
+        color: "text-blue-500",
+        glowColor: "rgba(59, 130, 246, 0.4)",
         demo: "https://prospecting-calculator.vercel.app/",
         github: "https://github.com/facur3/prospecting-calculator",
         tags: [
             {
                 name: "Python",
-                class: "bg-blue-900/30 text-blue-200 border-blue-800",
+                class: TAGS.PYTHON.class,
                 icon: Python,
             },
             {
-                name: "Automatización / Scraping",
-                class: "bg-emerald-900/30 text-emerald-200 border-emerald-800",
+                name: "Automation",
+                class: TAGS.PYTHON.class,
                 icon: Terminal,
             },
-            {
-                name: "Data Processing (Regex)",
-                class: "bg-purple-900/30 text-purple-200 border-purple-800",
-                icon: null,
-            },
         ],
-        featured: true,
     },
     {
-        title: "Juego Fifteen Puzzle",
+        title: "Fifteen Puzzle",
+        subtitle: "Game Logic Engine",
         description:
-            "Implementación del clásico rompecabezas con mecánicas de juego optimizadas. Lógica compleja en Vanilla JS.",
-        code: `class FifteenPuzzle {
-  constructor(size = 4) {
-    this.size = size;
-    this.grid = this.initGrid();
-    this.emptyPos = { r: size-1, c: size-1 };
-  }
-
-  moveTile(r, c) {
-    if (!this.isValidMove(r, c)) return false;
-    
-    // Swap tile with empty space
-    this.grid[this.emptyPos.r][this.emptyPos.c] = this.grid[r][c];
-    this.grid[r][c] = 0;
-    this.emptyPos = { r, c };
-    
-    this.checkWinCondition();
-    return true;
-  }
-
-  shuffle() {
-    // Fisher-Yates shuffle optimized for 2D grid
-    // Ensures solvability invariant is maintained
-    for (let i = this.grid.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        // Swap logic...
-    }
-  }
-}`,
-        lang: "js",
+            "Motor de juego optimizado para el clásico rompecabezas numérico. Gestión de estados compleja y animaciones a 60fps utilizando Vanilla JavaScript puro.",
+        icon: JavaScript,
+        color: "text-yellow-500",
+        glowColor: "rgba(234, 179, 8, 0.4)",
         github: "https://github.com/facur3/Fifteen",
         demo: "https://facur3.github.io/Fifteen/",
         tags: [TAGS.JAVASCRIPT, TAGS.GAMEDEVELOPMENT],
-        featured: true,
     },
     {
-        title: "Detector de Plagio",
+        title: "Detector de Plagio NLP",
+        subtitle: "Text Analysis System",
         description:
-            "Sistema avanzado de detección de plagio utilizando procesamiento de lenguaje natural (NLP) para comparar documentos y calcular similitud semántica con alta precisión.",
-        code: `import spacy
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-nlp = spacy.load("es_core_news_sm")
-
-def check_plagiarism(doc1, doc2):
-    # Preprocessing: Tokenization & Lemmatization
-    tokens1 = " ".join([token.lemma_ for token in nlp(doc1) if not token.is_stop])
-    tokens2 = " ".join([token.lemma_ for token in nlp(doc2) if not token.is_stop])
-    
-    # Vectorization (TF-IDF)
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform([tokens1, tokens2])
-    
-    # Cosine Similarity Calculation
-    similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])
-    
-    return similarity[0][0] # Returns score between 0 and 1`,
-        lang: "python",
+            "Sistema de análisis semántico. Utiliza TF-IDF y similitud coseno para comparar documentos y detectar coincidencias estructurales y lingüísticas con alta precisión.",
+        icon: Python,
+        color: "text-emerald-500",
+        glowColor: "rgba(34, 197, 94, 0.4)",
         github: "https://github.com/facur3/plagios",
         tags: [TAGS.PYTHON, TAGS.NLP],
-        featured: false,
     },
 ];
 ---
 
-<section
-    id="projects"
-    class="w-full max-w-6xl mx-auto px-4 py-12 flex flex-col gap-12 md:gap-24"
->
+<section id="projects" class="w-full max-w-7xl mx-auto px-4 py-32 flex flex-col gap-32">
+    
+    <div class="space-y-32">
     {
-        PROJECTS.map((project) => (
-            <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
-                <div class="relative w-full h-[250px] md:h-[400px] lg:h-[450px] rounded-xl shadow-2xl border border-white/10 bg-[#050505] overflow-hidden group transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] hover:border-blue-500/30">
-                    <div class="h-8 bg-[#1f2937]/50 flex items-center px-4 gap-2 border-b border-white/5">
-                        <div class="w-3 h-3 rounded-full bg-red-500/80" />
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/80" />
-                        <div class="w-3 h-3 rounded-full bg-green-500/80" />
-                    </div>
+        PROJECTS.map((project, index) => (
+            <article class={`group relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center ${index % 2 === 1 ? 'md:[&>div:first-child]:order-2' : ''}`}>
+                
+                <!-- Abstract Tech Card (Visual) -->
+                <div class="md:col-span-7 relative perspective-1000">
+                   <div class="relative aspect-[16/10] w-full rounded-3xl overflow-hidden
+                                bg-zinc-100 dark:bg-[#09090b]
+                                border border-zinc-200 dark:border-white/5
+                                shadow-sm dark:shadow-2xl
+                                transition-all duration-700 ease-out
+                                hover:shadow-xl dark:hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)]
+                                group-hover:-translate-y-2
+                                group-hover:border-zinc-300 dark:group-hover:border-white/10
+                                ">
+                        
+                        <!-- Grid Background -->
+                        <div class="absolute inset-0 opacity-[0.4] pointer-events-none"
+                             style="background-image: radial-gradient(circle at 1px 1px, var(--grid-color) 1px, transparent 0); background-size: 24px 24px; --grid-color: rgba(120, 120, 120, 0.1);"></div>
+                        
+                        <!-- Dynamic Gradient Blob -->
+                        <div class="absolute -inset-[50%] opacity-0 group-hover:opacity-20 transition-opacity duration-1000 blur-3xl"
+                             style={`background: radial-gradient(circle at 50% 50%, ${project.glowColor}, transparent 60%)`}></div>
 
-                    <div class="p-6 overflow-hidden h-full">
-                        <Code
-                            code={project.code}
-                            lang={project.lang as any}
-                            theme="github-dark"
-                            class="!bg-transparent text-[10px] md:text-sm leading-relaxed overflow-hidden h-full w-full"
-                        />
-                    </div>
+                        <!-- Top Bar (Window UI) -->
+                        <div class="absolute top-0 left-0 right-0 h-10 border-b border-zinc-200 dark:border-white/5 flex items-center px-4 gap-2 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm">
+                            <div class="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></div>
+                            <div class="ml-auto text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
+                                {project.tags[0]?.name}
+                            </div>
+                        </div>
 
-                    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#0f1117] to-transparent pointer-events-none" />
+                        <!-- Center Content -->
+                        <div class="absolute inset-0 flex items-center justify-center top-10">
+                            <!-- Icon Wrapper -->
+                            <div class="relative group/icon">
+                                <!-- Glow -->
+                                <div class={`absolute inset-0 bg-current opacity-0 blur-2xl group-hover/icon:opacity-20 transition-opacity duration-500 scale-150 ${project.color}`}></div>
+                                
+                                <div class="relative p-8 rounded-2xl bg-white dark:bg-zinc-900/80 border border-zinc-200 dark:border-white/10 shadow-xl backdrop-blur-md
+                                            transform group-hover:scale-110 transition-transform duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+                                    <project.icon class={`size-16 md:size-20 ${project.color}`} />
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Code/Stats Decoration (Bottom Right) -->
+                         <div class="absolute bottom-6 right-6 font-mono text-[10px] text-zinc-400 dark:text-zinc-600 text-right opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden md:block">
+                            <div>CPU: {Math.floor(Math.random() * 20) + 10}%</div>
+                            <div>MEM: {Math.floor(Math.random() * 100) + 50}MB</div>
+                         </div>
+                   </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h3 class="text-3xl font-bold text-zinc-900 dark:text-white">
-                        {project.title}
-                    </h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg">
-                        {project.description}
-                    </p>
+                <!-- Project Info (Text) -->
+                <div class="md:col-span-5 space-y-8 relative">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class={`w-8 h-[1px] ${project.color.replace('text-', 'bg-')}`}></div>
+                            <span class={`text-sm font-mono font-medium tracking-wider uppercase ${project.color}`}>
+                                {project.subtitle}
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-white leading-[1.1] tracking-tight">
+                            {project.title}
+                        </h3>
+                        
+                        <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-light">
+                            {project.description}
+                        </p>
+                    </div>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-3">
                         {project.tags.map((tag) => (
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                                {tag.icon && <tag.icon class="size-3" />}
+                            <span class={`inline-flex items-center gap-2 px-3 py-1.5 text-xs rounded-full border bg-zinc-50 dark:bg-zinc-900/50 ${tag.class} transition-colors group-hover:border-zinc-300 dark:group-hover:border-zinc-700`}>
                                 {tag.name}
                             </span>
                         ))}
                     </div>
 
                     <div class="flex gap-4 pt-2">
-                        {project.github && (
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold hover:opacity-90 transition-opacity text-sm"
-                            >
+                         {project.github && (
+                            <a href={project.github} target="_blank" rel="noopener noreferrer"
+                               class="group/link inline-flex items-center gap-2 text-sm font-medium text-zinc-900 dark:text-white border-b border-zinc-900 dark:border-white pb-0.5 hover:opacity-70 transition-opacity">
                                 <GitHub class="size-4" />
-                                Ver Código
+                                View Source
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </a>
                         )}
                         {project.demo && (
-                            <a
-                                href={project.demo}
-                                target="_blank"
-                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-transparent border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-sm"
-                            >
+                            <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                               class="group/link inline-flex items-center gap-2 text-sm font-medium text-zinc-500 dark:text-zinc-400 border-b border-transparent hover:border-zinc-500 dark:hover:border-zinc-400 pb-0.5 transition-all">
                                 <Link class="size-4" />
                                 Live Demo
                             </a>
@@ -296,28 +208,5 @@ def check_plagiarism(doc1, doc2):
             </article>
         ))
     }
-
-    {/* View All Button */}
-    <div class="flex justify-center mt-12">
-        <a
-            href="https://github.com/facur3"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-        >
-            Ver más proyectos en GitHub
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
-                    d="M17 7l-10 10"></path><path d="M8 7l9 0l0 9"></path></svg
-            >
-        </a>
     </div>
 </section>
