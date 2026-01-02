@@ -1,0 +1,30 @@
+---
+import Layout from './Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<Layout title={title}>
+	<article class="w-full max-w-3xl mx-auto px-4 py-32">
+        <div class="mb-8">
+             <a href="/blog" class="text-sm text-primary-500 hover:text-primary-600 font-medium mb-4 inline-block">&larr; Volver al blog</a>
+             <h1 class="text-4xl md:text-5xl font-heading font-bold text-zinc-900 dark:text-white mb-4">{title}</h1>
+             <div class="text-zinc-500 text-sm">
+                Publicado el <time datetime={pubDate.toISOString()}>
+                    {pubDate.toLocaleDateString('es-AR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
+                </time>
+             </div>
+        </div>
+        
+		<div class="prose prose-zinc dark:prose-invert max-w-none">
+			<slot />
+		</div>
+	</article>
+</Layout>

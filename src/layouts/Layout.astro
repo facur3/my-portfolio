@@ -4,11 +4,25 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import "../styles/design-system.css";
+// Supports weights 100-900
+import "@fontsource/inter/100.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/900.css";
+// Supports weights 300-700
+import "@fontsource/space-grotesk/300.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/600.css";
+import "@fontsource/space-grotesk/700.css";
+
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta
@@ -20,29 +34,21 @@ const { title } = Astro.props;
         <!-- SEO Meta Tags -->
         <meta
             name="description"
-            content="Portfolio de Facu Rossi – Desarrollador y programador especializado en soluciones modernas, AI, Web Development, y Full-stack Systems."
+            content="Facundo Rossi's Portfolio – Software Engineer specializing in modern solutions, AI, Web Development, and Full-stack Systems."
         />
         <meta
             name="keywords"
-            content="Facu Rossi, Portfolio, Desarrollador, Programador, AI, Web, Full-stack"
-        />
-
-        <!-- Google Fonts: Inter -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-            rel="stylesheet"
+            content="Facu Rossi, Portfolio, Developer, Programmer, AI, Web, Full-stack"
         />
 
         <!-- Speed Insights -->
         <SpeedInsights />
 
         <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="Facu Rossi - Portfolio" />
+        <meta property="og:title" content="Facundo Rossi - Portfolio" />
         <meta
             property="og:description"
-            content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+            content="Software Engineer specializing in building scalable systems and high-performance web experiences."
         />
         <meta property="og:image" content="/social-share.png" />
         <meta
@@ -53,10 +59,10 @@ const { title } = Astro.props;
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Facu Rossi - Portfolio" />
+        <meta name="twitter:title" content="Facundo Rossi - Portfolio" />
         <meta
             name="twitter:description"
-            content="Descubre los proyectos y habilidades de Facu Rossi. Especializado en soluciones modernas, inteligencia artificial y desarrollo full-stack."
+            content="Software Engineer specializing in building scalable systems and high-performance web experiences."
         />
         <meta name="twitter:image" content="/social-share.png" />
 
@@ -86,7 +92,7 @@ const { title } = Astro.props;
         <!-- Dark Theme Initialization Script -->
         <script is:inline>
             (function () {
-                const savedTheme = localStorage.getItem("theme") || "system";
+                const savedTheme = localStorage.getItem("theme") || "dark"; // Default to dark
                 const systemDark = window.matchMedia(
                     "(prefers-color-scheme: dark)",
                 ).matches;
@@ -95,6 +101,8 @@ const { title } = Astro.props;
                     (savedTheme === "system" && systemDark)
                 ) {
                     document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
                 }
             })();
         </script>
@@ -104,10 +112,10 @@ const { title } = Astro.props;
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "Facundo Rossi",
-                "jobTitle": "Analista de Sistemas",
+                "jobTitle": "Software Engineer",
                 "url": "https://my-portfolio-seven-gules-67.vercel.app/",
                 "sameAs": [
-                    "https://www.linkedin.com/in/facu-rossi-a5839a278/",
+                    "https://www.linkedin.com/in/facundo-rossi-a5839a278/",
                     "https://github.com/facur3"
                 ],
                 "alumniOf": {
@@ -131,17 +139,30 @@ const { title } = Astro.props;
     </head>
     <body
         id="top"
-        class="bg-zinc-100 dark:bg-[#050505] text-zinc-900 dark:text-white antialiased selection:bg-zinc-300 dark:selection:bg-white/20 w-full overflow-x-hidden pt-[env(safe-area-inset-top)] transition-colors duration-300"
+        class="bg-white dark:bg-[#0f0f0f] text-zinc-900 dark:text-white antialiased selection:bg-primary-500/30 w-full overflow-x-hidden pt-[env(safe-area-inset-top)] transition-colors duration-300 font-sans"
     >
-        <!-- Clean Minimalist Background -->
+        <!-- Noise Texture Overlay -->
+        <div class="noise-overlay"></div>
+
+        <!-- Clean Minimalist Background with subtle gradient -->
         <div
-            class="fixed inset-0 -z-50 bg-gradient-to-br from-zinc-50 to-zinc-200 dark:bg-[#050505] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.1),rgba(255,255,255,0))] transition-colors duration-300"
+            class="fixed inset-0 -z-50 bg-gradient-to-br from-zinc-50 to-zinc-200 dark:from-[#0f0f0f] dark:to-[#1a1a1a] transition-colors duration-300"
         >
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-900/10 rounded-full blur-[120px] pointer-events-none"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary-900/5 rounded-full blur-[100px] pointer-events-none"
+            >
+            </div>
         </div>
 
         <Navbar />
 
-        <main class="w-full max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+        <main
+            class="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        >
             <slot />
         </main>
 
@@ -150,7 +171,7 @@ const { title } = Astro.props;
         <!-- Scroll to Top Button (Mobile Only) -->
         <button
             id="scroll-to-top"
-            aria-label="Volver arriba"
+            aria-label="Back to top"
             class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-zinc-900/90 text-zinc-900 dark:text-white shadow-lg backdrop-blur-sm border border-zinc-300 dark:border-zinc-700/50 opacity-0 translate-y-10 pointer-events-none transition-all duration-300 md:hidden"
         >
             <svg
@@ -175,52 +196,66 @@ const { title } = Astro.props;
 <style is:global>
     html {
         font-family: "Inter", system-ui, sans-serif;
-        scroll-behavior: smooth;
+        scroll-behavior: auto; /* Handled by Lenis */
         scroll-padding-top: 100px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Space Grotesk", sans-serif;
     }
 
     html.dark {
         color-scheme: dark;
     }
 
-    @keyframes fade-in-up {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Lenis Styles */
+    html.lenis,
+    html.lenis body {
+        height: auto;
     }
 
-    .animate-fade-in-up {
-        animation: fade-in-up 0.8s ease-out forwards;
+    .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
     }
 
-    /* Scroll Reveal Animation */
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease-out;
+    .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
     }
 
-    .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
+    .lenis.lenis-stopped {
+        overflow: hidden;
     }
 
-    /* Hide Scroll to Top when Mobile Menu is Open */
-    body.menu-open #scroll-to-top {
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: translateY(
-            10px
-        ); /* Optional: move it down slightly for effect */
+    .lenis.lenis-scrolling iframe {
+        pointer-events: none;
     }
 </style>
 
 <script>
+    import Lenis from "@studio-freight/lenis";
+
+    // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+    });
+
+    function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Intersection Observer for Scroll Reveals
     const observerOptions = {
         root: null,
         rootMargin: "0px",
@@ -237,12 +272,13 @@ const { title } = Astro.props;
     }, observerOptions);
 
     document.addEventListener("astro:page-load", () => {
+        // Re-init or handle page transitions if needed
         document
             .querySelectorAll(".reveal")
             .forEach((el) => observer.observe(el));
     });
 
-    // Fallback for initial load if not using ViewTransitions or similar
+    // Fallback for initial load
     document.addEventListener("DOMContentLoaded", () => {
         document
             .querySelectorAll(".reveal")
@@ -260,7 +296,6 @@ const { title } = Astro.props;
                     "translate-y-10",
                     "pointer-events-none",
                 );
-            } else {
                 scrollBtn.classList.add(
                     "opacity-0",
                     "translate-y-10",
@@ -270,10 +305,38 @@ const { title } = Astro.props;
         });
 
         scrollBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
+            lenis.scrollTo(0);
         });
     }
+
+    // Intercept Anchor Links for Smooth Scroll via Lenis
+    document
+        .querySelectorAll('a[href^="/#"], a[href^="#"]')
+        .forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                const currentTarget = e.currentTarget as HTMLAnchorElement;
+                const href = currentTarget.getAttribute("href");
+                // Extract the hash part
+                const targetId =
+                    href && href.includes("#") ? href.split("#")[1] : null;
+
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    // Only intercept if we are on the same page and target exists
+                    if (
+                        targetElement &&
+                        (window.location.pathname === "/" ||
+                            (href && href.startsWith("#")))
+                    ) {
+                        e.preventDefault();
+                        // Offset -100px to account for the fixed header
+                        lenis.scrollTo(targetElement, { offset: -100 });
+
+                        // Optional: Update URL without jump
+                        history.pushState(null, "", `#${targetId}`);
+                    }
+                }
+            });
+        });
 </script>
+```

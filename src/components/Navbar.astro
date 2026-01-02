@@ -4,124 +4,124 @@ import ThemeToggle from "./ThemeToggle.astro";
 const navItems = [
   {
     title: "Home",
-    label: "home",
-    url: "/#top",
+    url: "/#home",
   },
   {
     title: "Skills",
-    label: "skills",
-    url: "#skills",
+    url: "/#skills",
   },
   {
     title: "Experience",
-    label: "experience",
-    url: "#experience",
+    url: "/#experience",
   },
   {
     title: "Projects",
-    label: "projects",
-    url: "#projects",
+    url: "/#projects",
   },
   {
-    title: "Testimonials",
-    label: "testimonials",
-    url: "#testimonials",
+    title: "About",
+    url: "/#about-me",
   },
   {
-    title: "About Me",
-    label: "about-me",
-    url: "#about-me",
-  },
-  {
-    title: "Contact",
-    label: "contact",
-    url: "#contact",
+    title: "Blog",
+    url: "/blog",
   },
 ];
 ---
 
 <header
-  class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#050505]/50 backdrop-blur-xl border-b border-zinc-200 dark:border-white/5 transition-all duration-300"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-2 md:pt-4"
 >
-  <div
-    class="max-w-7xl mx-auto px-4 md:px-12 py-2 md:py-0 h-auto md:h-20 flex items-center justify-between"
-  >
-    <!-- Logo Text -->
-    <a
-      href="/#top"
-      class="text-xs md:text-xl font-medium tracking-tight text-zinc-900 dark:text-white hover:opacity-80 transition-opacity"
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div
+      class="bg-white/70 dark:bg-[#18181b]/70 backdrop-blur-xl border border-white/20 dark:border-white/5 rounded-2xl shadow-lg px-4 md:px-6 h-14 md:h-16 flex items-center justify-between"
     >
-      Facundo Rossi
-    </a>
+      <!-- Logo Text -->
+      <a
+        href="/#home"
+        class="text-lg font-heading font-bold tracking-tight text-zinc-900 dark:text-white hover:text-primary-500 transition-colors"
+      >
+        Facundo<span class="text-primary-500"> Rossi</span>
+      </a>
 
-    <!-- Navigation -->
-    <nav class="hidden md:flex items-center gap-8">
-      {
-        navItems.map((item) => (
-          <a
-            href={item.url}
-            class="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.url}
+              class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors relative"
+              data-target={item.url.replace("/", "")}
+            >
+              {item.title}
+
+              {/* Active Indicator (Dot) */}
+              <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary-500 rounded-full opacity-0 transition-opacity duration-300 active-dot" />
+            </a>
+          ))
+        }
+        <div class="pl-4 border-l border-zinc-200 dark:border-white/10 ml-4">
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-btn"
+        aria-label="Toggle Menu"
+        class="md:hidden relative z-50 p-2 -mr-2 text-zinc-800 dark:text-zinc-200"
+      >
+        <div class="relative w-6 h-6 flex items-center justify-center">
+          <span
+            id="icon-menu"
+            class="transform transition-all duration-300 opacity-100 scale-100 absolute"
           >
-            {item.title}
-          </a>
-        ))
-      }
-      <div class="pl-4 border-l border-zinc-200 dark:border-white/10 ml-4">
-        <ThemeToggle />
-      </div>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button
-      id="menu-btn"
-      class="md:hidden text-zinc-900 dark:text-white z-50 relative p-2"
-      aria-label="Menu"
-    >
-      <!-- Hamburger Icon -->
-      <svg
-        id="icon-menu"
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-6 transition-transform duration-300"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-
-      <!-- Close Icon -->
-      <svg
-        id="icon-close"
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-6 absolute top-2 left-2 opacity-0 -rotate-90 scale-50 transition-all duration-300"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M18 6l-12 12"></path>
-        <path d="M6 6l12 12"></path>
-      </svg>
-    </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-6"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path
+                d="M4 18l16 0"></path></svg
+            >
+          </span>
+          <span
+            id="icon-close"
+            class="transform transition-all duration-300 opacity-0 -rotate-90 scale-50 absolute"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-6"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg
+            >
+          </span>
+        </div>
+      </button>
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <div
       id="mobile-menu"
-      class="fixed top-0 left-0 w-full h-[100dvh] z-40 bg-white/95 dark:bg-[#050505]/95 backdrop-blur-3xl opacity-0 pointer-events-none transition-all duration-500 flex flex-col items-center justify-center md:hidden"
+      class="fixed inset-0 z-40 bg-zinc-50/95 dark:bg-[#0f0f0f]/95 backdrop-blur-3xl opacity-0 pointer-events-none transition-all duration-500 flex flex-col items-center justify-center md:hidden"
     >
-      <nav class="flex flex-col items-center gap-8">
+      <nav class="flex flex-col items-center gap-6">
         {
           navItems.map((item, index) => (
             <a
               href={item.url}
-              class="mobile-link text-2xl font-light text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors translate-y-8 opacity-0"
+              class="mobile-link text-2xl font-heading font-medium text-zinc-800 dark:text-zinc-200 hover:text-primary-500 dark:hover:text-primary-400 transition-all duration-300 translate-y-4 opacity-0"
               style={`transition-delay: ${index * 50}ms`}
             >
               {item.title}
@@ -134,25 +134,76 @@ const navItems = [
 </header>
 
 <script>
+  document.addEventListener("astro:page-load", () => {
+    // 1. Highlight Active Section
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -80% 0px", // Highlight when near top
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove active class from all
+          navLinks.forEach((link) => {
+            link.classList.remove(
+              "text-primary-600",
+              "dark:text-primary-400",
+              "font-bold",
+            );
+            link.classList.add("text-zinc-600", "dark:text-zinc-400");
+            link.querySelector(".active-dot")?.classList.add("opacity-0");
+          });
+
+          // Add active class to current
+          const activeLink = document.querySelector(
+            `.nav-link[href="/#${entry.target.id}"]`,
+          );
+          if (activeLink) {
+            activeLink.classList.remove("text-zinc-600", "dark:text-zinc-400");
+            activeLink.classList.add(
+              "text-primary-600",
+              "dark:text-primary-400",
+              "font-bold",
+            );
+            activeLink
+              .querySelector(".active-dot")
+              ?.classList.remove("opacity-0");
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    // 2. Smooth Scroll (Lenis Interception if needed or default)
+    // Since Lenis is global in Layout, we can trust standard anchors or add specific logic here.
+    // For now, standard anchors with CSS scroll-behavior usually work.
+    // If specific "subtle" control is needed, we would use window.lenis.scrollTo('#id')
+  });
+
+  // Mobile Menu Logic
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
   const iconMenu = document.getElementById("icon-menu");
   const iconClose = document.getElementById("icon-close");
   const mobileLinks = document.querySelectorAll(".mobile-link");
-  let isMenuOpen = false;
 
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
+  menuBtn?.addEventListener("click", () => {
+    const isOpen = document.body.classList.contains("menu-open");
 
-    // Toggle Menu Visibility
-    if (isMenuOpen) {
+    if (!isOpen) {
       mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
       document.body.style.overflow = "hidden"; // Lock Scroll
-      document.body.classList.add("menu-open"); // Signal for other components
+      document.body.classList.add("menu-open");
 
       // Animate Links In
       mobileLinks.forEach((link) => {
-        link.classList.remove("translate-y-8", "opacity-0");
+        link.classList.remove("translate-y-4", "opacity-0");
       });
 
       // Toggle Icons
@@ -165,28 +216,48 @@ const navItems = [
 
       // Animate Links Out
       mobileLinks.forEach((link) => {
-        link.classList.add("translate-y-8", "opacity-0");
+        link.classList.add("translate-y-4", "opacity-0");
       });
 
       // Toggle Icons
       iconMenu?.classList.remove("opacity-0", "rotate-90", "scale-50");
       iconClose?.classList.add("opacity-0", "-rotate-90", "scale-50");
     }
-  }
-
-  menuBtn?.addEventListener("click", toggleMenu);
-
-  // Close menu when clicking on the overlay (outside nav)
-  mobileMenu?.addEventListener("click", (e) => {
-    if (e.target === mobileMenu) {
-      toggleMenu();
-    }
   });
 
   // Close menu when clicking a link
   mobileLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (isMenuOpen) toggleMenu();
+      // Direct class manipulation to close the menu
+      mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = ""; // Unlock Scroll
+      document.body.classList.remove("menu-open");
+
+      // Animate Links Out
+      mobileLinks.forEach((mlink) => {
+        // Use a different variable name to avoid conflict
+        mlink.classList.add("translate-y-4", "opacity-0");
+      });
+
+      // Toggle Icons
+      iconMenu?.classList.remove("opacity-0", "rotate-90", "scale-50");
+      iconClose?.classList.add("opacity-0", "-rotate-90", "scale-50");
     });
   });
+
+  // Close menu when clicking on the overlay (outside nav)
+  mobileMenu?.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      // reuse close logic
+      mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
+      mobileLinks.forEach((link) =>
+        link.classList.add("translate-y-4", "opacity-0"),
+      );
+      iconMenu?.classList.remove("opacity-0", "rotate-90", "scale-50");
+      iconClose?.classList.add("opacity-0", "-rotate-90", "scale-50");
+    }
+  });
 </script>
+```

@@ -7,233 +7,169 @@ import GitHub from "./icons/GitHub.astro";
 ---
 
 <section
-  class="w-full min-h-[100dvh] flex flex-col md:flex-row items-center justify-start md:justify-center pt-36 pb-12 md:py-0"
-  data-aos="fade-up"
+  id="home"
+  class="w-full min-h-[100dvh] flex flex-col md:flex-row items-center justify-start md:justify-center pt-32 pb-12 md:py-0 relative overflow-visible"
 >
   <div
-    class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full"
+    class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 w-full"
   >
-    <!-- Left Column: Content -->
+    <!-- Content Column -->
     <div
-      class="flex flex-col space-y-8 order-2 md:order-1 flex-1 text-center md:text-left items-center md:items-start"
+      class="flex flex-col space-y-6 order-2 md:order-1 flex-1 text-center md:text-left items-center md:items-start"
     >
-      <div class="space-y-6">
-        <!-- Main Heading -->
-        <div>
-          <p
-            class="text-sm md:text-base font-medium text-zinc-500 dark:text-zinc-500 uppercase tracking-widest mb-2"
-          >
-            Hello, I'm
-          </p>
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]"
-          >
-            Facundo Rossi
-          </h1>
-        </div>
-
-        <!-- Typewriter Effect -->
-        <div
-          class="min-h-[2.5rem] md:min-h-[3rem] flex items-center justify-center md:justify-start"
+      <!-- Greeting -->
+      <div
+        class="opacity-0 translate-y-4 animate-in"
+        style="animation-delay: 100ms;"
+      >
+        <span
+          class="px-4 py-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-600 dark:text-primary-400 text-sm font-medium tracking-wide"
         >
-          <span
-            id="typewriter"
-            class="text-xl md:text-2xl lg:text-3xl font-semibold text-zinc-800 dark:text-zinc-100"
-          ></span>
-          <span
-            id="cursor"
-            class="text-xl md:text-2xl lg:text-3xl font-light text-zinc-400 dark:text-zinc-500 ml-0.5"
-            >|</span
-          >
-        </div>
-
-        <p
-          class="text-zinc-500 dark:text-zinc-400 leading-relaxed text-base md:text-lg max-w-lg mx-auto md:mx-0"
-        >
-          Advanced Systems Analysis student at <span
-            class="text-zinc-900 dark:text-white font-medium">UBA (FIUBA)</span
-          >. Passionate about building <span
-            class="text-zinc-900 dark:text-white font-medium"
-            >efficient, scalable software</span
-          > and solving complex problems through <span
-            class="text-zinc-900 dark:text-white font-medium">Backend</span
-          > and <span class="text-zinc-900 dark:text-white font-medium"
-            >Infrastructure</span
-          > solutions.
-        </p>
-
-        <div class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
-          <a
-            href="/resume.pdf"
-            download
-            class="inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white dark:text-zinc-900 bg-zinc-900 dark:bg-white rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
-          >
-            Descargar CV / Resumé
-          </a>
-        </div>
-
-        <div class="flex gap-4 pt-4 justify-center md:justify-start">
-          <a
-            href="https://github.com/facur3"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
-          >
-            <GitHub class="size-5" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
-          >
-            <LinkedInIcon class="size-5" />
-          </a>
-          <a
-            href="mailto:facurossi33@gmail.com"
-            aria-label="Email"
-            class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 transition-all duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 focus:outline-none"
-          >
-            <MailIcon class="size-5" />
-          </a>
-        </div>
+          👋 Hello, I'm Facundo Rossi
+        </span>
       </div>
 
-      <!-- Student Stats -->
-      <div
-        class="flex items-center gap-8 md:gap-12 pt-4 justify-center md:justify-start"
+      <!-- Headline -->
+      <h1
+        class="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.05] opacity-0 translate-y-4 animate-in"
+        style="animation-delay: 200ms;"
       >
-        <div>
-          <span
-            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
-            >10+</span
-          >
-          <span class="text-xs text-zinc-500 uppercase tracking-wider"
-            >Projects</span
-          >
-        </div>
-        <div>
-          <span
-            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
-            >3+</span
-          >
-          <span class="text-xs text-zinc-500 uppercase tracking-wider"
-            >Years Coding</span
-          >
-        </div>
-        <div>
-          <span
-            class="block text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white"
-            >100%</span
-          >
-          <span class="text-xs text-zinc-500 uppercase tracking-wider"
-            >Commitment</span
-          >
-        </div>
+        Bilingual Operations <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400"
+        >
+          & Data Analyst
+        </span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p
+        class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg max-w-xl opacity-0 translate-y-4 animate-in"
+        style="animation-delay: 300ms;"
+      >
+        Systems Analysis student (FIUBA) specialized in process optimization,
+        data-driven decision making, and scalable software solutions.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div
+        class="flex flex-wrap gap-4 pt-4 justify-center md:justify-start opacity-0 translate-y-4 animate-in"
+        style="animation-delay: 400ms;"
+      >
+        <a href="/resume.pdf" download class="btn-primary"> Download CV </a>
+
+        <a href="#contact" class="btn-secondary"> Contact Me </a>
+      </div>
+
+      <!-- Social Links -->
+      <div
+        class="flex gap-4 pt-6 justify-center md:justify-start opacity-0 translate-y-4 animate-in"
+        style="animation-delay: 500ms;"
+      >
+        <a
+          href="https://github.com/facur3"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
+          aria-label="GitHub"
+        >
+          <GitHub class="size-6" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-500 hover:text-linkedin transition-colors hover:text-blue-500"
+          aria-label="LinkedIn"
+        >
+          <LinkedInIcon class="size-6" />
+        </a>
+        <a
+          href="mailto:facurossi33@gmail.com"
+          class="text-zinc-500 hover:text-red-500 transition-colors"
+          aria-label="Email"
+        >
+          <MailIcon class="size-6" />
+        </a>
       </div>
     </div>
 
-    <!-- Right Column: Image with Circle Mask -->
+    <!-- Image / Visual Column -->
     <div
-      class="relative flex flex-col justify-center items-center order-1 md:order-2 flex-1"
+      class="relative flex flex-col justify-center items-center order-1 md:order-2 flex-1 opacity-0 scale-95 animate-in-zoom"
+      style="animation-delay: 300ms;"
     >
-      <!-- Circle Backdrop -->
+      <!-- Glow Effect backdrop -->
       <div
-        class="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-zinc-300/30 dark:bg-zinc-800/20 rounded-full blur-3xl -z-10"
+        class="absolute w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary-500/20 rounded-full blur-[80px] -z-10"
       >
       </div>
 
-      <div class="relative flex flex-col items-center gap-6">
+      <!-- Main Image Container -->
+      <div class="relative group">
         <div
-          class="relative flex-shrink-0 w-32 h-32 sm:w-48 sm:h-48 md:w-80 md:h-80 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl"
+          class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-[3rem] rotate-3 overflow-hidden border-[6px] border-white/50 dark:border-white/10 shadow-2xl transition-transform duration-500 hover:rotate-0 hover:scale-[1.02]"
         >
           <Image
             src={profileImg}
-            alt="Facu Rossi"
-            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            alt="Facundo Rossi"
+            class="w-full h-full object-cover"
             loading="eager"
           />
         </div>
 
-        <!-- Available for Hire Badge - Flex Item Below Image -->
-        <div class="z-20 w-max">
-          <div
-            class="flex items-center gap-3 px-5 py-2 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 rounded-full shadow-2xl"
-          >
-            <span class="relative flex h-3 w-3">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
-              ></span>
-            </span>
+        <!-- Floating Badge -->
+        <div
+          class="absolute -bottom-6 -right-6 md:right-0 bg-white dark:bg-[#18181b] p-4 rounded-2xl shadow-xl border border-zinc-100 dark:border-zinc-800 flex items-center gap-3 animate-float"
+        >
+          <div class="relative flex h-3 w-3">
             <span
-              class="text-sm font-semibold text-zinc-900 dark:text-white tracking-wide"
-              >Disponible para trabajar</span
-            >
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+            ></span>
           </div>
+          <span class="font-medium text-sm text-zinc-900 dark:text-zinc-200"
+            >Open to work</span
+          >
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
-  }
-  #cursor {
-    animation: blink 1s step-end infinite;
-  }
-  #cursor.fade-out {
-    animation: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-  }
-</style>
-
 <script>
-  const text = "System Analyst";
-  let charIndex = 0;
-  let blinkCount = 0;
+  import { animate, stagger, inView } from "motion";
 
-  const typewriterEl = document.getElementById("typewriter");
-  const cursorEl = document.getElementById("cursor");
-
-  function type() {
-    if (!typewriterEl) return;
-
-    if (charIndex < text.length) {
-      typewriterEl.textContent = text.substring(0, charIndex + 1);
-      charIndex++;
-      setTimeout(type, 100);
-    } else {
-      // Typing complete - blink 3 times then fade
-      setTimeout(fadeOutCursor, 1500);
-    }
-  }
-
-  function fadeOutCursor() {
-    if (cursorEl) {
-      cursorEl.classList.add("fade-out");
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", type);
   document.addEventListener("astro:page-load", () => {
-    charIndex = 0;
-    if (typewriterEl) typewriterEl.textContent = "";
-    if (cursorEl) cursorEl.classList.remove("fade-out");
-    type();
+    // Animate elements with class .animate-in
+    animate(
+      ".animate-in",
+      { opacity: [0, 1], y: [20, 0] },
+      { duration: 0.8, delay: stagger(0.1), easing: [0.22, 0.03, 0.26, 1] },
+    );
+
+    // Animate zoom elements
+    animate(
+      ".animate-in-zoom",
+      { opacity: [0, 1], scale: [0.9, 1] },
+      { duration: 1, delay: 0.2, easing: [0.22, 0.03, 0.26, 1] },
+    );
   });
 </script>
+
+<style>
+  /* Floating Animation for Badge */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+</style>

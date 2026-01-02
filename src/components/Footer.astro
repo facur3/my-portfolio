@@ -1,18 +1,98 @@
 ---
-import SocialIcon from "./SocialIcon.astro";
+import GitHub from "./icons/GitHub.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+import MailIcon from "./icons/Mail.astro";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="mt-24 w-full max-w-3xl mx-auto px-4 py-8 border-t border-zinc-300/50 dark:border-zinc-700/50 text-center text-zinc-600 dark:text-zinc-400 text-sm"
+  class="relative w-full border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0f0f0f] mt-20 pt-16 pb-8"
 >
-  <div class="flex justify-center gap-6 mb-4">
-    <SocialIcon platform="github" href="https://github.com/facur3" />
-    <SocialIcon
-      platform="linkedin"
-      href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
-    />
+  <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center">
+    <!-- Logo & Tagline -->
+    <div class="text-center mb-8 space-y-2">
+      <h3 class="text-2xl font-heading font-bold text-zinc-900 dark:text-white">
+        Facundo<span class="text-primary-500"> Rossi</span>
+      </h3>
+      <p class="text-zinc-500 dark:text-zinc-400 text-sm max-w-xs mx-auto">
+        Building digital experiences with focus on performance and design.
+      </p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex gap-6 mb-12">
+      <a
+        href="https://github.com/facur3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors p-2"
+        aria-label="GitHub"
+      >
+        <GitHub class="size-6" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/facundo-rossi-a5839a278/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-zinc-400 hover:text-linkedin transition-colors p-2 hover:text-blue-500"
+        aria-label="LinkedIn"
+      >
+        <LinkedInIcon class="size-6" />
+      </a>
+      <a
+        href="mailto:facurossi33@gmail.com"
+        class="text-zinc-400 hover:text-red-500 transition-colors p-2"
+        aria-label="Email"
+      >
+        <MailIcon class="size-6" />
+      </a>
+    </div>
+
+    <!-- Links & Copyright -->
+    <div
+      class="flex flex-col md:flex-row items-center justify-between w-full border-t border-zinc-200 dark:border-zinc-800 pt-8 text-sm text-zinc-500 dark:text-zinc-500"
+    >
+      <p>&copy; {currentYear} Facundo Rossi. All rights reserved.</p>
+
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <a
+          href="/#home"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >Home</a
+        >
+        <a
+          href="/#skills"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >Skills</a
+        >
+        <a
+          href="/#experience"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >Experience</a
+        >
+        <a
+          href="/#projects"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >Projects</a
+        >
+        <a
+          href="/#about-me"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >About Me</a
+        >
+        <a
+          href="/blog"
+          class="hover:text-zinc-900 dark:hover:text-white transition-colors"
+          >Blog</a
+        >
+      </div>
+    </div>
   </div>
-  <p>
-    &copy; {new Date().getFullYear()} Facu Rossi. Todos los derechos reservados.
-  </p>
+
+  <!-- Gradient Glow at bottom -->
+  <div
+    class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-24 bg-primary-500/10 blur-[60px] pointer-events-none"
+  >
+  </div>
 </footer>

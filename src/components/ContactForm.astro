@@ -11,16 +11,16 @@ const { action } = Astro.props;
   role="form"
   aria-labelledby="contact-form-title"
 >
-  <h2 id="contact-form-title" class="sr-only">Formulario de Contacto</h2>
+  <h2 id="contact-form-title" class="sr-only">Contact Form</h2>
 
   <fieldset class="space-y-4">
-    <legend class="sr-only">Información Personal</legend>
+    <legend class="sr-only">Personal Information</legend>
     <!-- Name Field -->
     <div>
       <label
         for="name"
         class="block text-sm font-medium text-zinc-900 dark:text-white mb-1"
-        >Nombre</label
+        >Name</label
       >
       <input
         type="text"
@@ -29,7 +29,7 @@ const { action } = Astro.props;
         required
         aria-required="true"
         aria-describedby="name-error"
-        placeholder="Tu nombre"
+        placeholder="Your name"
         class="w-full px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black focus:border-transparent transition-all"
       />
       <span id="name-error" class="mt-1 block text-sm text-red-500" role="alert"
@@ -50,7 +50,7 @@ const { action } = Astro.props;
         required
         aria-required="true"
         aria-describedby="email-error"
-        placeholder="tu@email.com"
+        placeholder="your@email.com"
         class="w-full px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black focus:border-transparent transition-all"
       />
       <span
@@ -65,7 +65,7 @@ const { action } = Astro.props;
     <label
       for="message"
       class="block text-sm font-medium text-zinc-900 dark:text-white mb-1"
-      >Mensaje</label
+      >Message</label
     >
     <textarea
       id="message"
@@ -76,7 +76,7 @@ const { action } = Astro.props;
       aria-required="true"
       aria-describedby="message-error char-counter"
       oninput="updateCounter()"
-      placeholder="¿En qué puedo ayudarte?"
+      placeholder="How can I help you?"
       class="w-full px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black focus:border-transparent transition-all resize-none"
     ></textarea>
     <div class="flex justify-between">
@@ -94,10 +94,10 @@ const { action } = Astro.props;
   <button
     id="submit-button"
     type="submit"
-    aria-label="Enviar mensaje"
+    aria-label="Send message"
     class="w-full px-6 py-4 text-base font-semibold text-white bg-zinc-900 dark:bg-white dark:text-zinc-900 rounded-xl hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black transition-all duration-300"
   >
-    Enviar Mensaje
+    Send Message
   </button>
 </form>
 
@@ -126,28 +126,26 @@ const { action } = Astro.props;
     const message = document.getElementById("message").value.trim();
 
     if (!name) {
-      document.getElementById("name-error").textContent =
-        "El nombre es requerido.";
+      document.getElementById("name-error").textContent = "Name is required.";
       valid = false;
     }
 
     if (!email) {
-      document.getElementById("email-error").textContent =
-        "El email es requerido.";
+      document.getElementById("email-error").textContent = "Email is required.";
       valid = false;
     } else if (!email.includes("@")) {
       document.getElementById("email-error").textContent =
-        "Ingrese un email válido.";
+        "Please enter a valid email.";
       valid = false;
     }
 
     if (!message) {
       document.getElementById("message-error").textContent =
-        "El mensaje es requerido.";
+        "Message is required.";
       valid = false;
     } else if (message.length > 300) {
       document.getElementById("message-error").textContent =
-        "El mensaje no puede exceder 300 caracteres.";
+        "Message cannot exceed 300 characters.";
       valid = false;
     }
 
@@ -163,7 +161,7 @@ const { action } = Astro.props;
         e.preventDefault();
       } else {
         submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
+        submitButton.textContent = "Sending...";
       }
     });
   }
