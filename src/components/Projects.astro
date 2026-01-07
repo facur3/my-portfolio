@@ -8,54 +8,66 @@ import Terminal from "./icons/Terminal.astro";
 
 const PROJECTS = [
     {
-        title: "Autonomous Navigation System",
-        subtitle: "Algorithms & Graphs",
+        title: "Angel's Kitchen - POS & KDS System",
+        subtitle: "Full-Stack Web App",
         description:
-            "High-precision urban traffic simulator implementing A* with Manhattan heuristic. Optimized for real-time route calculation on dynamic graphs.",
+            "Modern restaurant management system with real-time WebSocket order sync. Features station-based Kitchen Display System (KDS), ingredient modifiers, and integration with DoorDash and Uber Eats APIs.",
+        icon: JavaScript,
+        color: "text-green-500",
+        bgGradient: "from-green-500/20 to-green-600/5",
+        demo: "https://angels-kitchen-frontend.onrender.com/",
+        github: "https://github.com/facur3/angels-kitchen-system",
+        tags: ["React", "Node.js", "WebSockets", "REST API"],
+        featured: true,
+    },
+    {
+        title: "GTA VI Traffic Simulator",
+        subtitle: "Algorithms & Data Structures",
+        description:
+            "Mission-based driving game implementing A*, Dijkstra and Floyd-Warshall for GPS pathfinding. Features dynamic traffic congestion, vehicle management system with inheritance, and real-time route optimization on grid-based maps.",
         icon: Java,
         color: "text-orange-500",
         bgGradient: "from-orange-500/20 to-orange-600/5",
-        github: "https://github.com/facur3/tpg-2c2025-recursivos",
-        tags: ["Java", "Algorithms", "Graphs"],
-        featured: true, // Takes more space
-    },
-    {
-        title: "Data Scraper Pipeline",
-        subtitle: "Data Engineering",
-        description:
-            "Python ETL pipeline for extraction and normalization of thousands of records. Uses BeautifulSoup and Pandas for statistical processing.",
-        icon: Python,
-        color: "text-blue-500",
-        bgGradient: "from-blue-500/20 to-blue-600/5",
-        demo: "https://prospecting-calculator.vercel.app/",
-        github: "https://github.com/facur3/prospecting-calculator",
-        tags: ["Python", "ETL", "Pandas"],
+        tags: ["Java", "A* Algorithm", "Graphs", "OOP"],
         featured: false,
     },
     {
-        title: "Fifteen Puzzle Engine",
-        subtitle: "Game Dev",
+        title: "Roblox Prospecting Calculator",
+        subtitle: "Web Tools & Data Viz",
         description:
-            "Optimized game engine with complex state management and 60fps animations in Vanilla JS.",
+            "Interactive probability calculator for Roblox game mechanics. Features real-time luck calculations, museum planner with stat optimization, equipment manager with ring slots, and batch efficiency estimator.",
+        icon: JavaScript,
+        color: "text-purple-500",
+        bgGradient: "from-purple-500/20 to-purple-600/5",
+        demo: "https://prospecting-calculator.vercel.app/",
+        github: "https://github.com/facur3/prospecting-calculator",
+        tags: ["JavaScript", "HTML", "CSS", "Data Visualization"],
+        featured: false,
+    },
+    {
+        title: "Fifteen Puzzle Game",
+        subtitle: "Interactive Web Game",
+        description:
+            "Classic sliding puzzle with modern UI. Optimized game engine with state management, responsive design for mobile and desktop, and smooth 60fps animations in Vanilla JavaScript.",
         icon: JavaScript,
         color: "text-yellow-500",
         bgGradient: "from-yellow-500/20 to-yellow-600/5",
         github: "https://github.com/facur3/Fifteen",
         demo: "https://facur3.github.io/Fifteen/",
-        tags: ["JavaScript", "DOM", "Game Loop"],
+        tags: ["JavaScript", "CSS", "DOM Manipulation"],
         featured: false,
     },
     {
-        title: "NLP Plagiarism Detector",
-        subtitle: "AI / NLP",
+        title: "Plagiarism Detection System",
+        subtitle: "NLP & Machine Learning",
         description:
-            "Semantic analysis system using TF-IDF and cosine similarity to detect structural coincidences in documents.",
+            "Text analysis tool using TF-IDF vectorization and cosine similarity to detect plagiarism. Implements advanced NLP techniques for semantic comparison and structural pattern recognition in documents.",
         icon: Python,
-        color: "text-emerald-500",
-        bgGradient: "from-emerald-500/20 to-emerald-600/5",
+        color: "text-blue-500",
+        bgGradient: "from-blue-500/20 to-blue-600/5",
         github: "https://github.com/facur3/plagios",
-        tags: ["Python", "NLP", "Machine Learning"],
-        featured: true,
+        tags: ["Python", "NLP", "TF-IDF", "Machine Learning"],
+        featured: false,
     },
 ];
 ---
@@ -78,11 +90,11 @@ const PROJECTS = [
                 <!-- Content -->
                 <div class="relative z-10 space-y-6">
                     <!-- Header: Icon & Subtitle -->
-                    <div class="flex items-start justify-between">
+                    <div class="flex items-center gap-4">
                         <div class={`p-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-white/5 ${project.color}`}>
                             <project.icon class="size-8" />
                         </div>
-                        <span class="text-xs font-mono font-medium tracking-wider uppercase text-zinc-500 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-full">
+                        <span class="text-xs font-mono font-medium tracking-wide uppercase text-zinc-500 dark:text-zinc-500 border border-zinc-200 dark:border-zinc-800 px-4 py-1.5 rounded-full">
                             {project.subtitle}
                         </span>
                     </div>
