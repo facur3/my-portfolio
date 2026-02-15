@@ -11,25 +11,25 @@ interface SkillCategory {
 }
 
 const SKILLS: Record<string, SkillCategory> = {
+  DATA: {
+    title: "Data & Analysis",
+    icon: "database",
+    skills: [
+      { name: "Excel (Advanced)" },
+      { name: "SQL" },
+      { name: "Data Validation" },
+      { name: "Database Management" },
+      { name: "Process Optimization" },
+    ],
+  },
   LANGUAGES: {
     title: "Programming Languages",
     icon: "code",
     skills: [
       { name: "Java" },
       { name: "JavaScript" },
-      { name: "C/C++" },
       { name: "Python" },
-      { name: "SQL" },
-    ],
-  },
-  INFRASTRUCTURE: {
-    title: "DevOps & Tools",
-    icon: "server",
-    skills: [
-      { name: "Docker" },
-      { name: "Git" },
-      { name: "Linux" },
-      { name: "Bash" },
+      { name: "C/C++" },
     ],
   },
   WEB: {
@@ -40,6 +40,16 @@ const SKILLS: Record<string, SkillCategory> = {
       { name: "Astro" },
       { name: "Node.js" },
       { name: "Tailwind" },
+    ],
+  },
+  INFRASTRUCTURE: {
+    title: "DevOps & Tools",
+    icon: "server",
+    skills: [
+      { name: "Docker" },
+      { name: "Git" },
+      { name: "Linux" },
+      { name: "Bash" },
     ],
   },
   SOFT: {
@@ -62,7 +72,10 @@ const SKILLS: Record<string, SkillCategory> = {
             <div class="group p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/20 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <!-- Icon Placeholder -->
-                    <div class={`p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/50 ${category.icon === 'code' ? 'text-blue-500 dark:text-blue-400' : category.icon === 'server' ? 'text-purple-500 dark:text-purple-400' : category.icon === 'globe' ? 'text-green-500 dark:text-green-400' : 'text-orange-500 dark:text-orange-400'}`}>
+                    <div class={`p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/50 ${category.icon === 'database' ? 'text-blue-600 dark:text-blue-400' : category.icon === 'code' ? 'text-blue-500 dark:text-blue-400' : category.icon === 'server' ? 'text-purple-500 dark:text-purple-400' : category.icon === 'globe' ? 'text-green-500 dark:text-green-400' : 'text-orange-500 dark:text-orange-400'}`}>
+                         {category.icon === "database" && (
+                            <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /><path d="M4 6v6a8 3 0 0 0 16 0v-6" /><path d="M4 12v6a8 3 0 0 0 16 0v-6" /></svg>
+                        )}
                          {category.icon === "code" && (
                             <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
                         )}

@@ -130,7 +130,7 @@ import GitHub from "./icons/GitHub.astro";
             ></span>
           </div>
           <span class="font-medium text-sm text-zinc-900 dark:text-zinc-200"
-            >Open to work</span
+            >Currently Working</span
           >
         </div>
       </div>
@@ -139,22 +139,36 @@ import GitHub from "./icons/GitHub.astro";
 </section>
 
 <script>
-  import { animate, stagger, inView } from "motion";
+  import { animate, stagger } from "motion";
 
   document.addEventListener("astro:page-load", () => {
     // Animate elements with class .animate-in
-    animate(
-      ".animate-in",
-      { opacity: [0, 1], y: [20, 0] },
-      { duration: 0.8, delay: stagger(0.1), easing: [0.22, 0.03, 0.26, 1] },
-    );
+    const animateInElements = document.querySelectorAll(".animate-in");
+    if (animateInElements.length > 0) {
+      animateInElements.forEach((el, index) => {
+        animate(
+          el as HTMLElement,
+          { opacity: [0, 1], y: [20, 0] },
+          {
+            duration: 0.8,
+            delay: index * 0.1,
+            easing: [0.22, 0.03, 0.26, 1],
+          },
+        );
+      });
+    }
 
     // Animate zoom elements
-    animate(
-      ".animate-in-zoom",
-      { opacity: [0, 1], scale: [0.9, 1] },
-      { duration: 1, delay: 0.2, easing: [0.22, 0.03, 0.26, 1] },
-    );
+    const animateZoomElements = document.querySelectorAll(".animate-in-zoom");
+    if (animateZoomElements.length > 0) {
+      animateZoomElements.forEach((el) => {
+        animate(
+          el as HTMLElement,
+          { opacity: [0, 1], scale: [0.9, 1] },
+          { duration: 1, delay: 0.2, easing: [0.22, 0.03, 0.26, 1] },
+        );
+      });
+    }
   });
 </script>
 
